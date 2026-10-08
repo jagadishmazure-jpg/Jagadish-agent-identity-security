@@ -1,0 +1,29 @@
+{
+  "roleName": "Identity Posture Reader",
+  "description": "Read-only access for the identity posture scanner: role assignments and PIM schedules, the resource types that carry identities, Key Vault secret metadata (never values) and Foundry agent definitions.",
+  "actions": [
+    "Microsoft.Authorization/roleAssignments/read",
+    "Microsoft.Authorization/roleDefinitions/read",
+    "Microsoft.Authorization/roleAssignmentScheduleInstances/read",
+    "Microsoft.Authorization/roleEligibilityScheduleInstances/read",
+    "Microsoft.Authorization/roleEligibilitySchedules/read",
+    "Microsoft.Resources/subscriptions/read",
+    "Microsoft.Resources/subscriptions/resourceGroups/read",
+    "Microsoft.KeyVault/vaults/read",
+    "Microsoft.ManagedIdentity/userAssignedIdentities/read",
+    "Microsoft.ManagedIdentity/userAssignedIdentities/federatedIdentityCredentials/read",
+    "Microsoft.Compute/virtualMachines/read",
+    "Microsoft.Web/sites/read",
+    "Microsoft.Storage/storageAccounts/read",
+    "Microsoft.CognitiveServices/accounts/read",
+    "Microsoft.CognitiveServices/accounts/projects/read",
+    "Microsoft.CognitiveServices/accounts/projects/connections/read",
+    "Microsoft.App/containerApps/read",
+    "Microsoft.App/jobs/read",
+    "Microsoft.Logic/workflows/read"
+  ],
+  "dataActions": [
+    "Microsoft.KeyVault/vaults/secrets/readMetadata/action",
+    "Microsoft.CognitiveServices/accounts/AIServices/agents/read"
+  ]
+}
