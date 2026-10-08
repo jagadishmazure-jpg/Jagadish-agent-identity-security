@@ -180,7 +180,12 @@ def cmd_plan(a) -> int:
     inv, _, res = _scan()
     p = remediation.plan(res, inv)
     if a.show:
-        it = p.by_id(a.show)
+        ref = a.show if a.show.startswith("R-") else f"R-{a.show}"
+        try:
+            it = p.by_id(ref)
+        except KeyError:
+            print(f"no plan item {a.show}; run `idsec plan` for the list", file=sys.stderr)
+            return 1
         print(f"{it.id} for {it.finding} ({it.rule}) on {it.label}")
         print(f"change: {it.change}\nmode: {it.mode}; approvals needed: {it.approvals_needed}; digest {it.digest}")
         if it.terraform:

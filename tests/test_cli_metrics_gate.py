@@ -57,6 +57,16 @@ def test_plan_show_prints_snippets(capsys):
     assert "rbac_authorization_enabled" in out
 
 
+def test_plan_show_accepts_a_finding_id(capsys):
+    _, out = run(capsys, "plan", "--show", "F06-01")
+    assert out.startswith("R-F06-01")
+
+
+def test_plan_show_unknown_item_fails(capsys):
+    code, _ = run(capsys, "plan", "--show", "X99-99")
+    assert code == 1
+
+
 def test_report_writes_files(capsys, tmp_path):
     code, _ = run(capsys, "report", "--out", str(tmp_path))
     assert code == 0 and (tmp_path / "report.html").exists() and (tmp_path / "executive-summary.md").exists()

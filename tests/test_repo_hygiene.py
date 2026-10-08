@@ -117,7 +117,7 @@ def test_no_secrets_or_real_identifiers():
         if p.name == "test_repo_hygiene.py":
             continue
         t = p.read_text(errors="ignore")
-        found = {m.group(0).lower() for m in guid.finditer(t)}
+        found = {m.group(0).lower() for m in guid.finditer(t)} - {MSGRAPH_APP_ID}
         assert not found, f"GUID-like identifier in {p}: {sorted(found)}"
         if MSGRAPH_APP_ID in t:
             assert p.name in {"live.py", "locals.tf", "test_collectors.py"}, f"Graph app ID outside the allow-list: {p}"
@@ -162,7 +162,7 @@ def test_readme_never_claims_deployment():
 
 def test_readme_labels_built_and_planned():
     t = flat(ROOT / "README.md")
-    assert "| Built |" in t or "Built" in t and "Planned" in t
+    assert "Built" in t and "Planned" in t
 
 
 def test_changelog_has_only_unreleased():

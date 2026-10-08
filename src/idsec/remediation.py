@@ -105,7 +105,8 @@ def _snippets(action: str, f: Finding, inv: Inventory) -> tuple[str, str]:
         tf = (f'resource "azurerm_key_vault" "{n}" {{\n  # ...existing arguments...\n  rbac_authorization_enabled    = true\n'
               f'  public_network_access_enabled = false\n}}\n\nresource "azurerm_role_assignment" "{n}_secrets_user" {{\n'
               f'  scope                = azurerm_key_vault.{n}.id\n  role_definition_name = "Key Vault Secrets User"\n  principal_id         = var.consumer_object_id\n}}')  # fmt: skip
-        bi = (f"resource {n} 'Microsoft.KeyVault/vaults@2023-07-01' = {{\n  name: '{n}'\n  location: location\n"
+        bi = (f"// vaultName is the existing vault's real name (names are not copied from scan data into code)\n"
+              f"resource {n} 'Microsoft.KeyVault/vaults@2023-07-01' = {{\n  name: vaultName\n  location: location\n"
               "  properties: { tenantId: tenant().tenantId, sku: { family: 'A', name: 'standard' }, enableRbacAuthorization: true, publicNetworkAccess: 'Disabled' }\n}")  # fmt: skip
         return tf, bi
     if action in ("set-expiry", "rotate-secret"):
