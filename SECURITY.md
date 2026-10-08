@@ -32,6 +32,9 @@ person, so there is no formal SLA or bug bounty.
   validated against facts computed by code.
 - **Supply chain:** SHA-pinned actions, Dependabot, CodeQL (Python and Actions), gitleaks over full
   history, an SPDX SBOM, pinned Python dependencies, checkov with no skips, tflint and Terraform tests.
+- **Repository settings:** secret scanning with push protection, Dependabot alerts and security updates,
+  private vulnerability reporting, and rulesets on `main` (CI checks required on pull requests; no
+  force-push or deletion).
 - **Deployment gated off** until `DEPLOY_ENABLED` is set; prod needs environment reviewers.
 
 See [docs/threat-model.md](docs/threat-model.md).
