@@ -62,7 +62,10 @@ class Plan:
     items: list[Item]
 
     def by_id(self, item_id: str) -> Item:
-        return next(i for i in self.items if i.id == item_id)
+        for i in self.items:
+            if i.id == item_id:
+                return i
+        raise KeyError(item_id)
 
 
 def _hints() -> dict:
@@ -397,6 +400,7 @@ class Simulation:
     remaining: list[Finding]
     paths_before: int
     paths_after: int
+    inventory: Inventory | None = None  # the changed copy; the input inventory is never modified
 
 
 def simulate(inv: Inventory, results: list[RuleResult] | None = None) -> Simulation:
@@ -420,5 +424,12 @@ def simulate(inv: Inventory, results: list[RuleResult] | None = None) -> Simulat
         1 for x in pmod.analyse(i, g) if g.nodes[x.source]["kind"] in ("user", "guest", "source")
     )
     return Simulation(
-        scoring.score(results), scoring.score(after), applied, skipped, detections.all_findings(after), human_paths(inv, g0), human_paths(sim, g1)
+        scoring.score(results),
+        scoring.score(after),
+        applied,
+        skipped,
+        detections.all_findings(after),
+        human_paths(inv, g0),
+        human_paths(sim, g1),
+        sim,
     )
