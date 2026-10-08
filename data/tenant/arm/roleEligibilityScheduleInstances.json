@@ -1,0 +1,26 @@
+{
+ "value": [
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/00000000-0000-0000-000a-00000000000e",
+   "properties": {
+    "endDateTime": null,
+    "memberType": "Direct",
+    "principalId": "00000000-0000-0000-0001-000000000041",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000001",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   }
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/00000000-0000-0000-000a-000000000016",
+   "properties": {
+    "endDateTime": null,
+    "memberType": "Direct",
+    "principalId": "00000000-0000-0000-0001-000000000042",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000001",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a2"
+   }
+  }
+ ]
+}

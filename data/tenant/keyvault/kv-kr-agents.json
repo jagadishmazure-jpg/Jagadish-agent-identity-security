@@ -1,0 +1,15 @@
+{
+ "value": [
+  {
+   "attributes": {
+    "created": 1788177600,
+    "enabled": true,
+    "exp": 1803729600,
+    "updated": 1788177600
+   },
+   "contentType": null,
+   "id": "https://kv-kr-agents.vault.azure.net/secrets/blueprint-cert-backup",
+   "tags": {}
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+{
+ "data": [
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000001",
+   "properties": {
+    "roleName": "Owner",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000002",
+   "properties": {
+    "roleName": "User Access Administrator",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000003",
+   "properties": {
+    "roleName": "Role Based Access Control Administrator",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+   "properties": {
+    "roleName": "Contributor",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000005",
+   "properties": {
+    "roleName": "Virtual Machine Contributor",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000006",
+   "properties": {
+    "roleName": "Website Contributor",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000007",
+   "properties": {
+    "roleName": "Key Vault Administrator",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000008",
+   "properties": {
+    "roleName": "Key Vault Secrets Officer",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000009",
+   "properties": {
+    "roleName": "Key Vault Secrets User",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000a",
+   "properties": {
+    "roleName": "Key Vault Reader",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000b",
+   "properties": {
+    "roleName": "Azure AI Developer",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000c",
+   "properties": {
+    "roleName": "Cognitive Services OpenAI User",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000d",
+   "properties": {
+    "roleName": "Storage Blob Data Contributor",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000e",
+   "properties": {
+    "roleName": "Storage Blob Data Reader",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000f",
+   "properties": {
+    "roleName": "Reader",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  },
+  {
+   "id": "/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000010",
+   "properties": {
+    "roleName": "Monitoring Reader",
+    "type": "BuiltInRole"
+   },
+   "type": "microsoft.authorization/roledefinitions"
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "accounts": [
+  {
+   "active": true,
+   "displayName": "Marcus Reid",
+   "externalId": "00000000-0000-0000-0001-000000000043",
+   "roles": [
+    "Admin"
+   ],
+   "ssoLinked": true,
+   "userName": "marcus.reid@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "Mia Santos",
+   "externalId": "00000000-0000-0000-0001-000000000051",
+   "roles": [
+    "Agent"
+   ],
+   "ssoLinked": true,
+   "userName": "mia.santos@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "Noah Kim",
+   "externalId": "00000000-0000-0000-0001-000000000052",
+   "roles": [
+    "Agent"
+   ],
+   "ssoLinked": true,
+   "userName": "noah.kim@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "Rosa Nakamura",
+   "externalId": "00000000-0000-0000-0001-000000000005",
+   "roles": [
+    "Requester"
+   ],
+   "ssoLinked": true,
+   "userName": "rosa.nakamura@kestrelridge.example"
+  }
+ ],
+ "app": "Ticketwise ITSM",
+ "servicePrincipalId": "00000000-0000-0000-0004-00000000001b"
+}

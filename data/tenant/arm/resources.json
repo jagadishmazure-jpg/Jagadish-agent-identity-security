@@ -1,0 +1,263 @@
+{
+ "data": [
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.KeyVault/vaults/kv-kr-prod-secrets",
+   "identity": null,
+   "location": "eastus2",
+   "name": "kv-kr-prod-secrets",
+   "properties": {
+    "accessPolicies": [],
+    "enablePurgeProtection": true,
+    "enableRbacAuthorization": true,
+    "publicNetworkAccess": "Disabled"
+   },
+   "resourceGroup": "rg-kr-core-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.keyvault/vaults"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.KeyVault/vaults/kv-kr-agents",
+   "identity": null,
+   "location": "eastus2",
+   "name": "kv-kr-agents",
+   "properties": {
+    "accessPolicies": [],
+    "enablePurgeProtection": true,
+    "enableRbacAuthorization": true,
+    "publicNetworkAccess": "Disabled"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.keyvault/vaults"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev/providers/Microsoft.KeyVault/vaults/kv-kr-nonprod",
+   "identity": null,
+   "location": "eastus2",
+   "name": "kv-kr-nonprod",
+   "properties": {
+    "accessPolicies": [
+     {
+      "objectId": "00000000-0000-0000-0002-000000000005",
+      "permissions": {
+       "secrets": [
+        "get",
+        "list",
+        "set"
+       ]
+      },
+      "tenantId": "00000000-0000-0000-0000-000000000100"
+     }
+    ],
+    "enablePurgeProtection": false,
+    "enableRbacAuthorization": false,
+    "publicNetworkAccess": "Enabled"
+   },
+   "resourceGroup": "rg-kr-dev",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {},
+   "type": "microsoft.keyvault/vaults"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs",
+   "identity": null,
+   "location": "eastus2",
+   "name": "stkrloandocs",
+   "properties": {
+    "allowSharedKeyAccess": false
+   },
+   "resourceGroup": "rg-kr-lending-data-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.storage/storageaccounts"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod",
+   "identity": null,
+   "location": "eastus2",
+   "name": "aif-kr-prod",
+   "properties": {
+    "disableLocalAuth": true,
+    "publicNetworkAccess": "Disabled"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents",
+   "identity": null,
+   "location": "eastus2",
+   "name": "proj-lending-agents",
+   "properties": {
+    "displayName": "Lending agents"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-ai-lab/providers/Microsoft.CognitiveServices/accounts/aif-kr-lab",
+   "identity": null,
+   "location": "eastus2",
+   "name": "aif-kr-lab",
+   "properties": {
+    "disableLocalAuth": true,
+    "publicNetworkAccess": "Enabled"
+   },
+   "resourceGroup": "rg-kr-ai-lab",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-ai-lab/providers/Microsoft.CognitiveServices/accounts/aif-kr-lab/projects/proj-research-sandbox",
+   "identity": null,
+   "location": "eastus2",
+   "name": "proj-research-sandbox",
+   "properties": {
+    "displayName": "Research sandbox"
+   },
+   "resourceGroup": "rg-kr-ai-lab",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-kr-loan-intake-func",
+   "identity": null,
+   "location": "eastus2",
+   "name": "id-kr-loan-intake-func",
+   "properties": {
+    "clientId": "00000000-0000-0000-0005-000000000002",
+    "principalId": "00000000-0000-0000-0005-000000000001",
+    "tenantId": "00000000-0000-0000-0000-000000000100"
+   },
+   "resourceGroup": "rg-kr-lending-data-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.managedidentity/userassignedidentities"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Web/sites/func-kr-loan-intake-prod",
+   "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+     "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-kr-loan-intake-func": {
+      "principalId": "00000000-0000-0000-0005-000000000001"
+     }
+    }
+   },
+   "location": "eastus2",
+   "name": "func-kr-loan-intake-prod",
+   "properties": {},
+   "resourceGroup": "rg-kr-lending-data-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "kvSecretRefs": "kv-kr-prod-secrets/core-banking-db-password"
+   },
+   "type": "microsoft.web/sites"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-batch-prod/providers/Microsoft.Compute/virtualMachines/vm-kr-batch01",
+   "identity": {
+    "principalId": "00000000-0000-0000-0005-000000000003",
+    "type": "SystemAssigned"
+   },
+   "location": "eastus2",
+   "name": "vm-kr-batch01",
+   "properties": {},
+   "resourceGroup": "rg-kr-batch-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.compute/virtualmachines"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-kr-github-data",
+   "identity": null,
+   "location": "eastus2",
+   "name": "id-kr-github-data",
+   "properties": {
+    "clientId": "00000000-0000-0000-0005-000000000005",
+    "principalId": "00000000-0000-0000-0005-000000000004",
+    "tenantId": "00000000-0000-0000-0000-000000000100"
+   },
+   "resourceGroup": "rg-kr-lending-data-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.managedidentity/userassignedidentities"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents/connections/conn-ledgerline-crm",
+   "identity": null,
+   "location": "eastus2",
+   "name": "conn-ledgerline-crm",
+   "properties": {
+    "authType": "ApiKey",
+    "category": "CustomKeys",
+    "metadata": {
+     "secretRef": "kv-kr-prod-secrets/crm-api-key"
+    },
+    "target": "https://api.ledgerline.example"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects/connections"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents/connections/conn-ledgerline-crm-service",
+   "identity": null,
+   "location": "eastus2",
+   "name": "conn-ledgerline-crm-service",
+   "properties": {
+    "authType": "ApiKey",
+    "category": "CustomKeys",
+    "metadata": {
+     "secretRef": "kv-kr-prod-secrets/crm-api-key"
+    },
+    "target": "https://api.ledgerline.example"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects/connections"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents/connections/conn-policy-search",
+   "identity": null,
+   "location": "eastus2",
+   "name": "conn-policy-search",
+   "properties": {
+    "authType": "AAD",
+    "category": "CognitiveSearch",
+    "metadata": {},
+    "target": "https://srch-kr-prod.search.windows.example"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects/connections"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents/connections/conn-credit-bureau",
+   "identity": null,
+   "location": "eastus2",
+   "name": "conn-credit-bureau",
+   "properties": {
+    "authType": "OAuth2",
+    "category": "CustomKeys",
+    "metadata": {},
+    "target": "https://api.creditbureau.example"
+   },
+   "resourceGroup": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {},
+   "type": "microsoft.cognitiveservices/accounts/projects/connections"
+  }
+ ]
+}

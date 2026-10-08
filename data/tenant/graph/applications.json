@@ -1,0 +1,287 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "appId": "00000000-0000-0000-0003-000000000005",
+   "displayName": "loan-docs-sync",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-000000000006",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004e"
+    }
+   ],
+   "passwordCredentials": [
+    {
+     "displayName": "ci-secret",
+     "endDateTime": "2027-12-04T12:00:00Z",
+     "hint": "ci-",
+     "keyId": "00000000-0000-0000-000b-000000000001",
+     "startDateTime": "2025-12-04T12:00:00Z"
+    }
+   ],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000007",
+   "displayName": "legacy-batch-etl",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-000000000008",
+   "keyCredentials": [],
+   "owners": [],
+   "passwordCredentials": [
+    {
+     "displayName": "prod",
+     "endDateTime": "2028-02-07T12:00:00Z",
+     "hint": "pro",
+     "keyId": "00000000-0000-0000-000b-000000000002",
+     "startDateTime": "2025-02-07T12:00:00Z"
+    }
+   ],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000009",
+   "displayName": "hr-sync-connector",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-00000000000a",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004c"
+    }
+   ],
+   "passwordCredentials": [
+    {
+     "displayName": "rotated",
+     "endDateTime": "2027-02-17T12:00:00Z",
+     "hint": "rot",
+     "keyId": "00000000-0000-0000-000b-000000000003",
+     "startDateTime": "2026-08-21T12:00:00Z"
+    }
+   ],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-00000000000b",
+   "displayName": "ops-automation",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-00000000000c",
+   "keyCredentials": [
+    {
+     "displayName": "ops-cert",
+     "endDateTime": "2027-06-22T12:00:00Z",
+     "keyId": "00000000-0000-0000-000b-000000000004",
+     "startDateTime": "2026-06-22T12:00:00Z",
+     "type": "AsymmetricX509Cert",
+     "usage": "Verify"
+    }
+   ],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000050"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-00000000000d",
+   "displayName": "github-deploy-platform",
+   "federatedIdentityCredentials": [
+    {
+     "audiences": [
+      "api://AzureADTokenExchange"
+     ],
+     "id": "00000000-0000-0000-000b-000000000005",
+     "issuer": "https://token.actions.githubusercontent.com",
+     "name": "platform-prod",
+     "subject": "repo:kestrelridge/platform-infra:environment:prod"
+    },
+    {
+     "audiences": [
+      "api://AzureADTokenExchange"
+     ],
+     "id": "00000000-0000-0000-000b-000000000006",
+     "issuer": "https://token.actions.githubusercontent.com",
+     "name": "platform-pr",
+     "subject": "repo:kestrelridge/platform-infra:pull_request"
+    }
+   ],
+   "id": "00000000-0000-0000-0003-00000000000e",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000041"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-00000000000f",
+   "displayName": "github-deploy-web",
+   "federatedIdentityCredentials": [
+    {
+     "audiences": [
+      "api://AzureADTokenExchange"
+     ],
+     "claimsMatchingExpression": {
+      "languageVersion": 1,
+      "value": "claims['sub'] matches 'repo:kestrelridge/*'"
+     },
+     "id": "00000000-0000-0000-000b-000000000007",
+     "issuer": "https://token.actions.githubusercontent.com",
+     "name": "web-any-repo",
+     "subject": null
+    }
+   ],
+   "id": "00000000-0000-0000-0003-000000000010",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000041"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000011",
+   "displayName": "github-deploy-docs",
+   "federatedIdentityCredentials": [
+    {
+     "audiences": [
+      "api://AzureADTokenExchange"
+     ],
+     "id": "00000000-0000-0000-000b-000000000008",
+     "issuer": "https://token.actions.githubusercontent.com",
+     "name": "docs-main",
+     "subject": "repo:kestrelridge/docs-site:ref:refs/heads/main"
+    }
+   ],
+   "id": "00000000-0000-0000-0003-000000000012",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000044"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000013",
+   "displayName": "intranet-portal",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-000000000014",
+   "keyCredentials": [
+    {
+     "displayName": "portal-cert",
+     "endDateTime": "2027-06-22T12:00:00Z",
+     "keyId": "00000000-0000-0000-000b-000000000009",
+     "startDateTime": "2026-06-22T12:00:00Z",
+     "type": "AsymmetricX509Cert",
+     "usage": "Verify"
+    }
+   ],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000044"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000015",
+   "displayName": "payments-api",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-000000000016",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004e"
+    }
+   ],
+   "passwordCredentials": [
+    {
+     "displayName": "q3",
+     "endDateTime": "2026-12-09T12:00:00Z",
+     "hint": "q3",
+     "keyId": "00000000-0000-0000-000b-00000000000a",
+     "startDateTime": "2026-09-10T12:00:00Z"
+    }
+   ],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "appId": "00000000-0000-0000-0003-000000000017",
+   "displayName": "ledgerline-sync",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-000000000018",
+   "keyCredentials": [],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004e"
+    }
+   ],
+   "passwordCredentials": [
+    {
+     "displayName": "sync",
+     "endDateTime": "2027-01-28T12:00:00Z",
+     "hint": "syn",
+     "keyId": "00000000-0000-0000-000b-00000000000b",
+     "startDateTime": "2026-08-01T12:00:00Z"
+    }
+   ],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  },
+  {
+   "@odata.type": "#microsoft.graph.agentIdentityBlueprint",
+   "appId": "00000000-0000-0000-0003-00000000001d",
+   "displayName": "kr-lending-agents-blueprint",
+   "federatedIdentityCredentials": [],
+   "id": "00000000-0000-0000-0003-00000000001e",
+   "keyCredentials": [
+    {
+     "displayName": "blueprint-cert",
+     "endDateTime": "2027-02-27T12:00:00Z",
+     "keyId": "00000000-0000-0000-000b-00000000000c",
+     "startDateTime": "2026-08-31T12:00:00Z",
+     "type": "AsymmetricX509Cert",
+     "usage": "Verify"
+    }
+   ],
+   "owners": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000041"
+    }
+   ],
+   "passwordCredentials": [],
+   "signInAudience": "AzureADMyOrg",
+   "tags": []
+  }
+ ]
+}

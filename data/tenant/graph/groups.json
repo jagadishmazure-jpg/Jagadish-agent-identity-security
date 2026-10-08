@@ -1,0 +1,148 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "description": "Break-glass accounts excluded from Conditional Access",
+   "displayName": "CA-Emergency-Access",
+   "id": "00000000-0000-0000-0002-000000000001",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000045"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000046"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "Temporary MFA exclusions for a legacy scanner",
+   "displayName": "CA-Exclusions-Legacy",
+   "id": "00000000-0000-0000-0002-000000000002",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000048"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000004"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "Second-line service desk",
+   "displayName": "Helpdesk-L2",
+   "id": "00000000-0000-0000-0002-000000000003",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000051"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000052"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "",
+   "displayName": "Platform-Owners",
+   "id": "00000000-0000-0000-0002-000000000004",
+   "isAssignableToRole": true,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000041"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "Every developer",
+   "displayName": "All-Developers",
+   "id": "00000000-0000-0000-0002-000000000005",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004e"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000004f"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000044"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000001"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000002"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000003"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000004"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000005"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-000000000006"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "",
+   "displayName": "FinOps-Readers",
+   "id": "00000000-0000-0000-0002-000000000006",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000000b"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000000c"
+    }
+   ],
+   "securityEnabled": true
+  },
+  {
+   "description": "",
+   "displayName": "Finance-All",
+   "id": "00000000-0000-0000-0002-000000000007",
+   "isAssignableToRole": false,
+   "members": [
+    {
+     "@odata.type": "#microsoft.graph.group",
+     "id": "00000000-0000-0000-0002-000000000006"
+    },
+    {
+     "@odata.type": "#microsoft.graph.user",
+     "id": "00000000-0000-0000-0001-00000000000d"
+    }
+   ],
+   "securityEnabled": true
+  }
+ ]
+}

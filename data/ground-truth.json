@@ -1,0 +1,239 @@
+{
+ "planted": [
+  {
+   "note": "CRM connection authenticates with a shared API key",
+   "rule": "agent-key-connection",
+   "subject": "conn:conn-ledgerline-crm"
+  },
+  {
+   "note": "second CRM connection with the same key",
+   "rule": "agent-key-connection",
+   "subject": "conn:conn-ledgerline-crm-service"
+  },
+  {
+   "note": "underwriting agent identity can read every production secret",
+   "rule": "agent-reads-secrets",
+   "subject": "asst_underwriting"
+  },
+  {
+   "note": "Q&A agent can update CRM records",
+   "rule": "agent-tool-beyond-purpose",
+   "subject": "asst_customer_service"
+  },
+  {
+   "note": "intake agent can send email, which its purpose does not need",
+   "rule": "agent-tool-beyond-purpose",
+   "subject": "asst_loan_intake"
+  },
+  {
+   "note": "reads employee tickets; directory role reaches Global Administrator",
+   "rule": "agent-untrusted-input-path",
+   "subject": "asst_it_helpdesk"
+  },
+  {
+   "note": "reads external bureau reports and can reach every production secret",
+   "rule": "agent-untrusted-input-path",
+   "subject": "asst_underwriting"
+  },
+  {
+   "note": "any pull request in platform-infra can sign in as the deploy identity",
+   "rule": "broad-federated-subject",
+   "subject": "00000000-0000-0000-0004-000000000009"
+  },
+  {
+   "note": "flexible credential matches every repository in the organisation",
+   "rule": "broad-federated-subject",
+   "subject": "00000000-0000-0000-0004-00000000000a"
+  },
+  {
+   "note": "left the infrastructure team; account still enabled and privileged",
+   "rule": "dormant-account",
+   "subject": "00000000-0000-0000-0001-000000000049"
+  },
+  {
+   "note": "on extended leave; enabled with no sign-in",
+   "rule": "dormant-account",
+   "subject": "00000000-0000-0000-0001-00000000004a"
+  },
+  {
+   "note": "break-glass account with a password only",
+   "rule": "emergency-account-weak-method",
+   "subject": "00000000-0000-0000-0001-000000000046"
+  },
+  {
+   "note": "vendor multi-tenant app administers the production vault",
+   "rule": "external-app-with-privilege",
+   "subject": "00000000-0000-0000-0004-000000000012"
+  },
+  {
+   "note": "partner guest is Contributor on the lending data resource group",
+   "rule": "guest-with-privilege",
+   "subject": "00000000-0000-0000-0001-000000000053"
+  },
+  {
+   "note": "Directory.ReadWrite.All application permission",
+   "rule": "high-risk-app-permission",
+   "subject": "00000000-0000-0000-0004-000000000006"
+  },
+  {
+   "note": "RoleManagement.ReadWrite.Directory: can make anyone Global Administrator",
+   "rule": "high-risk-app-permission",
+   "subject": "00000000-0000-0000-0004-000000000008"
+  },
+  {
+   "note": "owns loan-docs-sync, whose identity is Contributor on prod (Foundry project write)",
+   "rule": "human-path-to-crown-jewel",
+   "subject": "00000000-0000-0000-0001-00000000004e"
+  },
+  {
+   "note": "Azure AI Developer on the prod Foundry project (a crown jewel)",
+   "rule": "human-path-to-crown-jewel",
+   "subject": "00000000-0000-0000-0001-00000000004f"
+  },
+  {
+   "note": "service desk analyst owns ops-automation -> can grant Global Administrator",
+   "rule": "human-path-to-crown-jewel",
+   "subject": "00000000-0000-0000-0001-000000000050"
+  },
+  {
+   "note": "Helpdesk-L2 -> VM Contributor -> run command on vm-kr-batch01 -> Owner of prod",
+   "rule": "human-path-to-crown-jewel",
+   "subject": "00000000-0000-0000-0001-000000000051"
+  },
+  {
+   "note": "Helpdesk-L2 -> VM Contributor -> run command on vm-kr-batch01 -> Owner of prod",
+   "rule": "human-path-to-crown-jewel",
+   "subject": "00000000-0000-0000-0001-000000000052"
+  },
+  {
+   "note": "legacy-auth block left in report-only mode",
+   "rule": "legacy-auth-not-blocked",
+   "subject": "00000000-0000-0000-0008-000000000002"
+  },
+  {
+   "note": "client secret valid for two years",
+   "rule": "long-lived-app-secret",
+   "subject": "00000000-0000-0000-0004-000000000005"
+  },
+  {
+   "note": "three-year client secret",
+   "rule": "long-lived-app-secret",
+   "subject": "00000000-0000-0000-0004-000000000006"
+  },
+  {
+   "note": "contractor never registered an MFA method",
+   "rule": "no-mfa-registered",
+   "subject": "00000000-0000-0000-0001-000000000047"
+  },
+  {
+   "note": "shares the identity that is Contributor on lending data",
+   "rule": "overprivileged-agent",
+   "subject": "asst_collections"
+  },
+  {
+   "note": "Contributor on the lending data resource group",
+   "rule": "overprivileged-agent",
+   "subject": "asst_customer_service"
+  },
+  {
+   "note": "Privileged Authentication Administrator: can reset admin credentials",
+   "rule": "overprivileged-agent",
+   "subject": "asst_it_helpdesk"
+  },
+  {
+   "note": "eligible Application Administrator excluded from the MFA policy",
+   "rule": "privileged-without-enforced-mfa",
+   "subject": "00000000-0000-0000-0001-000000000048"
+  },
+  {
+   "note": "unverified external app with tenant-wide mailbox and file write consent",
+   "rule": "risky-consent-grant",
+   "subject": "00000000-0000-0000-0004-00000000000f"
+  },
+  {
+   "note": "local CRM administrator that bypasses SSO",
+   "rule": "saas-admin-outside-sso",
+   "subject": "saas:ledgerline-crm:admin.local"
+  },
+  {
+   "note": "CRM administrator whose Entra account is disabled",
+   "rule": "saas-admin-outside-sso",
+   "subject": "saas:ledgerline-crm:former.engineer@kestrelridge.example"
+  },
+  {
+   "note": "dev password with no expiry",
+   "rule": "secret-without-expiry",
+   "subject": "secret:kv-kr-nonprod/dev-db-password"
+  },
+  {
+   "note": "API key has no expiry",
+   "rule": "secret-without-expiry",
+   "subject": "secret:kv-kr-prod-secrets/crm-api-key"
+  },
+  {
+   "note": "customer-service and collections agents run as one identity",
+   "rule": "shared-agent-identity",
+   "subject": "00000000-0000-0000-0004-000000000016"
+  },
+  {
+   "note": "one CRM key used by two agent connections",
+   "rule": "shared-credential",
+   "subject": "secret:kv-kr-prod-secrets/crm-api-key"
+  },
+  {
+   "note": "permanent Owner on the production subscription",
+   "rule": "standing-azure-admin",
+   "subject": "00000000-0000-0000-0001-000000000044"
+  },
+  {
+   "note": "permanent User Access Administrator on nonprod",
+   "rule": "standing-azure-admin",
+   "subject": "00000000-0000-0000-0001-000000000049"
+  },
+  {
+   "note": "permanent Global Administrator outside PIM",
+   "rule": "standing-privileged-role",
+   "subject": "00000000-0000-0000-0001-000000000043"
+  },
+  {
+   "note": "no owners at all",
+   "rule": "unowned-workload-identity",
+   "subject": "00000000-0000-0000-0004-000000000006"
+  },
+  {
+   "note": "only owner has left the company (disabled)",
+   "rule": "unowned-workload-identity",
+   "subject": "00000000-0000-0000-0004-000000000007"
+  },
+  {
+   "note": "dev password unchanged for over a year",
+   "rule": "unrotated-secret",
+   "subject": "secret:kv-kr-nonprod/dev-db-password"
+  },
+  {
+   "note": "API key not rotated for over a year",
+   "rule": "unrotated-secret",
+   "subject": "secret:kv-kr-prod-secrets/crm-api-key"
+  },
+  {
+   "note": "agent identity has no sponsor (creator left)",
+   "rule": "unsponsored-agent",
+   "subject": "asst_marketing_copy"
+  },
+  {
+   "note": "nonprod vault on access policies with developer write access and public network",
+   "rule": "vault-legacy-access-policies",
+   "subject": "vault:kv-kr-nonprod"
+  },
+  {
+   "note": "document sync app is Contributor on the whole production subscription",
+   "rule": "workload-subscription-privilege",
+   "subject": "00000000-0000-0000-0004-000000000005"
+  },
+  {
+   "note": "batch VM identity is Owner of the production subscription",
+   "rule": "workload-subscription-privilege",
+   "subject": "00000000-0000-0000-0005-000000000003"
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "value": [
+  {
+   "attributes": {
+    "created": 1757937600,
+    "enabled": true,
+    "updated": 1757937600
+   },
+   "contentType": null,
+   "id": "https://kv-kr-nonprod.vault.azure.net/secrets/dev-db-password",
+   "tags": {
+    "env": "dev"
+   }
+  },
+  {
+   "attributes": {
+    "created": 1782129600,
+    "enabled": true,
+    "exp": 1797681600,
+    "updated": 1782129600
+   },
+   "contentType": null,
+   "id": "https://kv-kr-nonprod.vault.azure.net/secrets/sandbox-api-token",
+   "tags": {}
+  }
+ ]
+}

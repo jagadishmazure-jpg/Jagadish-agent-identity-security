@@ -1,0 +1,139 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "conditions": {
+    "applications": {
+     "includeApplications": [
+      "All"
+     ]
+    },
+    "clientAppTypes": [
+     "all"
+    ],
+    "users": {
+     "excludeGroups": [
+      "00000000-0000-0000-0002-000000000001",
+      "00000000-0000-0000-0002-000000000002"
+     ],
+     "excludeRoles": [],
+     "excludeUsers": [],
+     "includeGroups": [],
+     "includeRoles": [],
+     "includeUsers": [
+      "All"
+     ]
+    }
+   },
+   "displayName": "CA01 Require MFA for all users",
+   "grantControls": {
+    "authenticationStrength": null,
+    "builtInControls": [
+     "mfa"
+    ],
+    "operator": "OR"
+   },
+   "id": "00000000-0000-0000-0008-000000000001",
+   "state": "enabled"
+  },
+  {
+   "conditions": {
+    "applications": {
+     "includeApplications": [
+      "All"
+     ]
+    },
+    "clientAppTypes": [
+     "exchangeActiveSync",
+     "other"
+    ],
+    "users": {
+     "excludeGroups": [],
+     "excludeRoles": [],
+     "excludeUsers": [],
+     "includeGroups": [],
+     "includeRoles": [],
+     "includeUsers": [
+      "All"
+     ]
+    }
+   },
+   "displayName": "CA02 Block legacy authentication",
+   "grantControls": {
+    "authenticationStrength": null,
+    "builtInControls": [
+     "block"
+    ],
+    "operator": "OR"
+   },
+   "id": "00000000-0000-0000-0008-000000000002",
+   "state": "enabledForReportingButNotEnforced"
+  },
+  {
+   "conditions": {
+    "applications": {
+     "includeApplications": [
+      "All"
+     ]
+    },
+    "clientAppTypes": [
+     "all"
+    ],
+    "users": {
+     "excludeGroups": [
+      "00000000-0000-0000-0002-000000000001"
+     ],
+     "excludeRoles": [],
+     "excludeUsers": [],
+     "includeGroups": [],
+     "includeRoles": [
+      "00000000-0000-0000-0006-000000000001"
+     ],
+     "includeUsers": []
+    }
+   },
+   "displayName": "CA03 Phishing-resistant MFA for admins",
+   "grantControls": {
+    "authenticationStrength": {
+     "displayName": "Phishing-resistant MFA"
+    },
+    "builtInControls": [],
+    "operator": "OR"
+   },
+   "id": "00000000-0000-0000-0008-000000000003",
+   "state": "enabled"
+  },
+  {
+   "conditions": {
+    "applications": {
+     "includeApplications": [
+      "All"
+     ]
+    },
+    "clientAppTypes": [
+     "all"
+    ],
+    "users": {
+     "excludeGroups": [],
+     "excludeRoles": [],
+     "excludeUsers": [],
+     "includeGroups": [],
+     "includeRoles": [],
+     "includeUsers": [
+      "GuestsOrExternalUsers"
+     ]
+    }
+   },
+   "displayName": "CA04 Require MFA for guests (pilot)",
+   "grantControls": {
+    "authenticationStrength": null,
+    "builtInControls": [
+     "mfa"
+    ],
+    "operator": "OR"
+   },
+   "id": "00000000-0000-0000-0008-000000000004",
+   "state": "disabled"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "clientId": "00000000-0000-0000-0004-00000000000f",
+   "consentType": "AllPrincipals",
+   "id": "00000000-0000-0000-0009-000000000001",
+   "principalId": null,
+   "resourceId": "00000000-0000-0000-0004-000000000001",
+   "scope": "openid profile offline_access Mail.ReadWrite Files.ReadWrite.All"
+  },
+  {
+   "clientId": "00000000-0000-0000-0004-000000000010",
+   "consentType": "AllPrincipals",
+   "id": "00000000-0000-0000-0009-000000000002",
+   "principalId": null,
+   "resourceId": "00000000-0000-0000-0004-000000000001",
+   "scope": "openid profile User.Read Calendars.ReadWrite"
+  },
+  {
+   "clientId": "00000000-0000-0000-0004-00000000000f",
+   "consentType": "Principal",
+   "id": "00000000-0000-0000-0009-000000000003",
+   "principalId": "00000000-0000-0000-0001-000000000006",
+   "resourceId": "00000000-0000-0000-0004-000000000001",
+   "scope": "Mail.Read"
+  }
+ ]
+}

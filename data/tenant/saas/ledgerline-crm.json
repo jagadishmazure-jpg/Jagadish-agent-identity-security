@@ -1,0 +1,66 @@
+{
+ "accounts": [
+  {
+   "active": true,
+   "displayName": "Jules Romero",
+   "externalId": "00000000-0000-0000-0001-00000000004e",
+   "roles": [
+    "System Administrator"
+   ],
+   "ssoLinked": true,
+   "userName": "jules.romero@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "admin.local",
+   "externalId": null,
+   "roles": [
+    "System Administrator"
+   ],
+   "ssoLinked": false,
+   "userName": "admin.local"
+  },
+  {
+   "active": true,
+   "displayName": "Riley Stone",
+   "externalId": "00000000-0000-0000-0001-00000000004c",
+   "roles": [
+    "System Administrator"
+   ],
+   "ssoLinked": true,
+   "userName": "former.engineer@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "Carlos Rahman",
+   "externalId": "00000000-0000-0000-0001-000000000002",
+   "roles": [
+    "Standard User"
+   ],
+   "ssoLinked": true,
+   "userName": "carlos.rahman@kestrelridge.example"
+  },
+  {
+   "active": true,
+   "displayName": "Bella Quintero",
+   "externalId": "00000000-0000-0000-0001-000000000003",
+   "roles": [
+    "Standard User"
+   ],
+   "ssoLinked": true,
+   "userName": "bella.quintero@kestrelridge.example"
+  },
+  {
+   "active": false,
+   "displayName": "Pat Morgan",
+   "externalId": "00000000-0000-0000-0001-00000000004d",
+   "roles": [
+    "Standard User"
+   ],
+   "ssoLinked": true,
+   "userName": "closed.account@kestrelridge.example"
+  }
+ ],
+ "app": "Ledgerline CRM",
+ "servicePrincipalId": "00000000-0000-0000-0004-00000000001a"
+}

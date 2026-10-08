@@ -1,0 +1,57 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "directoryScopeId": "/",
+   "id": "00000000-0000-0000-000a-000000000001",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000041",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000001",
+   "scheduleInfo": {
+    "expiration": {
+     "type": "noExpiration"
+    },
+    "startDateTime": "2026-03-14T12:00:00Z"
+   }
+  },
+  {
+   "directoryScopeId": "/",
+   "id": "00000000-0000-0000-000a-000000000002",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000042",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000007",
+   "scheduleInfo": {
+    "expiration": {
+     "type": "noExpiration"
+    },
+    "startDateTime": "2026-03-14T12:00:00Z"
+   }
+  },
+  {
+   "directoryScopeId": "/",
+   "id": "00000000-0000-0000-000a-000000000006",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000048",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000004",
+   "scheduleInfo": {
+    "expiration": {
+     "type": "noExpiration"
+    },
+    "startDateTime": "2026-03-14T12:00:00Z"
+   }
+  },
+  {
+   "directoryScopeId": "/",
+   "id": "00000000-0000-0000-000a-000000000008",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000015",
+   "roleDefinitionId": "00000000-0000-0000-0006-00000000000a",
+   "scheduleInfo": {
+    "expiration": {
+     "type": "noExpiration"
+    },
+    "startDateTime": "2026-03-14T12:00:00Z"
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "assignmentType": "Assigned",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000003",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000043",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000001",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  },
+  {
+   "assignmentType": "Assigned",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000004",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000045",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000001",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  },
+  {
+   "assignmentType": "Assigned",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000005",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000046",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000001",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  },
+  {
+   "assignmentType": "Activated",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000007",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000042",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000001",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  },
+  {
+   "assignmentType": "Assigned",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000009",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0001-000000000054",
+   "roleDefinitionId": "00000000-0000-0000-0006-00000000000c",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  },
+  {
+   "assignmentType": "Assigned",
+   "directoryScopeId": "/",
+   "endDateTime": null,
+   "id": "00000000-0000-0000-000a-000000000023",
+   "memberType": "Direct",
+   "principalId": "00000000-0000-0000-0004-000000000017",
+   "roleDefinitionId": "00000000-0000-0000-0006-000000000003",
+   "startDateTime": "2025-12-04T12:00:00Z"
+  }
+ ]
+}

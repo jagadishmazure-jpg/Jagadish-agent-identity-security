@@ -1,0 +1,15 @@
+# Assets whose compromise means compromise of the business. Path analysis searches for routes from
+# every identity (and from untrusted sources) to these graph nodes.
+crown_jewels:
+  - id: entra-global-admin
+    node: "dirrole:Global Administrator"
+    label: Global Administrator in Entra ID
+  - id: prod-subscription-control
+    node: "scope:/subscriptions/00000000-0000-0000-0000-0000000000a1"
+    label: Owner-level control of the production subscription
+  - id: prod-secrets
+    node: "kvsecrets:kv-kr-prod-secrets"
+    label: Every secret in the production Key Vault
+  - id: foundry-prod-project
+    node: "res:proj-lending-agents"
+    label: Control of the production Foundry project (agents, tools, connections)

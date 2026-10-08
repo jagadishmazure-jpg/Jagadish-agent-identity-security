@@ -1,0 +1,257 @@
+{
+ "data": [
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000000a",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0005-000000000001",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000d",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000000b",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0005-000000000003",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000001",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-batch-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000000c",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0002-000000000003",
+    "principalType": "Group",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000005",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-batch-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000000d",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0005-000000000004",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000d",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000000f",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0002-000000000004",
+    "principalType": "Group",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000f",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000010",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0001-000000000044",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000001",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000011",
+   "properties": {
+    "createdOn": "2024-04-13T12:00:00Z",
+    "principalId": "00000000-0000-0000-0001-000000000049",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000002",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a2"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000012",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0001-000000000053",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000013",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0001-000000000054",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000f",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000014",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0001-00000000004f",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000b",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod/providers/Microsoft.CognitiveServices/accounts/aif-kr-prod/projects/proj-lending-agents"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000015",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0002-000000000007",
+    "principalType": "Group",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000010",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000017",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0002-000000000005",
+    "principalType": "Group",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000018",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000005",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000001c",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000009",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-web-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000001d",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-00000000000a",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000006",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-web-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-web-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000001e",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-00000000000b",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000006",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-web-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-00000000001f",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000011",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000f",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.KeyVault/vaults/kv-kr-prod-secrets/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000020",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000012",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000007",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.KeyVault/vaults/kv-kr-prod-secrets"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.KeyVault/vaults/kv-kr-prod-secrets/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000021",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000015",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000009",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod/providers/Microsoft.KeyVault/vaults/kv-kr-prod-secrets"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000022",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000016",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-000000000004",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev/providers/Microsoft.KeyVault/vaults/kv-kr-nonprod/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000024",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000019",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000a",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev/providers/Microsoft.KeyVault/vaults/kv-kr-nonprod"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-ai-lab/providers/Microsoft.CognitiveServices/accounts/aif-kr-lab/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000025",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000019",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a2/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000c",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-ai-lab/providers/Microsoft.CognitiveServices/accounts/aif-kr-lab"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs/providers/Microsoft.Authorization/roleAssignments/00000000-0000-0000-000a-000000000026",
+   "properties": {
+    "createdOn": "2026-03-14T12:00:00Z",
+    "principalId": "00000000-0000-0000-0004-000000000014",
+    "principalType": "ServicePrincipal",
+    "roleDefinitionId": "/subscriptions/00000000-0000-0000-0000-0000000000a1/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-00b0-00000000000e",
+    "scope": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod/providers/Microsoft.Storage/storageAccounts/stkrloandocs"
+   },
+   "type": "microsoft.authorization/roleassignments"
+  }
+ ]
+}

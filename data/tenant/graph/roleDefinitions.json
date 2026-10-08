@@ -1,0 +1,65 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "displayName": "Global Administrator",
+   "id": "00000000-0000-0000-0006-000000000001",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Privileged Role Administrator",
+   "id": "00000000-0000-0000-0006-000000000002",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Privileged Authentication Administrator",
+   "id": "00000000-0000-0000-0006-000000000003",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Application Administrator",
+   "id": "00000000-0000-0000-0006-000000000004",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Cloud Application Administrator",
+   "id": "00000000-0000-0000-0006-000000000005",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Conditional Access Administrator",
+   "id": "00000000-0000-0000-0006-000000000006",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Security Administrator",
+   "id": "00000000-0000-0000-0006-000000000007",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "User Administrator",
+   "id": "00000000-0000-0000-0006-000000000008",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Exchange Administrator",
+   "id": "00000000-0000-0000-0006-000000000009",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Helpdesk Administrator",
+   "id": "00000000-0000-0000-0006-00000000000a",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Directory Readers",
+   "id": "00000000-0000-0000-0006-00000000000b",
+   "isBuiltIn": true
+  },
+  {
+   "displayName": "Global Reader",
+   "id": "00000000-0000-0000-0006-00000000000c",
+   "isBuiltIn": true
+  }
+ ]
+}

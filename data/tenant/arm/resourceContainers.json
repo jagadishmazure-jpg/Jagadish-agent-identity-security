@@ -1,0 +1,92 @@
+{
+ "data": [
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2",
+   "name": "kr-nonproduction",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {
+    "env": "nonprod"
+   },
+   "type": "microsoft.resources/subscriptions"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1",
+   "name": "kr-production",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-core-prod",
+   "location": "eastus2",
+   "name": "rg-kr-core-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-lending-data-prod",
+   "location": "eastus2",
+   "name": "rg-kr-lending-data-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-ai-prod",
+   "location": "eastus2",
+   "name": "rg-kr-ai-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-batch-prod",
+   "location": "eastus2",
+   "name": "rg-kr-batch-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a1/resourceGroups/rg-kr-web-prod",
+   "location": "eastus2",
+   "name": "rg-kr-web-prod",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a1",
+   "tags": {
+    "env": "prod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-dev",
+   "location": "eastus2",
+   "name": "rg-kr-dev",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {
+    "env": "nonprod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  },
+  {
+   "id": "/subscriptions/00000000-0000-0000-0000-0000000000a2/resourceGroups/rg-kr-ai-lab",
+   "location": "eastus2",
+   "name": "rg-kr-ai-lab",
+   "subscriptionId": "00000000-0000-0000-0000-0000000000a2",
+   "tags": {
+    "env": "nonprod"
+   },
+   "type": "microsoft.resources/subscriptions/resourcegroups"
+  }
+ ]
+}

@@ -1,0 +1,326 @@
+# The detections catalogue. Each rule is implemented by the function of the same id in
+# src/idsec/detections.py. Wording is this repository's own. Mappings:
+#   attack:   MITRE ATT&CK (Enterprise) techniques an attacker would use the weakness for
+#   atlas:    MITRE ATLAS techniques (AI-specific), where relevant
+#   owasp_llm: OWASP Top 10 for LLM Applications (2025 list numbering)
+#   cis:      closest CIS Controls v8 safeguard
+#   zero_trust: the Zero Trust principle the weakness breaks
+rules:
+  # ---------------------------------------------------------------- privilege
+  - id: standing-privileged-role
+    code: P01
+    area: privilege
+    severity: high
+    title: Standing directory admin role outside PIM
+    explanation: A person holds a powerful Entra ID role permanently instead of activating it when needed, so a stolen session or token is an admin session at any hour.
+    fix: Make the assignment eligible in Privileged Identity Management with MFA, justification and approval on activation, and remove the permanent assignment.
+    action: convert-to-eligible
+    attack: [T1078.004, T1098.003]
+    cis: ["5.4", "6.8"]
+    zero_trust: least privilege
+  - id: standing-azure-admin
+    code: P02
+    area: privilege
+    severity: high
+    title: Standing Owner-level Azure role on a subscription
+    explanation: A person can change role assignments across a whole subscription at any time, which is the shortest route to taking over every workload in it.
+    fix: Move the assignment to PIM for Azure resources (eligible, time-bound, approval) and keep a scoped Contributor or Reader role for daily work.
+    action: convert-to-eligible
+    attack: [T1078.004, T1098.003]
+    cis: ["5.4", "6.8"]
+    zero_trust: least privilege
+  - id: workload-subscription-privilege
+    code: P03
+    area: privilege
+    severity: high
+    title: Workload identity with write or control on a whole subscription
+    explanation: An application or managed identity can change most resources in a subscription. Anyone who gets its credential, or code execution where it runs, inherits that reach.
+    fix: Replace the subscription-wide role with the narrowest built-in or custom role at the resource or resource group the workload actually touches.
+    action: narrow-workload-role
+    attack: [T1078.004, T1552.005, T1651]
+    cis: ["5.5", "6.8"]
+    zero_trust: least privilege
+  - id: high-risk-app-permission
+    code: P04
+    area: privilege
+    severity: critical
+    title: Application permission that amounts to tenant control or broad write
+    explanation: The app holds a Microsoft Graph application permission that lets it grant roles, add credentials to other apps or rewrite the directory without any user present.
+    fix: Remove the permission and grant the least-privileged alternative listed in the evidence; if the workload truly needs it, isolate the app and monitor every use.
+    action: remove-app-permission
+    attack: [T1098.003, T1550.001]
+    cis: ["6.8"]
+    zero_trust: least privilege
+  - id: human-path-to-crown-jewel
+    code: P05
+    area: privilege
+    severity: critical
+    title: Non-admin person with a standing path to a crown jewel
+    explanation: The person holds no admin role, yet a chain of ownerships, group memberships, roles and run-as identities lets them reach Global Administrator, production subscription control, every production secret or the production agent project.
+    fix: Break the weakest link in the path shown in the evidence (usually an app ownership, a broad group role or a privileged managed identity) and re-run the scan.
+    action: break-path
+    attack: [T1078.004, T1098.001, T1651]
+    cis: ["6.8", "5.4"]
+    zero_trust: assume breach
+  - id: guest-with-privilege
+    code: P06
+    area: privilege
+    severity: high
+    title: Guest account with write or admin access
+    explanation: An account owned by another organisation can change resources here. Its sign-in security, lifecycle and offboarding are outside this tenant's control.
+    fix: Remove the role or replace it with an eligible, time-bound assignment covered by an access review and a guest-specific Conditional Access policy.
+    action: remove-role
+    attack: [T1199, T1078.004]
+    cis: ["6.1", "6.2"]
+    zero_trust: verify explicitly
+  - id: external-app-with-privilege
+    code: P07
+    area: privilege
+    severity: high
+    title: External multi-tenant app with write or secret access
+    explanation: An app published by another organisation can change resources or read secrets here, so a breach at the vendor becomes a breach here.
+    fix: Reduce the app to the read-only scope its contract needs, prefer vendor access through a customer-managed identity, and review it with the vendor.
+    action: remove-role
+    attack: [T1199]
+    cis: ["15.1", "6.8"]
+    zero_trust: assume breach
+  - id: risky-consent-grant
+    code: P08
+    area: privilege
+    severity: high
+    title: Tenant-wide consent to an unverified app for mail, files or directory
+    explanation: Every user's mailbox, files or directory data can be read or changed by an app whose publisher is not verified, through a consent that never expires on its own.
+    fix: Revoke the grant, restrict user consent to verified publishers and low-risk scopes, and route requests through the admin consent workflow.
+    action: revoke-consent
+    attack: [T1528, T1550.001]
+    cis: ["2.5", "6.1"]
+    zero_trust: verify explicitly
+  # ---------------------------------------------------------------- foundational controls
+  - id: no-mfa-registered
+    code: F01
+    area: foundational
+    severity: high
+    title: Enabled member account with no MFA method registered
+    explanation: The account can only prove who it is with a password, so password spraying or a reused password is enough to sign in.
+    fix: Require MFA registration through Conditional Access (registration campaign or the security info registration policy) and follow up with the user.
+    action: require-mfa-registration
+    attack: [T1110.003, T1078.004]
+    cis: ["6.3", "6.4"]
+    zero_trust: verify explicitly
+  - id: privileged-without-enforced-mfa
+    code: F02
+    area: foundational
+    severity: critical
+    title: Privileged person outside every enforced MFA policy
+    explanation: The person holds or can activate an admin role, but no enabled Conditional Access policy requires MFA from them, usually because of an exclusion group.
+    fix: Remove the person from the exclusion and add a phishing-resistant MFA policy that targets every admin role, eligible ones included.
+    action: remove-ca-exclusion
+    attack: [T1110.003, T1078.004]
+    cis: ["6.5"]
+    zero_trust: verify explicitly
+  - id: dormant-account
+    code: F03
+    area: foundational
+    severity: medium
+    title: Enabled account with no sign-in for a long time
+    explanation: Nobody is using the account, so nobody would notice if someone else started to. Dormant accounts with roles are favourite footholds.
+    fix: Disable the account after confirming with its manager, then delete it after the retention period; use access reviews to catch the next one.
+    action: disable-account
+    attack: [T1078.004]
+    cis: ["5.3"]
+    zero_trust: assume breach
+  - id: emergency-account-weak-method
+    code: F04
+    area: foundational
+    severity: high
+    title: Break-glass account without a phishing-resistant method
+    explanation: Emergency accounts sit outside Conditional Access by design, so the method on the account is their only protection. A password alone is not enough.
+    fix: Register FIDO2 security keys stored in separate safes, alert on every sign-in, and test the accounts on a schedule.
+    action: register-phishing-resistant-method
+    attack: [T1110, T1078.004]
+    cis: ["6.5"]
+    zero_trust: verify explicitly
+  - id: legacy-auth-not-blocked
+    code: F05
+    area: foundational
+    severity: high
+    title: Legacy authentication is not blocked
+    explanation: Old protocols cannot do MFA, so while they are allowed, MFA policies can be bypassed with just a password.
+    fix: Switch the legacy-authentication block policy from report-only to on after checking the sign-in logs for remaining legacy clients.
+    action: enforce-ca-policy
+    attack: [T1110.003]
+    cis: ["6.3"]
+    zero_trust: verify explicitly
+  - id: vault-legacy-access-policies
+    code: F06
+    area: foundational
+    severity: medium
+    title: Key Vault on the legacy access-policy model
+    explanation: Access policies cannot be scoped, made eligible or audited like Azure roles, and anyone with Contributor on the vault can add themselves to them.
+    fix: Migrate the vault to Azure RBAC, map each policy to Key Vault Secrets User or Officer at the narrowest scope, and close public network access.
+    action: migrate-vault-rbac
+    attack: [T1555.006]
+    cis: ["6.8", "3.3"]
+    zero_trust: least privilege
+  - id: saas-admin-outside-sso
+    code: F07
+    area: foundational
+    severity: high
+    title: SaaS admin account outside the SSO lifecycle
+    explanation: An administrator in a SaaS app either signs in with a local password that bypasses Entra ID, or belongs to an Entra account that is disabled, so offboarding never reached the SaaS app.
+    fix: Remove or disable the SaaS admin account, keep only SSO-linked admins provisioned through SCIM, and keep one documented local break-glass account if the vendor requires it.
+    action: remove-saas-admin
+    attack: [T1078.003, T1078.004]
+    cis: ["5.4", "6.7"]
+    zero_trust: verify explicitly
+  # ---------------------------------------------------------------- emerging: AI agents, NHIs and secrets
+  - id: long-lived-app-secret
+    code: E01
+    area: emerging
+    severity: medium
+    title: Client secret valid for longer than policy
+    explanation: A password credential that lives for years is likely copied into scripts and pipelines; once leaked it keeps working until someone notices.
+    fix: Replace the secret with a federated credential or managed identity, or failing that a certificate, and enforce a maximum lifetime with an app management policy.
+    action: replace-secret
+    attack: [T1098.001, T1552]
+    cis: ["5.5"]
+    zero_trust: assume breach
+  - id: unrotated-secret
+    code: E02
+    area: emerging
+    severity: medium
+    title: Key Vault secret not rotated within the rotation window
+    explanation: The secret value has not changed for over a year, so every copy ever made of it still works.
+    fix: Rotate the secret, automate rotation with an Event Grid near-expiry trigger, and prefer an Entra ID connection that needs no secret.
+    action: rotate-secret
+    attack: [T1555.006]
+    cis: ["5.2"]
+    zero_trust: assume breach
+  - id: secret-without-expiry
+    code: E03
+    area: emerging
+    severity: low
+    title: Key Vault secret without an expiry date
+    explanation: Nothing will force a rotation or warn before the secret goes stale.
+    fix: Set an expiry date and a near-expiry alert; enforce it with the Azure Policy definition for secret expiration.
+    action: set-expiry
+    attack: [T1555.006]
+    cis: ["5.2"]
+    zero_trust: assume breach
+  - id: shared-credential
+    code: E04
+    area: emerging
+    severity: high
+    title: One secret used by several consumers
+    explanation: Several connections or workloads use the same secret, so its activity cannot be attributed, it cannot be rotated without coordinated breakage, and one leak exposes all of them.
+    fix: Issue a separate credential per consumer, or better, move each consumer to its own Entra ID identity.
+    action: split-credential
+    attack: [T1552, T1555.006]
+    cis: ["5.2"]
+    zero_trust: assume breach
+  - id: unowned-workload-identity
+    code: E05
+    area: emerging
+    severity: medium
+    title: Application with no active owner
+    explanation: No enabled person is accountable for the app, so nobody reviews its permissions, rotates its credentials or notices misuse.
+    fix: Assign at least two owners from the team that runs the workload, or disable the app if nobody claims it.
+    action: assign-owner
+    attack: [T1078.004, T1098.001]
+    cis: ["5.5", "6.2"]
+    zero_trust: assume breach
+  - id: unsponsored-agent
+    code: E06
+    area: emerging
+    severity: medium
+    title: AI agent whose identity has no active sponsor
+    explanation: The agent identity has no sponsor (or only disabled ones), so nobody answers for what the agent does or decides when it should be retired.
+    fix: Assign an active sponsor from the owning team on the agent identity; retire the agent if nobody will sponsor it.
+    action: assign-sponsor
+    owasp_llm: [LLM06]
+    cis: ["5.5", "6.2"]
+    zero_trust: assume breach
+  - id: overprivileged-agent
+    code: E07
+    area: emerging
+    severity: high
+    title: AI agent identity with write or admin rights
+    explanation: The identity the agent runs as can change Azure resources or the directory. Anything that steers the agent (a prompt injection, a poisoned tool result) can use that power.
+    fix: Give the agent a read-only or task-specific role at the narrowest scope, and put any write behind a separate tool that needs human approval.
+    action: remove-agent-role
+    attack: [T1078.004, T1098.003]
+    atlas: [AML.T0053]
+    owasp_llm: [LLM06]
+    cis: ["6.8"]
+    zero_trust: least privilege
+  - id: agent-reads-secrets
+    code: E08
+    area: emerging
+    severity: high
+    title: AI agent identity can read Key Vault secrets
+    explanation: The agent can read secret values directly, so a manipulated agent can disclose credentials in its output or use them elsewhere.
+    fix: Remove the secret-read role; give tools Entra ID connections or project-managed connections so the model path never sees a secret.
+    action: remove-agent-role
+    attack: [T1555.006]
+    atlas: [AML.T0053]
+    owasp_llm: [LLM02, LLM06]
+    cis: ["6.8"]
+    zero_trust: least privilege
+  - id: agent-tool-beyond-purpose
+    code: E09
+    area: emerging
+    severity: medium
+    title: AI agent with a tool its purpose does not need
+    explanation: The agent can call a tool whose capability is outside the profile for its declared purpose, which widens what a hijacked agent can do.
+    fix: Remove the tool, or move the capability to a separate agent with its own identity and an approval step.
+    action: remove-tool
+    atlas: [AML.T0053]
+    owasp_llm: [LLM06]
+    cis: ["6.8"]
+    zero_trust: least privilege
+  - id: agent-key-connection
+    code: E10
+    area: emerging
+    severity: medium
+    title: Agent connection that authenticates with an API key
+    explanation: The connection carries a static key instead of an Entra ID token, so the key can leak, is shared by everything using the connection, and cannot be scoped per agent.
+    fix: Switch the connection to Microsoft Entra ID (managed identity or agent identity) authentication where the target supports it; otherwise rotate the key and scope it per consumer.
+    action: switch-connection-auth
+    attack: [T1552, T1528]
+    cis: ["5.2"]
+    zero_trust: verify explicitly
+  - id: shared-agent-identity
+    code: E11
+    area: emerging
+    severity: medium
+    title: Several agents run as one identity
+    explanation: Agents sharing an identity get the union of each other's access, and logs cannot tell which agent did what.
+    fix: Create one agent identity per agent from the blueprint and give each only the roles its own purpose needs.
+    action: split-identity
+    owasp_llm: [LLM06]
+    cis: ["5.5"]
+    zero_trust: least privilege
+  - id: broad-federated-subject
+    code: E12
+    area: emerging
+    severity: high
+    title: Federated credential that trusts too many workflows
+    explanation: The credential accepts tokens from pull requests, from any branch or from every repository in the organisation, so code that never went through review can sign in as this identity.
+    fix: Restrict the subject to a protected environment (repo:org/repo:environment:prod) or one protected branch, and require reviewers on that environment.
+    action: restrict-federated-subject
+    attack: [T1484.002, T1199, T1078.004]
+    cis: ["6.8"]
+    zero_trust: verify explicitly
+  - id: agent-untrusted-input-path
+    code: E13
+    area: emerging
+    severity: critical
+    title: Agent reads untrusted content and can reach a crown jewel
+    explanation: The agent processes content from outside (documents, email, chat, web) and its identity or tools lead to a crown jewel, so one successful indirect prompt injection is a route to the most sensitive assets.
+    fix: Cut the path (remove the privileged role or tool), keep untrusted-content agents read-only, and add input screening plus human approval for any high-impact action.
+    action: break-path
+    attack: [T1078.004]
+    atlas: [AML.T0051.001, AML.T0053]
+    owasp_llm: [LLM01, LLM06]
+    cis: ["6.8"]
+    zero_trust: assume breach

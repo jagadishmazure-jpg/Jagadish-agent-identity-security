@@ -1,0 +1,13 @@
+# What an agent with a given declared purpose is expected to do. A tool whose capability is not in
+# its agent's purpose profile is excess agency (OWASP LLM06) and raises agent-tool-beyond-purpose.
+purposes:
+  document-intake:      [documents.read, crm.read]
+  underwriting-analysis: [credit.read, search.read, documents.read]
+  customer-qa:          [crm.read, search.read]
+  payment-reminders:    [crm.read, mail.send]
+  it-support:           [directory.password_reset, tickets.read, tickets.write]
+  content-drafting:     [web.search]
+  research:             [search.read, web.search]
+
+# Capabilities inferred from OpenAPI operations: GET/HEAD read, everything else writes.
+openapi_method_caps: { GET: read, HEAD: read, POST: write, PUT: write, PATCH: write, DELETE: write }

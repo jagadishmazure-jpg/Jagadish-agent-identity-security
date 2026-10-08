@@ -1,0 +1,1353 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-02-24T12:00:00Z",
+   "department": "Customer Care",
+   "displayName": "Kofi Eklund",
+   "id": "00000000-0000-0000-0001-000000000001",
+   "jobTitle": "Specialist",
+   "mail": "kofi.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-10T12:00:00Z"
+   },
+   "userPrincipalName": "kofi.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-02-25T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Carlos Rahman",
+   "id": "00000000-0000-0000-0001-000000000002",
+   "jobTitle": "Specialist",
+   "mail": "carlos.rahman@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-19T12:00:00Z"
+   },
+   "userPrincipalName": "carlos.rahman@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-12-08T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Bella Quintero",
+   "id": "00000000-0000-0000-0001-000000000003",
+   "jobTitle": "Specialist",
+   "mail": "bella.quintero@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-29T12:00:00Z"
+   },
+   "userPrincipalName": "bella.quintero@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-11-29T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Nora Nakamura",
+   "id": "00000000-0000-0000-0001-000000000004",
+   "jobTitle": "Specialist",
+   "mail": "nora.nakamura@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-23T12:00:00Z"
+   },
+   "userPrincipalName": "nora.nakamura@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-09-22T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Rosa Nakamura",
+   "id": "00000000-0000-0000-0001-000000000005",
+   "jobTitle": "Specialist",
+   "mail": "rosa.nakamura@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-12T12:00:00Z"
+   },
+   "userPrincipalName": "rosa.nakamura@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-02-19T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Hana Ueda",
+   "id": "00000000-0000-0000-0001-000000000006",
+   "jobTitle": "Specialist",
+   "mail": "hana.ueda@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-12T12:00:00Z"
+   },
+   "userPrincipalName": "hana.ueda@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-04-19T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Mateo Barros",
+   "id": "00000000-0000-0000-0001-000000000007",
+   "jobTitle": "Specialist",
+   "mail": "mateo.barros@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-29T12:00:00Z"
+   },
+   "userPrincipalName": "mateo.barros@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-11T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Chloe Eklund",
+   "id": "00000000-0000-0000-0001-000000000008",
+   "jobTitle": "Specialist",
+   "mail": "chloe.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-17T12:00:00Z"
+   },
+   "userPrincipalName": "chloe.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-05-28T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Rosa Dunne",
+   "id": "00000000-0000-0000-0001-000000000009",
+   "jobTitle": "Specialist",
+   "mail": "rosa.dunne@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-13T12:00:00Z"
+   },
+   "userPrincipalName": "rosa.dunne@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-11-15T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Diana Silva",
+   "id": "00000000-0000-0000-0001-00000000000a",
+   "jobTitle": "Specialist",
+   "mail": "diana.silva@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-19T12:00:00Z"
+   },
+   "userPrincipalName": "diana.silva@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-01-31T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Rosa Walsh",
+   "id": "00000000-0000-0000-0001-00000000000b",
+   "jobTitle": "Specialist",
+   "mail": "rosa.walsh@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-12T12:00:00Z"
+   },
+   "userPrincipalName": "rosa.walsh@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-01-09T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Tara Grant",
+   "id": "00000000-0000-0000-0001-00000000000c",
+   "jobTitle": "Specialist",
+   "mail": "tara.grant@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-13T12:00:00Z"
+   },
+   "userPrincipalName": "tara.grant@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-11-17T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Zoe Kaur",
+   "id": "00000000-0000-0000-0001-00000000000d",
+   "jobTitle": "Specialist",
+   "mail": "zoe.kaur@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-12T12:00:00Z"
+   },
+   "userPrincipalName": "zoe.kaur@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-01-19T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Lena Jensen",
+   "id": "00000000-0000-0000-0001-00000000000e",
+   "jobTitle": "Specialist",
+   "mail": "lena.jensen@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-25T12:00:00Z"
+   },
+   "userPrincipalName": "lena.jensen@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-08-24T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Carlos Silva",
+   "id": "00000000-0000-0000-0001-00000000000f",
+   "jobTitle": "Specialist",
+   "mail": "carlos.silva@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-14T12:00:00Z"
+   },
+   "userPrincipalName": "carlos.silva@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-01-02T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Kofi Young",
+   "id": "00000000-0000-0000-0001-000000000010",
+   "jobTitle": "Specialist",
+   "mail": "kofi.young@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-21T12:00:00Z"
+   },
+   "userPrincipalName": "kofi.young@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-07-02T12:00:00Z",
+   "department": "Customer Care",
+   "displayName": "Carlos Dunne",
+   "id": "00000000-0000-0000-0001-000000000011",
+   "jobTitle": "Specialist",
+   "mail": "carlos.dunne@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-25T12:00:00Z"
+   },
+   "userPrincipalName": "carlos.dunne@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2022-09-03T12:00:00Z",
+   "department": "Customer Care",
+   "displayName": "Ethan Petrov",
+   "id": "00000000-0000-0000-0001-000000000012",
+   "jobTitle": "Specialist",
+   "mail": "ethan.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-29T12:00:00Z"
+   },
+   "userPrincipalName": "ethan.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-06-15T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Carlos Zhou",
+   "id": "00000000-0000-0000-0001-000000000013",
+   "jobTitle": "Specialist",
+   "mail": "carlos.zhou@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-20T12:00:00Z"
+   },
+   "userPrincipalName": "carlos.zhou@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-11-23T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Tara Petrov",
+   "id": "00000000-0000-0000-0001-000000000014",
+   "jobTitle": "Specialist",
+   "mail": "tara.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-28T12:00:00Z"
+   },
+   "userPrincipalName": "tara.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-09-06T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Isaac Petrov",
+   "id": "00000000-0000-0000-0001-000000000015",
+   "jobTitle": "Specialist",
+   "mail": "isaac.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-29T12:00:00Z"
+   },
+   "userPrincipalName": "isaac.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-04-03T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Uma Silva",
+   "id": "00000000-0000-0000-0001-000000000016",
+   "jobTitle": "Specialist",
+   "mail": "uma.silva@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-21T12:00:00Z"
+   },
+   "userPrincipalName": "uma.silva@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-06-05T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Victor Lindqvist",
+   "id": "00000000-0000-0000-0001-000000000017",
+   "jobTitle": "Specialist",
+   "mail": "victor.lindqvist@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-16T12:00:00Z"
+   },
+   "userPrincipalName": "victor.lindqvist@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-02-02T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Fatima Tanaka",
+   "id": "00000000-0000-0000-0001-000000000018",
+   "jobTitle": "Specialist",
+   "mail": "fatima.tanaka@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-15T12:00:00Z"
+   },
+   "userPrincipalName": "fatima.tanaka@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-01-11T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Gabriel Zhou",
+   "id": "00000000-0000-0000-0001-000000000019",
+   "jobTitle": "Specialist",
+   "mail": "gabriel.zhou@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "gabriel.zhou@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-06-27T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Mateo Moreau",
+   "id": "00000000-0000-0000-0001-00000000001a",
+   "jobTitle": "Specialist",
+   "mail": "mateo.moreau@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-28T12:00:00Z"
+   },
+   "userPrincipalName": "mateo.moreau@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-01-03T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Omar Moreau",
+   "id": "00000000-0000-0000-0001-00000000001b",
+   "jobTitle": "Specialist",
+   "mail": "omar.moreau@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "omar.moreau@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-05-29T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Chloe Rahman",
+   "id": "00000000-0000-0000-0001-00000000001c",
+   "jobTitle": "Specialist",
+   "mail": "chloe.rahman@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-17T12:00:00Z"
+   },
+   "userPrincipalName": "chloe.rahman@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-12-15T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Victor Moreau",
+   "id": "00000000-0000-0000-0001-00000000001d",
+   "jobTitle": "Specialist",
+   "mail": "victor.moreau@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "victor.moreau@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-05-09T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Fatima Eklund",
+   "id": "00000000-0000-0000-0001-00000000001e",
+   "jobTitle": "Specialist",
+   "mail": "fatima.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-23T12:00:00Z"
+   },
+   "userPrincipalName": "fatima.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-11-02T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Paula Silva",
+   "id": "00000000-0000-0000-0001-00000000001f",
+   "jobTitle": "Specialist",
+   "mail": "paula.silva@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-22T12:00:00Z"
+   },
+   "userPrincipalName": "paula.silva@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-05-07T12:00:00Z",
+   "department": "Customer Care",
+   "displayName": "Aiden Eklund",
+   "id": "00000000-0000-0000-0001-000000000020",
+   "jobTitle": "Specialist",
+   "mail": "aiden.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-13T12:00:00Z"
+   },
+   "userPrincipalName": "aiden.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-07-13T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Tara Silva",
+   "id": "00000000-0000-0000-0001-000000000021",
+   "jobTitle": "Specialist",
+   "mail": "tara.silva@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "tara.silva@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-04-14T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Tara Ueda",
+   "id": "00000000-0000-0000-0001-000000000022",
+   "jobTitle": "Specialist",
+   "mail": "tara.ueda@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-16T12:00:00Z"
+   },
+   "userPrincipalName": "tara.ueda@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-05-08T12:00:00Z",
+   "department": "Customer Care",
+   "displayName": "Diana Petrov",
+   "id": "00000000-0000-0000-0001-000000000023",
+   "jobTitle": "Specialist",
+   "mail": "diana.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-29T12:00:00Z"
+   },
+   "userPrincipalName": "diana.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-10-20T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Carlos Grant",
+   "id": "00000000-0000-0000-0001-000000000024",
+   "jobTitle": "Specialist",
+   "mail": "carlos.grant@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-25T12:00:00Z"
+   },
+   "userPrincipalName": "carlos.grant@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-06-02T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Kofi Tanaka",
+   "id": "00000000-0000-0000-0001-000000000025",
+   "jobTitle": "Specialist",
+   "mail": "kofi.tanaka@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "kofi.tanaka@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2022-12-24T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Samir Eklund",
+   "id": "00000000-0000-0000-0001-000000000026",
+   "jobTitle": "Specialist",
+   "mail": "samir.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-19T12:00:00Z"
+   },
+   "userPrincipalName": "samir.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-04-23T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Aiden Castillo",
+   "id": "00000000-0000-0000-0001-000000000027",
+   "jobTitle": "Specialist",
+   "mail": "aiden.castillo@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-11T12:00:00Z"
+   },
+   "userPrincipalName": "aiden.castillo@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-01-16T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Ethan Ueda",
+   "id": "00000000-0000-0000-0001-000000000028",
+   "jobTitle": "Specialist",
+   "mail": "ethan.ueda@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-19T12:00:00Z"
+   },
+   "userPrincipalName": "ethan.ueda@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-09-07T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Lena Petrov",
+   "id": "00000000-0000-0000-0001-000000000029",
+   "jobTitle": "Specialist",
+   "mail": "lena.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "lena.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-12-09T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Omar Petrov",
+   "id": "00000000-0000-0000-0001-00000000002a",
+   "jobTitle": "Specialist",
+   "mail": "omar.petrov@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-21T12:00:00Z"
+   },
+   "userPrincipalName": "omar.petrov@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-09-26T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Ethan Dunne",
+   "id": "00000000-0000-0000-0001-00000000002b",
+   "jobTitle": "Specialist",
+   "mail": "ethan.dunne@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-22T12:00:00Z"
+   },
+   "userPrincipalName": "ethan.dunne@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-04-16T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Beatriz Walsh",
+   "id": "00000000-0000-0000-0001-00000000002c",
+   "jobTitle": "Specialist",
+   "mail": "beatriz.walsh@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-14T12:00:00Z"
+   },
+   "userPrincipalName": "beatriz.walsh@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-05-17T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Gabriel Quintero",
+   "id": "00000000-0000-0000-0001-00000000002d",
+   "jobTitle": "Specialist",
+   "mail": "gabriel.quintero@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "gabriel.quintero@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-11-28T12:00:00Z",
+   "department": "Compliance",
+   "displayName": "Aiden Zhou",
+   "id": "00000000-0000-0000-0001-00000000002e",
+   "jobTitle": "Specialist",
+   "mail": "aiden.zhou@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-10T12:00:00Z"
+   },
+   "userPrincipalName": "aiden.zhou@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-06-04T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Wren Ibarra",
+   "id": "00000000-0000-0000-0001-00000000002f",
+   "jobTitle": "Specialist",
+   "mail": "wren.ibarra@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-25T12:00:00Z"
+   },
+   "userPrincipalName": "wren.ibarra@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-03-03T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Zoe Hughes",
+   "id": "00000000-0000-0000-0001-000000000030",
+   "jobTitle": "Specialist",
+   "mail": "zoe.hughes@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-10T12:00:00Z"
+   },
+   "userPrincipalName": "zoe.hughes@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-03-04T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Tara Zhou",
+   "id": "00000000-0000-0000-0001-000000000031",
+   "jobTitle": "Specialist",
+   "mail": "tara.zhou@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-23T12:00:00Z"
+   },
+   "userPrincipalName": "tara.zhou@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-08-28T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Yusuf Hughes",
+   "id": "00000000-0000-0000-0001-000000000032",
+   "jobTitle": "Specialist",
+   "mail": "yusuf.hughes@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-14T12:00:00Z"
+   },
+   "userPrincipalName": "yusuf.hughes@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-11-07T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Lena Young",
+   "id": "00000000-0000-0000-0001-000000000033",
+   "jobTitle": "Specialist",
+   "mail": "lena.young@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-30T12:00:00Z"
+   },
+   "userPrincipalName": "lena.young@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-06-27T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Paula Ibarra",
+   "id": "00000000-0000-0000-0001-000000000034",
+   "jobTitle": "Specialist",
+   "mail": "paula.ibarra@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-11T12:00:00Z"
+   },
+   "userPrincipalName": "paula.ibarra@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-12-20T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Omar Young",
+   "id": "00000000-0000-0000-0001-000000000035",
+   "jobTitle": "Specialist",
+   "mail": "omar.young@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-19T12:00:00Z"
+   },
+   "userPrincipalName": "omar.young@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-04-26T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Hana Dunne",
+   "id": "00000000-0000-0000-0001-000000000036",
+   "jobTitle": "Specialist",
+   "mail": "hana.dunne@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-15T12:00:00Z"
+   },
+   "userPrincipalName": "hana.dunne@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2022-12-31T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Kofi Grant",
+   "id": "00000000-0000-0000-0001-000000000037",
+   "jobTitle": "Specialist",
+   "mail": "kofi.grant@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-11T12:00:00Z"
+   },
+   "userPrincipalName": "kofi.grant@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-06-28T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Beatriz Abbott",
+   "id": "00000000-0000-0000-0001-000000000038",
+   "jobTitle": "Specialist",
+   "mail": "beatriz.abbott@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-10T12:00:00Z"
+   },
+   "userPrincipalName": "beatriz.abbott@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-03-29T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Arjun Ueda",
+   "id": "00000000-0000-0000-0001-000000000039",
+   "jobTitle": "Specialist",
+   "mail": "arjun.ueda@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "arjun.ueda@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-06-02T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Arjun Walsh",
+   "id": "00000000-0000-0000-0001-00000000003a",
+   "jobTitle": "Specialist",
+   "mail": "arjun.walsh@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-15T12:00:00Z"
+   },
+   "userPrincipalName": "arjun.walsh@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-03-14T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Nora Ueda",
+   "id": "00000000-0000-0000-0001-00000000003b",
+   "jobTitle": "Specialist",
+   "mail": "nora.ueda@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-28T12:00:00Z"
+   },
+   "userPrincipalName": "nora.ueda@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-09-15T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Yusuf Castillo",
+   "id": "00000000-0000-0000-0001-00000000003c",
+   "jobTitle": "Specialist",
+   "mail": "yusuf.castillo@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-25T12:00:00Z"
+   },
+   "userPrincipalName": "yusuf.castillo@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-01-29T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Samir Osei",
+   "id": "00000000-0000-0000-0001-00000000003d",
+   "jobTitle": "Specialist",
+   "mail": "samir.osei@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-11T12:00:00Z"
+   },
+   "userPrincipalName": "samir.osei@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2023-05-06T12:00:00Z",
+   "department": "Marketing",
+   "displayName": "Paula Varga",
+   "id": "00000000-0000-0000-0001-00000000003e",
+   "jobTitle": "Specialist",
+   "mail": "paula.varga@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-26T12:00:00Z"
+   },
+   "userPrincipalName": "paula.varga@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2022-10-11T12:00:00Z",
+   "department": "Loan Origination",
+   "displayName": "Rosa Eklund",
+   "id": "00000000-0000-0000-0001-00000000003f",
+   "jobTitle": "Specialist",
+   "mail": "rosa.eklund@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-30T12:00:00Z"
+   },
+   "userPrincipalName": "rosa.eklund@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-04-30T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Diana Quintero",
+   "id": "00000000-0000-0000-0001-000000000040",
+   "jobTitle": "Specialist",
+   "mail": "diana.quintero@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-17T12:00:00Z"
+   },
+   "userPrincipalName": "diana.quintero@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Ava Chen",
+   "id": "00000000-0000-0000-0001-000000000041",
+   "jobTitle": "Cloud Platform Lead",
+   "mail": "ava.chen@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "ava.chen@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "Security",
+   "displayName": "Priya Nair",
+   "id": "00000000-0000-0000-0001-000000000042",
+   "jobTitle": "Security Engineering Manager",
+   "mail": "priya.nair@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "priya.nair@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Marcus Reid",
+   "id": "00000000-0000-0000-0001-000000000043",
+   "jobTitle": "IT Operations Manager",
+   "mail": "marcus.reid@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "marcus.reid@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Tom Baker",
+   "id": "00000000-0000-0000-0001-000000000044",
+   "jobTitle": "Principal Engineer",
+   "mail": "tom.baker@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "tom.baker@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Emergency Access 01",
+   "id": "00000000-0000-0000-0001-000000000045",
+   "jobTitle": "Emergency access",
+   "mail": "breakglass01@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-08-16T12:00:00Z"
+   },
+   "userPrincipalName": "breakglass01@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Emergency Access 02",
+   "id": "00000000-0000-0000-0001-000000000046",
+   "jobTitle": "Emergency access",
+   "mail": "breakglass02@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-08-01T12:00:00Z"
+   },
+   "userPrincipalName": "breakglass02@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-03-14T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Leo Martins",
+   "id": "00000000-0000-0000-0001-000000000047",
+   "jobTitle": "Contract Analyst",
+   "mail": "leo.martins@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "leo.martins@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Sara Okafor",
+   "id": "00000000-0000-0000-0001-000000000048",
+   "jobTitle": "Identity Administrator",
+   "mail": "sara.okafor@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "sara.okafor@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2022-11-30T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Gary Holt",
+   "id": "00000000-0000-0000-0001-000000000049",
+   "jobTitle": "Former Infrastructure Lead",
+   "mail": "gary.holt@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-03-04T12:00:00Z"
+   },
+   "userPrincipalName": "gary.holt@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2024-04-13T12:00:00Z",
+   "department": "Servicing",
+   "displayName": "Nina Patel",
+   "id": "00000000-0000-0000-0001-00000000004a",
+   "jobTitle": "Servicing Analyst",
+   "mail": "nina.patel@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-05-25T12:00:00Z"
+   },
+   "userPrincipalName": "nina.patel@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2026-09-21T12:00:00Z",
+   "department": "Underwriting",
+   "displayName": "Omar Reyes",
+   "id": "00000000-0000-0000-0001-00000000004b",
+   "jobTitle": "Underwriter",
+   "mail": "omar.reyes@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": null
+   },
+   "userPrincipalName": "omar.reyes@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": false,
+   "createdDateTime": "2023-09-26T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Riley Stone",
+   "id": "00000000-0000-0000-0001-00000000004c",
+   "jobTitle": "Former Developer",
+   "mail": "former.engineer@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-01-13T12:00:00Z"
+   },
+   "userPrincipalName": "former.engineer@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": false,
+   "createdDateTime": "2022-05-14T12:00:00Z",
+   "department": "Finance",
+   "displayName": "Pat Morgan",
+   "id": "00000000-0000-0000-0001-00000000004d",
+   "jobTitle": "Former Analyst",
+   "mail": "closed.account@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2025-08-26T12:00:00Z"
+   },
+   "userPrincipalName": "closed.account@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Jules Romero",
+   "id": "00000000-0000-0000-0001-00000000004e",
+   "jobTitle": "Integration Developer",
+   "mail": "jules.romero@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "jules.romero@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "Engineering",
+   "displayName": "Kai Thompson",
+   "id": "00000000-0000-0000-0001-00000000004f",
+   "jobTitle": "AI Developer",
+   "mail": "kai.thompson@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "kai.thompson@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Devon Lee",
+   "id": "00000000-0000-0000-0001-000000000050",
+   "jobTitle": "Service Desk Analyst",
+   "mail": "devon.lee@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "devon.lee@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Mia Santos",
+   "id": "00000000-0000-0000-0001-000000000051",
+   "jobTitle": "Service Desk L2",
+   "mail": "mia.santos@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "mia.santos@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "department": "IT Operations",
+   "displayName": "Noah Kim",
+   "id": "00000000-0000-0000-0001-000000000052",
+   "jobTitle": "Service Desk L2",
+   "mail": "noah.kim@kestrelridge.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "noah.kim@kestrelridge.example",
+   "userType": "Member"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "creationType": "Invitation",
+   "department": "External",
+   "displayName": "Partner Consultant",
+   "externalUserState": "Accepted",
+   "id": "00000000-0000-0000-0001-000000000053",
+   "jobTitle": "Consultant",
+   "mail": "ext.consultant@partnerfirm.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-09-27T12:00:00Z"
+   },
+   "userPrincipalName": "ext.consultant_partnerfirm.example#EXT#@kestrelridge.example",
+   "userType": "Guest"
+  },
+  {
+   "accountEnabled": true,
+   "createdDateTime": "2025-08-26T12:00:00Z",
+   "creationType": "Invitation",
+   "department": "External",
+   "displayName": "External Auditor",
+   "externalUserState": "Accepted",
+   "id": "00000000-0000-0000-0001-000000000054",
+   "jobTitle": "Auditor",
+   "mail": "auditor@auditco.example",
+   "onPremisesSyncEnabled": false,
+   "signInActivity": {
+    "lastNonInteractiveSignInDateTime": null,
+    "lastSignInDateTime": "2026-08-31T12:00:00Z"
+   },
+   "userPrincipalName": "auditor_auditco.example#EXT#@kestrelridge.example",
+   "userType": "Guest"
+  }
+ ]
+}

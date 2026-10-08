@@ -1,0 +1,1009 @@
+{
+ "@odata.context": "synthetic",
+ "value": [
+  {
+   "id": "00000000-0000-0000-0001-000000000001",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "kofi.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000002",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "carlos.rahman@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000003",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "bella.quintero@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000004",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "nora.nakamura@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000005",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "rosa.nakamura@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000006",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "hana.ueda@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000007",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "mateo.barros@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000008",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "chloe.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000009",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "rosa.dunne@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000a",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "diana.silva@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000b",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "rosa.walsh@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000c",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tara.grant@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000d",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "zoe.kaur@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000e",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "lena.jensen@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000000f",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "carlos.silva@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000010",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "kofi.young@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000011",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "carlos.dunne@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000012",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "ethan.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000013",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "carlos.zhou@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000014",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tara.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000015",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "isaac.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000016",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "uma.silva@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000017",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "victor.lindqvist@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000018",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "fatima.tanaka@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000019",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "gabriel.zhou@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001a",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "mateo.moreau@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001b",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "omar.moreau@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001c",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "chloe.rahman@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001d",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "victor.moreau@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001e",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "fatima.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000001f",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "paula.silva@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000020",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "aiden.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000021",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tara.silva@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000022",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tara.ueda@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000023",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "diana.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000024",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "carlos.grant@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000025",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "kofi.tanaka@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000026",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "samir.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000027",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "aiden.castillo@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000028",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "ethan.ueda@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000029",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "lena.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002a",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "omar.petrov@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002b",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "ethan.dunne@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002c",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "beatriz.walsh@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002d",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "gabriel.quintero@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002e",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "aiden.zhou@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000002f",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "wren.ibarra@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000030",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "zoe.hughes@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000031",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tara.zhou@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000032",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "yusuf.hughes@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000033",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "lena.young@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000034",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "paula.ibarra@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000035",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "omar.young@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000036",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "hana.dunne@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000037",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "kofi.grant@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000038",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "beatriz.abbott@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000039",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "arjun.ueda@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003a",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "arjun.walsh@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003b",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "nora.ueda@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003c",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "yusuf.castillo@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003d",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "samir.osei@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003e",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "paula.varga@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000003f",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "rosa.eklund@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000040",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "diana.quintero@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000041",
+   "isAdmin": true,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": true,
+   "methodsRegistered": [
+    "fido2SecurityKey",
+    "microsoftAuthenticatorPush"
+   ],
+   "userPrincipalName": "ava.chen@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000042",
+   "isAdmin": true,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": true,
+   "methodsRegistered": [
+    "fido2SecurityKey"
+   ],
+   "userPrincipalName": "priya.nair@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000043",
+   "isAdmin": true,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "marcus.reid@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000044",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "tom.baker@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000045",
+   "isAdmin": true,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": true,
+   "methodsRegistered": [
+    "fido2SecurityKey"
+   ],
+   "userPrincipalName": "breakglass01@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000046",
+   "isAdmin": true,
+   "isMfaCapable": false,
+   "isMfaRegistered": false,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "password"
+   ],
+   "userPrincipalName": "breakglass02@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000047",
+   "isAdmin": false,
+   "isMfaCapable": false,
+   "isMfaRegistered": false,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "password"
+   ],
+   "userPrincipalName": "leo.martins@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000048",
+   "isAdmin": true,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "sara.okafor@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000049",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "gary.holt@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004a",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "nina.patel@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004b",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "omar.reyes@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004c",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "former.engineer@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004d",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "closed.account@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004e",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "jules.romero@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-00000000004f",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "kai.thompson@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000050",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "devon.lee@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000051",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "mia.santos@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000052",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "noah.kim@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000053",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "ext.consultant_partnerfirm.example#EXT#@kestrelridge.example"
+  },
+  {
+   "id": "00000000-0000-0000-0001-000000000054",
+   "isAdmin": false,
+   "isMfaCapable": true,
+   "isMfaRegistered": true,
+   "isPasswordlessCapable": false,
+   "methodsRegistered": [
+    "microsoftAuthenticatorPush",
+    "softwareOneTimePasscode"
+   ],
+   "userPrincipalName": "auditor_auditco.example#EXT#@kestrelridge.example"
+  }
+ ]
+}

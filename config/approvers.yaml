@@ -1,0 +1,9 @@
+# Humans who may approve remediation items. Agents and service principals can never approve.
+approvers:
+  - id: ava.chen@kestrelridge.example
+    roles: [identity-owner, cloud-owner]
+  - id: priya.nair@kestrelridge.example
+    roles: [identity-owner, security-owner]
+# Items that touch a crown jewel or a directory role need two different approvers.
+dual_control_actions: [convert-to-eligible, remove-app-permission, narrow-workload-role, remove-agent-role]
+approval_ttl_hours: 24

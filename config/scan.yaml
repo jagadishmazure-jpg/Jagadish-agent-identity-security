@@ -1,0 +1,31 @@
+# Scan settings for the fictional tenant. The scan time is fixed so every run, test and rendered doc
+# block is reproducible; a live scan uses the current time instead.
+tenant:
+  name: Kestrel Ridge Mortgage
+  domain: kestrelridge.example
+  tenant_id: 00000000-0000-0000-0000-000000000100
+scan_time: "2026-09-30T12:00:00Z"
+# Tenants whose apps are Microsoft first-party services (excluded from external-app checks). Offline
+# data uses a mock ID; add Microsoft's public first-party tenant ID here before a live scan.
+first_party_tenants: [00000000-0000-0000-0000-0000000000ff]
+subscriptions:
+  00000000-0000-0000-0000-0000000000a1: prod
+  00000000-0000-0000-0000-0000000000a2: nonprod
+
+thresholds:
+  stale_sign_in_days: 90          # enabled account with no sign-in for longer than this is dormant
+  new_account_grace_days: 30      # accounts younger than this are never called dormant
+  max_password_lifetime_days: 180 # client secrets (password credentials) longer than this are long-lived
+  max_certificate_lifetime_days: 365
+  secret_rotation_days: 365       # Key Vault secret not updated for longer than this is unrotated
+
+# Break-glass accounts: excluded from Conditional Access by design and allowed standing Global
+# Administrator. They get their own check (phishing-resistant method registered) instead.
+emergency_accounts:
+  - breakglass01@kestrelridge.example
+  - breakglass02@kestrelridge.example
+
+phishing_resistant_methods: [fido2SecurityKey, windowsHelloForBusiness, x509CertificateMultiFactor, passKeyDeviceBound]
+
+# Severity weights used by the posture score (share of checks passed, weighted by severity).
+severity_weights: { critical: 10, high: 5, medium: 2, low: 1 }

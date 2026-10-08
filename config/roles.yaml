@@ -1,0 +1,85 @@
+# What each role or permission lets its holder do, in graph terms. Path analysis turns these
+# capabilities into edges; detections use the tiers. Matching is by display name, because built-in
+# role IDs are only resolved at collection time (offline data uses mock IDs).
+azure_roles:
+  Owner:                                 { caps: [control] }
+  User Access Administrator:             { caps: [control] }
+  Role Based Access Control Administrator: { caps: [control] }
+  Contributor:                           { caps: [write] }
+  Virtual Machine Contributor:           { caps: [write], types: [microsoft.compute/virtualmachines] }
+  Website Contributor:                   { caps: [write], types: [microsoft.web/sites] }
+  Key Vault Administrator:               { caps: [secrets_read, write], types: [microsoft.keyvault/vaults] }
+  Key Vault Secrets Officer:             { caps: [secrets_read] }
+  Key Vault Secrets User:                { caps: [secrets_read] }
+  Key Vault Reader:                      { caps: [] }
+  Azure AI Developer:                    { caps: [agent_edit], types: [microsoft.cognitiveservices/accounts/projects] }
+  Cognitive Services OpenAI User:        { caps: [] }
+  Storage Blob Data Contributor:         { caps: [data_write] }
+  Storage Blob Data Reader:              { caps: [] }
+  Reader:                                { caps: [] }
+  Monitoring Reader:                     { caps: [] }
+  Identity Posture Reader:               { caps: [] }   # this repository's own custom scan role
+
+# Azure roles treated as standing admin rights when held permanently at subscription scope or above.
+azure_admin_roles: [Owner, User Access Administrator, Role Based Access Control Administrator]
+
+directory_roles:
+  Global Administrator:                    { tier: 0, edges: [] }
+  Privileged Role Administrator:           { tier: 0, edges: [grant-global-admin] }
+  Privileged Authentication Administrator: { tier: 0, edges: [reset-admin-credentials] }
+  Application Administrator:               { tier: 1, edges: [add-app-credentials] }
+  Cloud Application Administrator:         { tier: 1, edges: [add-app-credentials] }
+  Conditional Access Administrator:        { tier: 1, edges: [] }
+  Security Administrator:                  { tier: 1, edges: [] }
+  User Administrator:                      { tier: 1, edges: [] }
+  Exchange Administrator:                  { tier: 1, edges: [] }
+  Helpdesk Administrator:                  { tier: 2, edges: [] }
+  Directory Readers:                       { tier: 3, edges: [] }
+  Global Reader:                           { tier: 3, edges: [] }
+
+# Microsoft Graph application permissions. tier 0 = equivalent to Global Administrator.
+graph_app_permissions:
+  RoleManagement.ReadWrite.Directory: { tier: 0, edges: [grant-global-admin], safer: RoleManagement.Read.Directory }
+  AppRoleAssignment.ReadWrite.All:    { tier: 0, edges: [grant-global-admin], safer: AppRoleAssignment.Read.All }
+  Application.ReadWrite.All:          { tier: 1, edges: [add-app-credentials], safer: Application.ReadWrite.OwnedBy }
+  Directory.ReadWrite.All:            { tier: 1, edges: [edit-groups], safer: "User.Read.All, Group.Read.All" }
+  Policy.ReadWrite.ConditionalAccess: { tier: 1, edges: [], safer: Policy.Read.All }
+  User.ReadWrite.All:                 { tier: 1, edges: [], safer: User.Read.All }
+  Mail.ReadWrite:                     { tier: 1, edges: [], safer: "Mail.ReadBasic with an application access policy" }
+  Files.ReadWrite.All:                { tier: 1, edges: [], safer: Sites.Selected }
+  Sites.FullControl.All:              { tier: 1, edges: [], safer: Sites.Selected }
+  User.Read.All:                      { tier: 3, edges: [] }
+  Group.Read.All:                     { tier: 3, edges: [] }
+  Mail.Send:                          { tier: 2, edges: [] }
+
+# Delegated scopes that make a tenant-wide consent grant risky (data exfiltration or tenant change).
+risky_delegated_scopes:
+  [Mail.Read, Mail.ReadWrite, Mail.Send, MailboxSettings.ReadWrite, Files.Read.All, Files.ReadWrite.All, Sites.ReadWrite.All, Directory.ReadWrite.All, Directory.AccessAsUser.All]
+
+# Probability-like ease of abusing each edge kind, used to rank the riskiest path. Lower means the
+# step needs more (activation with MFA and approval, a successful prompt injection, and so on).
+edge_ease:
+  member_of: 1.0
+  contains: 1.0
+  holds_role: 0.9
+  eligible_role: 0.3
+  owns_app: 0.8
+  app_permission: 0.9
+  grant-global-admin: 0.9
+  reset-admin-credentials: 0.7
+  add-app-credentials: 0.8
+  edit-groups: 0.6
+  elevate-access: 0.9
+  write_resource: 0.8
+  runs_as: 0.7
+  vault_policy_write: 0.8
+  secrets_read: 0.9
+  stored_credential: 0.8
+  agent_edit: 0.7
+  agent_identity: 0.9
+  uses_tool: 0.8
+  tool_connection: 0.9
+  connection_secret: 0.9
+  connection_identity: 0.9
+  prompt_injection: 0.3
+  federated_trust: 0.5
