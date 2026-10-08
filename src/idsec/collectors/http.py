@@ -65,7 +65,9 @@ class Transport:
         for attempt in range(self.max_retries + 1):
             self.requests.append((method, url))
             status, hdrs, payload = self.send(method, url, headers, data)
-            if status == 429 and attempt < self.max_retries:
+            if status == 429:
+                if attempt == self.max_retries:
+                    break
                 self.sleep(min(float(hdrs.get("Retry-After", 2**attempt)), 60))
                 continue
             if status >= 400:
@@ -74,9 +76,17 @@ class Transport:
         raise RuntimeError(f"{method} {url}: still throttled after {self.max_retries} retries")
 
     def get_all(self, url: str, scope: str) -> list[dict]:
+        """Every item of a list endpoint. Graph and ARM page with `value` + `@odata.nextLink` /
+        `nextLink`; the Foundry agents API pages OpenAI-style with `data`, `has_more` and `last_id`."""
         out: list[dict] = []
+        base = url
         while url:
             page = self.request("GET", url, scope)
+            if "data" in page and "value" not in page:
+                out += page["data"]
+                more = page.get("has_more") and page.get("last_id")
+                url = f"{base}{'&' if '?' in base else '?'}after={page['last_id']}" if more else ""
+                continue
             out += page.get("value", [])
             url = page.get("@odata.nextLink") or page.get("nextLink") or ""
         return out
