@@ -28,7 +28,10 @@ def catalogue() -> list[dict]:
 
 
 def rule_meta(rule_id: str) -> dict:
-    return next(r for r in catalogue() if r["id"] == rule_id)
+    for r in catalogue():
+        if r["id"] == rule_id:
+            return r
+    raise KeyError(rule_id)
 
 
 @dataclass

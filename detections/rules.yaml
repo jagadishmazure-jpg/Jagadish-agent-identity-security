@@ -237,6 +237,7 @@ rules:
     explanation: The agent identity has no sponsor (or only disabled ones), so nobody answers for what the agent does or decides when it should be retired.
     fix: Assign an active sponsor from the owning team on the agent identity; retire the agent if nobody will sponsor it.
     action: assign-sponsor
+    attack: [T1078.004]
     owasp_llm: [LLM06]
     cis: ["5.5", "6.2"]
     zero_trust: assume breach
@@ -297,6 +298,7 @@ rules:
     explanation: Agents sharing an identity get the union of each other's access, and logs cannot tell which agent did what.
     fix: Create one agent identity per agent from the blueprint and give each only the roles its own purpose needs.
     action: split-identity
+    attack: [T1078.004]
     owasp_llm: [LLM06]
     cis: ["5.5"]
     zero_trust: least privilege
