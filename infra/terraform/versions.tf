@@ -4,7 +4,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 4.50"
+      version = "~> 5.8"
     }
     # Only for the optional Microsoft Graph application permissions (var.grant_graph_permissions).
     azuread = {
