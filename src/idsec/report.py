@@ -1,4 +1,4 @@
-"""Findings explorer outputs: a self-contained static HTML report, a markdown report and CSV for
+"""Report outputs: a self-contained static HTML report, a markdown report and CSV for
 auditors, and a one-page executive summary.
 
 Tenant text (names, evidence that embeds names) is attacker-controlled, so: HTML output escapes
@@ -161,7 +161,7 @@ td,th{{border:1px solid #d0d7de;padding:.35rem .5rem;vertical-align:top;font-siz
 <p>Synthetic data, offline scan. Every value below is escaped; tenant text is untrusted.</p>
 <div class="cards">{cards}</div>
 <h2>Inventory</h2><table>{inv_rows}</table>
-<h2>Findings explorer</h2>
+<h2>Browse findings</h2>
 <div class="controls"><label>Severity <select id="sev"><option value="">all</option><option>critical</option><option>high</option><option>medium</option><option>low</option></select></label>
 <label>Area <select id="area"><option value="">all</option><option>privilege</option><option>foundational</option><option>emerging</option></select></label>
 <label>Search <input id="q" type="search"></label><span id="count"></span></div>

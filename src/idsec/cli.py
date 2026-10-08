@@ -4,8 +4,8 @@ and kept current by scripts/render_docs.py.
     idsec synth [--check]          regenerate (or drift-check) the synthetic tenant
     idsec inventory | graph        what was collected, and the identity graph it became
     idsec scan                     posture scores and findings per rule
-    idsec findings [filters]       the findings explorer (CLI)   |  idsec show <ID>
-    idsec rules                    the detections catalogue with framework mappings
+    idsec findings [filters]       browse findings (CLI)         |  idsec show <ID>
+    idsec rules [--detail]         the detections catalogue with framework mappings
     idsec paths [--jewel J]        riskiest paths to crown jewels  |  idsec blast
     idsec plan [--show ID]         remediation items, snippets     |  idsec simulate
     idsec approvals                approval and dry-run execution walkthrough
@@ -26,6 +26,7 @@ import asyncio
 import logging
 import os
 import sys
+import textwrap
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
@@ -121,6 +122,18 @@ def cmd_show(a) -> int:
 
 
 def cmd_rules(a) -> int:
+    if a.detail:
+        for r in detections.catalogue():
+            maps = [f"ATT&CK {' '.join(r['attack'])}" if r.get("attack") else "", f"ATLAS {' '.join(r['atlas'])}" if r.get("atlas") else "",
+                    f"OWASP LLM {' '.join(r['owasp_llm'])}" if r.get("owasp_llm") else "", f"CIS {' '.join(r['cis'])}" if r.get("cis") else "",
+                    f"Zero Trust: {r['zero_trust']}" if r.get("zero_trust") else ""]  # fmt: skip
+            print(f"{r['code']}  {r['id']}  [{r['severity']}, {r['area']}]")
+            print(f"  {r['title']}")
+            print(textwrap.fill(f"why: {' '.join(r['explanation'].split())}", 100, initial_indent="  ", subsequent_indent="       "))
+            print(textwrap.fill(f"fix: {' '.join(r['fix'].split())}", 100, initial_indent="  ", subsequent_indent="       "))
+            print(f"  maps to: {'; '.join(m for m in maps if m)}")
+            print(f"  remediation action: {r['action']}\n")
+        return 0
     rows = [
         {
             "code": r["code"],
@@ -369,7 +382,10 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("synth")
     s.add_argument("--check", action="store_true")
     s.set_defaults(fn=cmd_synth)
-    for name, fn in (("inventory", cmd_inventory), ("graph", cmd_graph), ("scan", cmd_scan), ("rules", cmd_rules), ("simulate", cmd_simulate),
+    s = sub.add_parser("rules")
+    s.add_argument("--detail", action="store_true", help="explanation, fix and mappings for every rule")
+    s.set_defaults(fn=cmd_rules)
+    for name, fn in (("inventory", cmd_inventory), ("graph", cmd_graph), ("scan", cmd_scan), ("simulate", cmd_simulate),
                      ("approvals", cmd_approvals), ("metrics", cmd_metrics), ("path-metrics", cmd_path_metrics), ("injection", cmd_injection),
                      ("bench", cmd_bench), ("mcp", cmd_mcp), ("mcp-demo", cmd_mcp_demo), ("gate", cmd_gate)):  # fmt: skip
         sub.add_parser(name).set_defaults(fn=fn)

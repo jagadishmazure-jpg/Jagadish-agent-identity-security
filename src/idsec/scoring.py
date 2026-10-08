@@ -14,7 +14,11 @@ from idsec.detections import RuleResult, rule_meta
 from idsec.inventory import load_yaml
 
 AREAS = ("privilege", "foundational", "emerging")
-AREA_LABELS = {"privilege": "Privilege", "foundational": "Foundational controls", "emerging": "Emerging: AI agents, NHIs and secrets"}
+AREA_LABELS = {
+    "privilege": "Privilege and escalation paths",
+    "foundational": "Foundational identity hygiene",
+    "emerging": "AI agents, workload identities and secrets",
+}
 
 
 @dataclass
