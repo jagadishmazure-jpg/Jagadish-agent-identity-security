@@ -66,6 +66,12 @@ variable "scan_image" {
   default     = ""
 }
 
+variable "scan_collect_args" {
+  description = "Extra arguments for the job's collect step, e.g. --vault NAME --project ID=ENDPOINT."
+  type        = string
+  default     = ""
+}
+
 variable "scan_schedule" {
   description = "Cron expression (UTC) for the scan job."
   type        = string

@@ -171,6 +171,16 @@ run "scan_job_private" {
   }
 
   assert {
+    condition     = azurerm_container_app_environment.this[0].logs_destination == "azure-monitor" && length(azurerm_monitor_diagnostic_setting.environment) == 1
+    error_message = "job logs reach the keyless workspace through a diagnostic setting"
+  }
+
+  assert {
+    condition     = strcontains(azurerm_container_app_job.scan[0].template[0].container[0].command[2], "idsec collect --live")
+    error_message = "the job collects read-only, then scans"
+  }
+
+  assert {
     condition     = length(azurerm_subnet.jobs) == 1 && length(azurerm_network_security_group.jobs) == 1
     error_message = "private mode creates a delegated subnet with an NSG"
   }

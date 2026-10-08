@@ -24,8 +24,9 @@ from __future__ import annotations
 import argparse
 import asyncio
 import logging
+import os
 import sys
-from datetime import timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from idsec import detections, inventory, paths, remediation, report, scoring, soc, synth
@@ -43,7 +44,10 @@ def table(rows: list[dict], cols: list[str] | None = None) -> str:
 
 
 def _scan():
-    inv = inventory.load()
+    # IDSEC_DATA points at a collected tenant (for example the scan job's /tmp/tenant); ages are
+    # then measured from the current time instead of the synthetic tenant's fixed scan time.
+    data = os.environ.get("IDSEC_DATA")
+    inv = inventory.load(Path(data), now=datetime.now(UTC)) if data else inventory.load()
     g = gmod.build(inv)
     return inv, g, detections.run(inv, g)
 
@@ -404,7 +408,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--offline")
     s.add_argument("--live", action="store_true")
     s.add_argument("--out", default="data/live")
-    s.add_argument("--subscription", action="append", default=[])
+    s.add_argument("--subscription", action="append", default=[x for x in os.environ.get("IDSEC_SUBSCRIPTIONS", "").split(",") if x])
     s.add_argument("--vault", action="append", default=[])
     s.add_argument("--project", action="append", default=[], help="PROJECT_RESOURCE_ID=PROJECT_ENDPOINT")
     s.set_defaults(fn=cmd_collect)

@@ -30,5 +30,6 @@ locals {
     "AuditLog.Read.All",
   ])
 
-  run_job = var.enable_scan_job && var.scan_image != ""
+  run_job      = var.enable_scan_job && var.scan_image != ""
+  scan_command = trimspace("idsec collect --live --out /tmp/tenant ${var.scan_collect_args} && idsec scan && idsec soc-export")
 }

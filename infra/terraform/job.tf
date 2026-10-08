@@ -6,7 +6,7 @@ resource "azurerm_container_app_environment" "this" {
   name                           = "cae-idsec-${local.suffix}"
   location                       = azurerm_resource_group.this.location
   resource_group_name            = azurerm_resource_group.this.name
-  log_analytics_workspace_id     = azurerm_log_analytics_workspace.this.id
+  logs_destination               = "azure-monitor"
   infrastructure_subnet_id       = var.private_networking ? azurerm_subnet.jobs[0].id : null
   internal_load_balancer_enabled = var.private_networking ? true : null
   tags                           = local.tags
@@ -17,6 +17,19 @@ resource "azurerm_container_app_environment" "this" {
       name                  = "Consumption"
       workload_profile_type = "Consumption"
     }
+  }
+}
+
+# Platform and console logs reach the workspace through a diagnostic setting (Entra ID auth); the
+# workspace has shared keys disabled, so the environment's built-in Log Analytics link is not used.
+resource "azurerm_monitor_diagnostic_setting" "environment" {
+  count                      = local.run_job ? 1 : 0
+  name                       = "diag-logs"
+  target_resource_id         = azurerm_container_app_environment.this[0].id
+  log_analytics_workspace_id = azurerm_log_analytics_workspace.this.id
+
+  enabled_log {
+    category_group = "allLogs"
   }
 }
 
@@ -47,11 +60,16 @@ resource "azurerm_container_app_job" "scan" {
       image  = var.scan_image
       cpu    = 0.5
       memory = "1Gi"
-      args   = ["idsec", "collect", "--live", "--out", "/tmp/tenant"]
+      # collect read-only, score, and print SOC alert rows to the console log
+      command = ["/bin/sh", "-c", local.scan_command]
 
       env {
         name  = "AZURE_CLIENT_ID"
         value = azurerm_user_assigned_identity.scanner.client_id
+      }
+      env {
+        name  = "IDSEC_DATA"
+        value = "/tmp/tenant"
       }
       env {
         name  = "IDSEC_SUBSCRIPTIONS"
