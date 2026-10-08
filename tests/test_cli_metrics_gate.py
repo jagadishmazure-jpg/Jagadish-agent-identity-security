@@ -48,7 +48,7 @@ def test_commands(capsys, argv, expect):
 
 
 def test_show_unknown_finding_fails(capsys):
-    code, out = run(capsys, "show", "X99-99")
+    code, _ = run(capsys, "show", "X99-99")
     assert code != 0
 
 
@@ -58,7 +58,7 @@ def test_plan_show_prints_snippets(capsys):
 
 
 def test_report_writes_files(capsys, tmp_path):
-    code, out = run(capsys, "report", "--out", str(tmp_path))
+    code, _ = run(capsys, "report", "--out", str(tmp_path))
     assert code == 0 and (tmp_path / "report.html").exists() and (tmp_path / "executive-summary.md").exists()
 
 
@@ -93,7 +93,8 @@ def test_scan_reads_collected_data_from_idsec_data(capsys, monkeypatch, tmp_path
 
 def test_ask_without_guard_falls_back(capsys):
     _, out = run(capsys, "ask", "Tell me about Harbor Backup Service", "--no-guard", "--gullible")
-    assert "no identity risks" not in out.split("final answer")[-1].lower() if "final answer" in out else True
+    answer = next(line for line in out.splitlines() if line.startswith("A: "))
+    assert "fallback used: True" in out and "no identity risks" not in answer
 
 
 def test_subscriptions_default_from_environment(monkeypatch):
