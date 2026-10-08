@@ -1,0 +1,19 @@
+# Least-privilege replacements an owner has already agreed in principle. The remediation planner
+# uses a hint when one exists for the subject (matched by display name); otherwise it proposes a
+# generic least-privilege change and marks the item as needing an owner decision.
+narrow_role:
+  loan-docs-sync:     { role: Storage Blob Data Contributor, scope_resource: stkrloandocs }
+  vm-kr-batch01:      { role: Contributor, scope_resource_group: rg-kr-batch-prod }
+external_role:
+  Harbor Backup Service: { role: Key Vault Reader, scope_resource: kv-kr-prod-secrets }
+owners:
+  legacy-batch-etl:  [tom.baker@kestrelridge.example, jules.romero@kestrelridge.example]
+  hr-sync-connector: [ava.chen@kestrelridge.example, priya.nair@kestrelridge.example]
+sponsors:
+  marketing-copy: [kai.thompson@kestrelridge.example]
+federated_subject:
+  github-deploy-platform: { remove: platform-pr }
+  github-deploy-web: { subject: "repo:kestrelridge/web-portal:environment:prod" }
+replace_secret:
+  loan-docs-sync: federated
+  legacy-batch-etl: certificate

@@ -76,7 +76,12 @@ def build(inv: Inventory) -> nx.DiGraph:
             _capability_edge(g, edge, inv, f"dirrole:{role}", e, role)
     for sub in inv.subscriptions:
         node(f"scope:/subscriptions/{sub}", "subscription", f"subscription {sub[-4:]} ({inv.subscriptions[sub]})", env=inv.subscriptions[sub])
-        edge("dirrole:Global Administrator", f"scope:/subscriptions/{sub}", "elevate-access", "Global Administrator can elevate to User Access Administrator at root")
+        edge(
+            "dirrole:Global Administrator",
+            f"scope:/subscriptions/{sub}",
+            "elevate-access",
+            "Global Administrator can elevate to User Access Administrator at root",
+        )
     edge("dirrole:Global Administrator", "ctl:app-credentials", "add-app-credentials", "Global Administrator manages every application")
     for p in inv.principals.values():
         if p.kind == "app" or p.is_blueprint:
@@ -106,7 +111,11 @@ def build(inv: Inventory) -> nx.DiGraph:
             edge(f"scope:/subscriptions/{s.split('/')[2]}", f"scope:{s}", "contains", "subscription contains the resource group")
     for r in inv.resources.values():
         node(f"res:{r.id}", r.type, r.name, env=r.env)
-        parent = f"res:{r.parent}" if r.parent and r.parent in inv.resources else f"scope:/subscriptions/{r.subscription}/resourceGroups/{r.resource_group}"
+        parent = (
+            f"res:{r.parent}"
+            if r.parent and r.parent in inv.resources
+            else f"scope:/subscriptions/{r.subscription}/resourceGroups/{r.resource_group}"
+        )
         node(parent, "resource_group", parent.rsplit("/", 1)[-1])
         edge(parent, f"res:{r.id}", "contains", f"contains {r.name}")
         for pid in r.identities:

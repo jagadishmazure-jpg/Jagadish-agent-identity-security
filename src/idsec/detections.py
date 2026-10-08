@@ -134,7 +134,11 @@ def standing_privileged_role(c: Ctx):
     for p in people:
         roles = [a.role for a in c.inv.dir_roles_of(p.id, states=("standing",)) if c.dir_tier(a.role) <= 1]
         if roles:
-            out.append(Finding("standing-privileged-role", p.id, c.inv.name(p.id), [f"permanent assignment: {r} (tier {c.dir_tier(r)})" for r in sorted(roles)]))
+            out.append(
+                Finding(
+                    "standing-privileged-role", p.id, c.inv.name(p.id), [f"permanent assignment: {r} (tier {c.dir_tier(r)})" for r in sorted(roles)]
+                )
+            )
     return out, len(people)
 
 
@@ -237,7 +241,11 @@ def risky_consent_grant(c: Ctx):
 @rule
 def no_mfa_registered(c: Ctx):
     people = [p for p in _people(c, guests=False) if not c.is_emergency(p)]
-    out = [Finding("no-mfa-registered", p.id, c.inv.name(p.id), [f"methods registered: {', '.join(p.methods) or 'none'}"]) for p in people if p.mfa_registered is False]
+    out = [
+        Finding("no-mfa-registered", p.id, c.inv.name(p.id), [f"methods registered: {', '.join(p.methods) or 'none'}"])
+        for p in people
+        if p.mfa_registered is False
+    ]
     return out, len(people)
 
 
@@ -277,7 +285,12 @@ def emergency_account_weak_method(c: Ctx):
     strong = set(c.scan["phishing_resistant_methods"])
     accts = [p for p in c.inv.principals.values() if p.human and c.is_emergency(p)]
     out = [
-        Finding("emergency-account-weak-method", p.id, c.inv.name(p.id), [f"methods registered: {', '.join(p.methods) or 'none'}; none is phishing-resistant"])
+        Finding(
+            "emergency-account-weak-method",
+            p.id,
+            c.inv.name(p.id),
+            [f"methods registered: {', '.join(p.methods) or 'none'}; none is phishing-resistant"],
+        )
         for p in accts
         if not strong & set(p.methods)
     ]
@@ -291,7 +304,10 @@ def legacy_auth_not_blocked(c: Ctx):
     if any(p.state == "enabled" and "All" in p.include_users for p in blocking):
         return [], 1
     subject = blocking[0] if blocking else None
-    ev = [f"policy '{subject.name}' is {subject.state}" if subject else "no policy targets legacy client app types", "legacy protocols can sign in with a password alone"]
+    ev = [
+        f"policy '{subject.name}' is {subject.state}" if subject else "no policy targets legacy client app types",
+        "legacy protocols can sign in with a password alone",
+    ]
     return [Finding("legacy-auth-not-blocked", subject.id if subject else c.inv.tenant_id, subject.name if subject else "tenant", ev)], 1
 
 
@@ -301,7 +317,9 @@ def vault_legacy_access_policies(c: Ctx):
     out = []
     for v in vaults:
         if not v.props.get("enableRbacAuthorization", True):
-            ev = [f"{len(v.props.get('accessPolicies') or [])} access policies; public network access {v.props.get('publicNetworkAccess', 'unknown')}"]
+            ev = [
+                f"{len(v.props.get('accessPolicies') or [])} access policies; public network access {v.props.get('publicNetworkAccess', 'unknown')}"
+            ]
             for ap in v.props.get("accessPolicies") or []:
                 ev.append(f"{c.inv.name(ap['objectId'])}: secrets {', '.join(ap['permissions'].get('secrets', []))}")
             out.append(Finding("vault-legacy-access-policies", f"vault:{v.name}", v.name, ev))
@@ -333,7 +351,9 @@ def long_lived_app_secret(c: Ctx):
     for cr in c.inv.app_credentials:
         limit = th["max_password_lifetime_days"] if cr.kind == "password" else th["max_certificate_lifetime_days"]
         if cr.lifetime_days > limit and cr.expires_in_days > 0:
-            by_sp.setdefault(cr.sp_id, []).append(f"{cr.kind} '{cr.name}' lifetime {cr.lifetime_days:.0f} days (limit {limit}), {cr.expires_in_days:.0f} days left")
+            by_sp.setdefault(cr.sp_id, []).append(
+                f"{cr.kind} '{cr.name}' lifetime {cr.lifetime_days:.0f} days (limit {limit}), {cr.expires_in_days:.0f} days left"
+            )
     out = [Finding("long-lived-app-secret", k, c.inv.name(k), v) for k, v in by_sp.items()]
     return out, len({cr.sp_id for cr in c.inv.app_credentials})
 
@@ -351,7 +371,11 @@ def unrotated_secret(c: Ctx):
 
 @rule
 def secret_without_expiry(c: Ctx):
-    out = [Finding("secret-without-expiry", s.key, f"{s.vault}/{s.name}", ["no expiry attribute set"]) for s in c.inv.secrets if s.expires_in_days is None]
+    out = [
+        Finding("secret-without-expiry", s.key, f"{s.vault}/{s.name}", ["no expiry attribute set"])
+        for s in c.inv.secrets
+        if s.expires_in_days is None
+    ]
     return out, len(c.inv.secrets)
 
 
@@ -370,7 +394,11 @@ def consumers(inv: Inventory) -> dict[str, list[str]]:
 @rule
 def shared_credential(c: Ctx):
     cons = consumers(c.inv)
-    out = [Finding("shared-credential", k, k.removeprefix("secret:"), [f"used by {len(v)} consumers: {', '.join(sorted(v))}"]) for k, v in sorted(cons.items()) if len(v) > 1]
+    out = [
+        Finding("shared-credential", k, k.removeprefix("secret:"), [f"used by {len(v)} consumers: {', '.join(sorted(v))}"])
+        for k, v in sorted(cons.items())
+        if len(v) > 1
+    ]
     return out, len(cons)
 
 
@@ -456,7 +484,11 @@ def shared_agent_identity(c: Ctx):
     idents: dict[str, list[str]] = {}
     for a in c.inv.agents:
         idents.setdefault(a.identity_id, []).append(a.name)
-    out = [Finding("shared-agent-identity", k, c.inv.name(k), [f"used by {len(v)} agents: {', '.join(sorted(v))}"]) for k, v in idents.items() if len(v) > 1]
+    out = [
+        Finding("shared-agent-identity", k, c.inv.name(k), [f"used by {len(v)} agents: {', '.join(sorted(v))}"])
+        for k, v in idents.items()
+        if len(v) > 1
+    ]
     return out, len(idents)
 
 

@@ -10,6 +10,7 @@ adds the paths that need an activation."""
 
 from __future__ import annotations
 
+import itertools
 import math
 from dataclasses import dataclass, field
 
@@ -56,7 +57,7 @@ def _w(a, b, d) -> float:
 
 
 def _steps(g, nodes) -> list[dict]:
-    return [{"from": a, "to": b, "kind": g[a][b]["kind"], "why": g[a][b]["why"]} for a, b in zip(nodes, nodes[1:], strict=False)]
+    return [{"from": a, "to": b, "kind": g[a][b]["kind"], "why": g[a][b]["why"]} for a, b in itertools.pairwise(nodes)]
 
 
 def best_paths(g: nx.DiGraph, src: str, jewel: CrownJewel, include_eligible: bool = False) -> tuple[Path, Path] | None:
@@ -70,7 +71,7 @@ def best_paths(g: nx.DiGraph, src: str, jewel: CrownJewel, include_eligible: boo
     risky = nx.dijkstra_path(view, src, jewel.node, weight=_w)
 
     def mk(nodes):
-        risk = math.prod(g[a][b]["ease"] for a, b in zip(nodes, nodes[1:], strict=False))
+        risk = math.prod(g[a][b]["ease"] for a, b in itertools.pairwise(nodes))
         return Path(src, jewel.id, nodes, len(nodes) - 1, round(risk, 3), _steps(g, nodes))
 
     return mk(short), mk(risky)

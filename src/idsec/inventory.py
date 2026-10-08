@@ -390,8 +390,14 @@ def load(root: Path = TENANT_DATA, now: datetime | None = None) -> Inventory:
             for c in a.get(key) or []:
                 start, end = parse_time(c["startDateTime"]), parse_time(c["endDateTime"])
                 creds.append(
-                    AppCredential(sp_id, kind, c.get("displayName") or "", days(c["startDateTime"]), round((end - start).total_seconds() / 86400, 1),
-                                  round((end - now).total_seconds() / 86400, 1))  # fmt: skip
+                    AppCredential(
+                        sp_id,
+                        kind,
+                        c.get("displayName") or "",
+                        days(c["startDateTime"]),
+                        round((end - start).total_seconds() / 86400, 1),
+                        round((end - now).total_seconds() / 86400, 1),
+                    )
                 )
         for f in a.get("federatedIdentityCredentials") or []:
             expr = (f.get("claimsMatchingExpression") or {}).get("value")
@@ -410,19 +416,37 @@ def load(root: Path = TENANT_DATA, now: datetime | None = None) -> Inventory:
         u = p["conditions"]["users"]
         g = p.get("grantControls") or {}
         ca.append(
-            CAPolicy(p["id"], p["displayName"], p["state"], u.get("includeUsers", []), u.get("excludeUsers", []), u.get("includeGroups", []),
-                     u.get("excludeGroups", []), [role_defs.get(r, r) for r in u.get("includeRoles", [])], g.get("builtInControls") or [],
-                     p["conditions"].get("clientAppTypes") or ["all"], (g.get("authenticationStrength") or {}).get("displayName"))  # fmt: skip
+            CAPolicy(
+                p["id"],
+                p["displayName"],
+                p["state"],
+                u.get("includeUsers", []),
+                u.get("excludeUsers", []),
+                u.get("includeGroups", []),
+                u.get("excludeGroups", []),
+                [role_defs.get(r, r) for r in u.get("includeRoles", [])],
+                g.get("builtInControls") or [],
+                p["conditions"].get("clientAppTypes") or ["all"],
+                (g.get("authenticationStrength") or {}).get("displayName"),
+            )
         )
 
     az_defs = {r["id"].rsplit("/", 1)[-1]: r["properties"]["roleName"] for r in _items(_read(root, "arm/roleDefinitions.json"))}
     azure_roles = []
     for a in _items(_read(root, "arm/roleAssignments.json")):
         pr = a["properties"]
-        azure_roles.append(AzureRoleAssignment(a["id"], pr["principalId"], az_defs.get(pr["roleDefinitionId"].rsplit("/", 1)[-1], "unknown"), pr["scope"], "standing"))
+        azure_roles.append(
+            AzureRoleAssignment(
+                a["id"], pr["principalId"], az_defs.get(pr["roleDefinitionId"].rsplit("/", 1)[-1], "unknown"), pr["scope"], "standing"
+            )
+        )
     for a in _items(_read(root, "arm/roleEligibilityScheduleInstances.json")):
         pr = a["properties"]
-        azure_roles.append(AzureRoleAssignment(a["id"], pr["principalId"], az_defs.get(pr["roleDefinitionId"].rsplit("/", 1)[-1], "unknown"), pr["scope"], "eligible"))
+        azure_roles.append(
+            AzureRoleAssignment(
+                a["id"], pr["principalId"], az_defs.get(pr["roleDefinitionId"].rsplit("/", 1)[-1], "unknown"), pr["scope"], "eligible"
+            )
+        )
 
     subs = {s: e for s, e in scan["subscriptions"].items()}
     scopes = []
@@ -443,10 +467,14 @@ def load(root: Path = TENANT_DATA, now: datetime | None = None) -> Inventory:
         rg_id = f"/subscriptions/{r['subscriptionId']}/resourceGroups/{r['resourceGroup']}".lower()
         env = rg_env.get(rg_id) or subs.get(r["subscriptionId"], "unknown")
         parent = r["id"].rsplit("/", 2)[0] if r["type"].count("/") > 1 else None
-        res = Resource(r["id"], r["name"], r["type"], r["subscriptionId"], r["resourceGroup"], env, ids, r.get("properties") or {}, r.get("tags") or {}, parent)
+        res = Resource(
+            r["id"], r["name"], r["type"], r["subscriptionId"], r["resourceGroup"], env, ids, r.get("properties") or {}, r.get("tags") or {}, parent
+        )
         if r["type"] == "microsoft.cognitiveservices/accounts/projects/connections":
             pr = res.props
-            connections.append(Connection(r["name"], parent or "", pr.get("authType", ""), pr.get("target", ""), (pr.get("metadata") or {}).get("secretRef")))
+            connections.append(
+                Connection(r["name"], parent or "", pr.get("authType", ""), pr.get("target", ""), (pr.get("metadata") or {}).get("secretRef"))
+            )
         else:
             resources[r["id"]] = res
 
@@ -465,8 +493,15 @@ def load(root: Path = TENANT_DATA, now: datetime | None = None) -> Inventory:
             exp = parse_time(at.get("exp"))
             tags = s.get("tags") or {}
             secrets.append(
-                Secret(f.stem, s["id"].rstrip("/").rsplit("/", 1)[-1], days(at["created"]), days(at["updated"]),
-                       None if exp is None else round((exp - now).total_seconds() / 86400, 1), tags.get("credentialFor"), tags)  # fmt: skip
+                Secret(
+                    f.stem,
+                    s["id"].rstrip("/").rsplit("/", 1)[-1],
+                    days(at["created"]),
+                    days(at["updated"]),
+                    None if exp is None else round((exp - now).total_seconds() / 86400, 1),
+                    tags.get("credentialFor"),
+                    tags,
+                )
             )
 
     caps_map = load_yaml("agent-purposes.yaml")["openapi_method_caps"]
@@ -489,8 +524,17 @@ def load(root: Path = TENANT_DATA, now: datetime | None = None) -> Inventory:
                 name = t.get("server_label") or t["type"]
                 tools.append(Tool(name, t["type"], sorted(declared.get(name, []))))
         agents.append(
-            Agent(a["id"], a["name"], a["project"], md.get("agentIdentityId", ""), md.get("purpose", ""), md.get("ingests", "untrusted"),
-                  a.get("description") or "", a.get("instructions") or "", tools)  # fmt: skip
+            Agent(
+                a["id"],
+                a["name"],
+                a["project"],
+                md.get("agentIdentityId", ""),
+                md.get("purpose", ""),
+                md.get("ingests", "untrusted"),
+                a.get("description") or "",
+                a.get("instructions") or "",
+                tools,
+            )
         )
 
     saas = []
