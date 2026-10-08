@@ -2,9 +2,9 @@
 
 Markdown files contain blocks like::
 
-    <!-- output: stories -->
+    <!-- output: findings -->
     ```text
-    ...whatever `idsec stories` prints...
+    ...whatever `idsec findings` prints...
     ```
     <!-- /output -->
 
