@@ -63,7 +63,9 @@ def bicep_resources() -> dict[str, list[str]]:
     out = {}
     for p in [BICEP / "main.bicep", *sorted((BICEP / "modules").glob("*.bicep"))]:
         text = p.read_text()
-        items = [f"{n} ({t.split('@')[0]})" for n, t in re.findall(r"^resource (\w+) '([^']+)'", text, re.M)]
+        items = [
+            f"{n} ({t.split('@')[0]}{', existing' if ex else ''})" for n, t, ex in re.findall(r"^resource (\w+) '([^']+)'( existing)?", text, re.M)
+        ]
         items += [f"module {n} -> {m}" for n, m in re.findall(r"^module (\w+) '([^']+)'", text, re.M)]
         out[str(p.relative_to(BICEP))] = items
     return out
