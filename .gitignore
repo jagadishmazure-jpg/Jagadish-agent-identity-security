@@ -24,3 +24,4 @@ sbom*.json
 tfplan
 crash.log
 backend_override.tf
+evidence/*.txt
