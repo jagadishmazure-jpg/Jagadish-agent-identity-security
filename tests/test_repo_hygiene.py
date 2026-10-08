@@ -192,7 +192,10 @@ def test_readme_has_recruiter_section_and_honest_test_count():
     t = (ROOT / "README.md").read_text()
     assert "## At a glance (for recruiters)" in t
     m = re.search(r"\*\*(\d+) automated tests\*\*", t)
-    assert m and int(m.group(1)) >= 400
+    assert m, "README must state the test count"
+    out = subprocess.run([sys.executable, "-m", "pytest", "--collect-only", "-q"], cwd=ROOT, capture_output=True, text=True).stdout
+    collected = int(re.search(r"(\d+) tests? collected", out).group(1))
+    assert int(m.group(1)) == collected, f"README says {m.group(1)} tests, pytest collects {collected}"
 
 
 def test_adopt_guide_lists_every_permission_and_the_safe_order():
