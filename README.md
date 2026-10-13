@@ -50,6 +50,13 @@ tenant.
 | Prompt Shields instead of the regex phrase screen | Planned |
 | Signed container image for the scan job | Planned |
 
+
+## Companions
+
+* [Jagadish-azure-ai-soc](https://github.com/jagadishmazure-jpg/Jagadish-azure-ai-soc) — what happened (alerts and triage)
+* [Jagadish-agent-auth-security](https://github.com/jagadishmazure-jpg/Jagadish-agent-auth-security) — how a request proves who it is (JWT, sessions, OBO, MCP auth)
+* This repo — who *can* do what (identity posture)
+
 ## Quick start
 
 ```bash

@@ -59,6 +59,9 @@ idsec soc-export --out out/alerts.json
 
 ## Status
 
+Auth-time failures (stolen bearer, refresh reuse, wrong audience) are exported by the companion [Jagadish-agent-auth-security](https://github.com/jagadishmazure-jpg/Jagadish-agent-auth-security) into the same SecurityAlert shape.
+
+
 * **Built:** export, schema validation, a test that parses rows the way the SOC repository does.
 * **Planned:** Logs Ingestion API and a data collection rule to land rows in a custom table; de-duplication
   across scans.
