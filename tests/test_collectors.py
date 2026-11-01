@@ -197,10 +197,11 @@ class FakeCloud:
             return 200, {}, self.arg(json.loads(body)["query"])
         if url.startswith(GRAPH):
             return 200, {}, self.graph(path.removeprefix("/v1.0"), url)
-        if ".vault.azure.net" in url:
-            vault = urlparse(url).hostname.split(".")[0]
+        host = urlparse(url).hostname or ""
+        if host.endswith(".vault.azure.net"):
+            vault = host.split(".")[0]
             return 200, {}, _load(f"keyvault/{vault}.json")
-        if ".services.ai.azure.com" in url:
+        if host.endswith(".services.ai.azure.com"):
             items = [{k: v for k, v in a.items() if k != "project"} for a in self.agents]
             after = parse_qs(urlparse(url).query).get("after", [None])[0]
             start = next(i for i, a in enumerate(items) if a["id"] == after) + 1 if after else 0

@@ -10,6 +10,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass, field
 from functools import cache, cached_property
+from urllib.parse import urlparse
 
 import networkx as nx
 import yaml
@@ -18,6 +19,8 @@ from idsec import DETECTIONS
 from idsec import graph as gmod
 from idsec import paths as pmod
 from idsec.inventory import Inventory, Principal, load_yaml, scope_kind
+
+GITHUB_OIDC_HOST = "token.actions.githubusercontent.com"
 
 SEVERITY_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3}
 
@@ -513,7 +516,7 @@ def federated_breadth(f) -> str | None:
 
 @rule
 def broad_federated_subject(c: Ctx):
-    github = [f for f in c.inv.federated if "token.actions.githubusercontent.com" in f.issuer]
+    github = [f for f in c.inv.federated if urlparse(f.issuer).hostname == GITHUB_OIDC_HOST]
     hits: dict[str, list[str]] = {}
     for f in github:
         why = federated_breadth(f)

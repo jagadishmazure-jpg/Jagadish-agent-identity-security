@@ -51,7 +51,7 @@ def check(method: str, url: str) -> None:
 @dataclass
 class Transport:
     token: Callable[[str], str]  # scope -> bearer token
-    send: Sender = urllib_sender
+    send: Sender | None = None  # None means the real network sender
     sleep: Callable[[float], None] = time.sleep
     max_retries: int = 4
     requests: list[tuple[str, str]] = field(default_factory=list)
@@ -64,7 +64,8 @@ class Transport:
             headers["Content-Type"] = "application/json"
         for attempt in range(self.max_retries + 1):
             self.requests.append((method, url))
-            status, hdrs, payload = self.send(method, url, headers, data)
+            sender = self.send if self.send is not None else urllib_sender
+            status, hdrs, payload = sender(method, url, headers, data)
             if status == 429:
                 if attempt == self.max_retries:
                     break

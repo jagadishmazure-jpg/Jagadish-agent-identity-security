@@ -18,7 +18,8 @@ def test_generator_is_deterministic():
 
 
 def test_committed_data_matches_generator():
-    assert synth.write(check=True) == []
+    stale = synth.write(check=True)
+    assert stale == []
 
 
 def test_every_object_id_is_a_mock_guid():
