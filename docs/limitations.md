@@ -26,8 +26,12 @@ What this repository does not do, or does not yet know. Read this before relying
   types. Locations, device filters and risk conditions are not modelled, and Conditional Access is not
   subtracted from paths.
 * Edge ease values are judgement, not measured probabilities.
-* No administrative units, restricted management units, management groups or on-premises Active
-  Directory.
+* No administrative units, restricted management units or management groups. On-premises Active
+  Directory appears only in the Tier 0 pack, on a small synthetic directory without ACL edges.
+* The posture packs (drift, impact, session, Exchange and SharePoint, extension theft, incident links, AD
+  Tier 0) run on their own small synthetic data with labels; their perfect scores are regression checks.
+  Session controls use a reduced device filter (compliant or not), and the impact replay evaluates only the
+  conditions this repository writes.
 * SaaS coverage is a file import of admin accounts, not a connector.
 
 ## Permission caveats
@@ -38,5 +42,7 @@ What this repository does not do, or does not yet know. Read this before relying
 ## Operational gaps (planned)
 
 * Ingestion of results into a workspace table; trends across scans.
+* Live reads for the posture packs (Exchange and SharePoint settings, sign-in logs, browser extension
+  inventory, on-premises AD); today they run on synthetic inputs only.
 * Prompt Shields instead of the regex phrase screen.
 * Persistent approval store; management group scope; signed scan image.

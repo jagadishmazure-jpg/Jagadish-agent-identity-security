@@ -1,7 +1,7 @@
 # Component: metrics and release gate
 
 `idsec metrics`, `path-metrics`, `injection`, `simulate` and `bench` print numbers from real runs;
-`idsec gate` turns the important ones into 14 pass/fail checks that CI runs on every push.
+`idsec gate` turns the important ones into 21 pass/fail checks that CI runs on every push.
 
 Sections: [1. Purpose](#1-purpose) · [2. Architecture](#2-architecture) · [3. How it works](#3-how-it-works) · [4. Key files](#4-key-files) · [5. Code excerpts](#5-code-excerpts) · [6. Configuration](#6-configuration) · [7. Commands](#7-commands) · [8. Real output](#8-real-output) · [9. Tests and gates](#9-tests-and-gates) · [10. Guardrails](#10-guardrails) · [11. Security and governance](#11-security-and-governance) · [12. Observability](#12-observability) · [13. Failure modes](#13-failure-modes) · [14. Mapping to Azure services](#14-mapping-to-azure-services) · [15. Limitations](#15-limitations) · [16. Interview talking points](#16-interview-talking-points)
 
@@ -17,11 +17,12 @@ Sections: [1. Purpose](#1-purpose) · [2. Architecture](#2-architecture) · [3. 
 flowchart LR
   L[labels.py ground truth] --> M[metrics.detection]
   D[detections.run] --> M
-  M --> G[gate.run: 14 checks]
+  M --> G[gate.run: 21 checks]
   SIM[simulate] --> G
   INJ[injection matrix] --> G
   MCP[mcp demo] --> G
   SOC[soc validate] --> G
+  PK[seven posture packs] --> G
   HTTP[collector write refusal] --> G
   AST[import check: product code never imports labels] --> G
   G --> CI[CI job fails on any fail]
@@ -34,7 +35,7 @@ flowchart LR
    findings with that list per rule.
 2. An AST check makes sure no product module imports `labels` or `metrics`, so detections cannot
    peek at the answers.
-3. `gate.run` executes the 14 checks and the CLI exits non-zero if any fails.
+3. `gate.run` executes the 21 checks and the CLI exits non-zero if any fails.
 4. `bench` times each stage on the current machine; those numbers vary, so they are never rendered into
    drift-checked docs.
 
@@ -43,7 +44,7 @@ flowchart LR
 | File | Role |
 |---|---|
 | `src/idsec/metrics.py` | Detection, path, injection and runtime metrics |
-| `src/idsec/gate.py` | The 14 checks |
+| `src/idsec/gate.py` | The 21 checks |
 | `src/idsec/labels.py` | Ground truth written by the generator |
 | `scripts/render_docs.py` | Renders command output into markdown; `--check` in CI |
 
@@ -84,24 +85,31 @@ python scripts/render_docs.py --check
 
 <!-- output: gate -->
 ```text
-check                                                    result  detail
--------------------------------------------------------  ------  ---------------------------------------------------------------------------
-synthetic data matches its generator                     pass    0 stale file(s)
-detection recall on planted risks is 100%                pass    recall 1.0, 0 missed
-detection precision on planted risks >= 95%              pass    precision 1.0, 0 extra
-every rule has at least one planted case                 pass    28 of 28 rules
-every crown jewel resolves in the graph                  pass    4 of 4
-simulated plan improves the score and cuts paths         pass    overview 35.8 -> 90.5; paths 48 -> 13
-only user-action and path findings stay open             pass    emergency-account-weak-method, human-path-to-crown-jewel, no-mfa-registered
-remediation is dry-run only and agents cannot approve    pass    live execute and agent approval both refused
-prompt injection: 0 obeyed with guard, 0 unsafe answers  pass    guard-on obeyed 0, unsafe answers 0
-MCP tools are all read-only                              pass    all read-only: True
-SOC export matches the azure-ai-soc alert schema         pass    47 alerts, 0 problems
-reports escape tenant text (HTML, CSV formulas)          pass    script tag escaped, formula prefixed
-live collectors refuse every write                       pass    4 of 4 write or plain-HTTP requests refused
-product code never imports the ground truth              pass    detections never see the ground truth
+check                                                     result  detail
+--------------------------------------------------------  ------  ---------------------------------------------------------------------------
+synthetic data matches its generator                      pass    0 stale file(s)
+detection recall on planted risks is 100%                 pass    recall 1.0, 0 missed
+detection precision on planted risks >= 95%               pass    precision 1.0, 0 extra
+every rule has at least one planted case                  pass    28 of 28 rules
+every crown jewel resolves in the graph                   pass    4 of 4
+simulated plan improves the score and cuts paths          pass    overview 35.8 -> 90.5; paths 48 -> 13
+only user-action and path findings stay open              pass    emergency-account-weak-method, human-path-to-crown-jewel, no-mfa-registered
+remediation is dry-run only and agents cannot approve     pass    live execute and agent approval both refused
+prompt injection: 0 obeyed with guard, 0 unsafe answers   pass    guard-on obeyed 0, unsafe answers 0
+MCP tools are all read-only                               pass    all read-only: True
+SOC export matches the azure-ai-soc alert schema          pass    47 alerts, 0 problems
+reports escape tenant text (HTML, CSV formulas)           pass    script tag escaped, formula prefixed
+live collectors refuse every write                        pass    4 of 4 write or plain-HTTP requests refused
+drift: weakening caught, rolled back only after approval  pass    classified 6/6, 1 refused with one approver, 0 left
+report-only impact spares emergency accounts              pass    373 sign-ins, 5 users blocked by legacy block, 0 changes
+session hardening: proposed set closes every gap          pass    today 4 fail; enforced 4 pass; near misses passing 0
+Exchange and SharePoint checks find every planted gap     pass    precision 1.0, recall 1.0, look-alikes cleared 5/5
+extension theft: nothing changes without a human          pass    replayed users 3/3, applied after approval 2, replays accepted after 0
+SOC incidents link to hardening tasks                     pass    14 tasks, benign incidents with tasks 0
+AD Tier 0 checks find every planted weakness              pass    7 paths; top choke point Tier1-Server-Admins cuts 4
+product code never imports the ground truth               pass    detections never see the ground truth
 
-14 of 14 checks passed
+21 of 21 checks passed
 ```
 <!-- /output -->
 

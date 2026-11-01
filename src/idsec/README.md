@@ -22,5 +22,13 @@ The scanner, from raw files to findings, paths, scores, plans, reports and the e
 | `labels.py` | Reads the ground truth; only the metrics may import it |
 | `metrics.py` | Precision and recall, path summary, injection matrix, runtime |
 | `iac.py` | Summaries of the Terraform, Bicep, role and workflow files |
-| `gate.py` | The 14-check release gate |
+| `gate.py` | The 21-check release gate |
+| `changegate.py` | Human approval bound to a change digest, dual control, simulated apply and verification |
+| `drift.py` | Configuration drift against an approved baseline and rollback proposals |
+| `impact.py` | Report-only impact: replays synthetic sign-ins through a policy to show who it would block |
+| `session.py` | Entra ID session-hardening checks and the proposed report-only policy set |
+| `m365.py` | Exchange Online and SharePoint posture checks over a synthetic export |
+| `incident_link.py` | Links SOC incidents to posture findings as hardening tasks (preview file) |
+| `extension.py` | Malicious browser extension and session cookie theft, with approved revoke and block |
+| `adtier0.py` | On-premises AD Tier 0 checks, attack paths and choke points |
 | `cli.py` | The `idsec` command |

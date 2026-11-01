@@ -76,7 +76,7 @@ def test_no_todos_or_placeholders():
 
 def test_full_doc_set_exists():
     names = {p.relative_to(ROOT / "docs").as_posix() for p in FULL_DOCS}
-    assert len([n for n in names if n.startswith("components/")]) == 13
+    assert len([n for n in names if n.startswith("components/")]) == 20
     assert len([n for n in names if n.startswith("infra/")]) == 5
     for top in (
         "architecture", "threat-model", "detections-catalog", "metrics", "azure-mapping", "soc-integration", "adopt-this",

@@ -17,6 +17,8 @@ and kept current by scripts/render_docs.py.
     idsec collect --offline DIR | --live ...   collectors
     idsec iac terraform|bicep|workflows        IaC summaries
     idsec gate                     release gate
+    idsec drift | impact | session | m365 | extension | ad-tier0   posture packs (synthetic, labelled)
+    idsec incident-link [--out DIR]   SOC incidents to hardening tasks (preview file only)
 """
 
 from __future__ import annotations
@@ -381,6 +383,25 @@ def cmd_gate(a) -> int:
     return 1 if failed else 0
 
 
+def _pack(module: str):
+    def run(a) -> int:
+        import importlib
+
+        print(importlib.import_module(f"idsec.{module}").report())
+        return 0
+
+    return run
+
+
+def cmd_incident_link(a) -> int:
+    from idsec import incident_link
+
+    print(incident_link.report())
+    if a.out:
+        print(f"\npreview written: {incident_link.write_preview(Path(a.out)).name} (nothing sent)")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="idsec", description="Identity security posture for humans, workload identities and AI agents (offline-first).")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -433,6 +454,12 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--vault", action="append", default=[])
     s.add_argument("--project", action="append", default=[], help="PROJECT_RESOURCE_ID=PROJECT_ENDPOINT")
     s.set_defaults(fn=cmd_collect)
+    for name, module in (("drift", "drift"), ("impact", "impact"), ("session", "session"), ("m365", "m365"),
+                         ("extension", "extension"), ("ad-tier0", "adtier0")):  # fmt: skip
+        sub.add_parser(name).set_defaults(fn=_pack(module))
+    s = sub.add_parser("incident-link")
+    s.add_argument("--out")
+    s.set_defaults(fn=cmd_incident_link)
     s = sub.add_parser("iac")
     s.add_argument("part", choices=["terraform", "bicep", "workflows", "role"])
     s.set_defaults(fn=cmd_iac)

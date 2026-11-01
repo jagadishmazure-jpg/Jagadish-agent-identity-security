@@ -11,24 +11,31 @@ fails if a number drifts from a fresh run. All runs are on the fictional Kestrel
 
 <!-- output: gate -->
 ```text
-check                                                    result  detail
--------------------------------------------------------  ------  ---------------------------------------------------------------------------
-synthetic data matches its generator                     pass    0 stale file(s)
-detection recall on planted risks is 100%                pass    recall 1.0, 0 missed
-detection precision on planted risks >= 95%              pass    precision 1.0, 0 extra
-every rule has at least one planted case                 pass    28 of 28 rules
-every crown jewel resolves in the graph                  pass    4 of 4
-simulated plan improves the score and cuts paths         pass    overview 35.8 -> 90.5; paths 48 -> 13
-only user-action and path findings stay open             pass    emergency-account-weak-method, human-path-to-crown-jewel, no-mfa-registered
-remediation is dry-run only and agents cannot approve    pass    live execute and agent approval both refused
-prompt injection: 0 obeyed with guard, 0 unsafe answers  pass    guard-on obeyed 0, unsafe answers 0
-MCP tools are all read-only                              pass    all read-only: True
-SOC export matches the azure-ai-soc alert schema         pass    47 alerts, 0 problems
-reports escape tenant text (HTML, CSV formulas)          pass    script tag escaped, formula prefixed
-live collectors refuse every write                       pass    4 of 4 write or plain-HTTP requests refused
-product code never imports the ground truth              pass    detections never see the ground truth
+check                                                     result  detail
+--------------------------------------------------------  ------  ---------------------------------------------------------------------------
+synthetic data matches its generator                      pass    0 stale file(s)
+detection recall on planted risks is 100%                 pass    recall 1.0, 0 missed
+detection precision on planted risks >= 95%               pass    precision 1.0, 0 extra
+every rule has at least one planted case                  pass    28 of 28 rules
+every crown jewel resolves in the graph                   pass    4 of 4
+simulated plan improves the score and cuts paths          pass    overview 35.8 -> 90.5; paths 48 -> 13
+only user-action and path findings stay open              pass    emergency-account-weak-method, human-path-to-crown-jewel, no-mfa-registered
+remediation is dry-run only and agents cannot approve     pass    live execute and agent approval both refused
+prompt injection: 0 obeyed with guard, 0 unsafe answers   pass    guard-on obeyed 0, unsafe answers 0
+MCP tools are all read-only                               pass    all read-only: True
+SOC export matches the azure-ai-soc alert schema          pass    47 alerts, 0 problems
+reports escape tenant text (HTML, CSV formulas)           pass    script tag escaped, formula prefixed
+live collectors refuse every write                        pass    4 of 4 write or plain-HTTP requests refused
+drift: weakening caught, rolled back only after approval  pass    classified 6/6, 1 refused with one approver, 0 left
+report-only impact spares emergency accounts              pass    373 sign-ins, 5 users blocked by legacy block, 0 changes
+session hardening: proposed set closes every gap          pass    today 4 fail; enforced 4 pass; near misses passing 0
+Exchange and SharePoint checks find every planted gap     pass    precision 1.0, recall 1.0, look-alikes cleared 5/5
+extension theft: nothing changes without a human          pass    replayed users 3/3, applied after approval 2, replays accepted after 0
+SOC incidents link to hardening tasks                     pass    14 tasks, benign incidents with tasks 0
+AD Tier 0 checks find every planted weakness              pass    7 paths; top choke point Tier1-Server-Admins cuts 4
+product code never imports the ground truth               pass    detections never see the ground truth
 
-14 of 14 checks passed
+21 of 21 checks passed
 ```
 <!-- /output -->
 

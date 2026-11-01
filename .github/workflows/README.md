@@ -4,7 +4,7 @@ See [docs/infra/workflows.md](../../docs/infra/workflows.md). Every action is pi
 
 | File | What it does |
 |---|---|
-| `ci.yml` | Lint, tests, release gate, synthetic-data and doc drift, Bicep build, SBOM, gitleaks |
+| `ci.yml` | Lint, tests, release gate, synthetic-data and doc drift, brand check, Bicep build, SBOM, gitleaks |
 | `codeql.yml` | CodeQL for Python and for the workflows |
 | `infra.yml` | terraform fmt, validate and test, tflint, checkov; plan only when OIDC variables exist |
 | `deploy.yml` | Dev then prod with approval, Terraform or Bicep, OIDC only; gated off by `DEPLOY_ENABLED` |

@@ -30,6 +30,14 @@ The identity and engineering practices this repository follows or checks for, ea
 | One identity per agent | E11 | Built |
 | Federated credentials pinned to protected environments | E12 | Built |
 | Agents that read untrusted content have no route to crown jewels | E13 | Built |
+| Settings stay at the approved baseline; weakening is rolled back after approval | drift pack | Built (simulated) |
+| Measure who a policy would block before enforcing it | impact pack | Built (synthetic sign-ins) |
+| Short, device-bound sessions; no persistent browser on unmanaged devices | session pack | Built (report-only policies) |
+| No external auto-forwarding, audited mailboxes, SMTP AUTH off, DMARC enforced | Exchange pack | Built (synthetic export) |
+| Anonymous links off for confidential sites; guests expire | SharePoint pack | Built (synthetic export) |
+| Browser extensions reviewed; risky ones blocked organization-wide after approval | extension pack | Built (simulated) |
+| Every confirmed incident produces hardening tasks | incident links | Built (preview only) |
+| No Kerberoastable privileged accounts, no stray DCSync or delegation to DCs | AD Tier 0 pack | Built (synthetic directory) |
 | Continuous evaluation from sign-in logs | none | Planned |
 
 ## Practices in the scanner itself

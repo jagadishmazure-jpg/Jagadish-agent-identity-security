@@ -11,7 +11,7 @@ reads Entra ID, PIM, Azure RBAC, Key Vault metadata and Foundry agents (read-onl
 can control what, finds paths to four crown jewels, runs 28 rules, scores three areas, and proposes fixes
 that a human has to approve, but never applies them. An Agent Framework agent explains results through
 read-only tools, with prompt-injection defences measured layer by layer. It runs entirely offline on a
-fictional mortgage company, with a 14-check release gate in CI. The Terraform and Bicep to deploy it are
+fictional mortgage company, with a 21-check release gate in CI. The Terraform and Bicep to deploy it are
 written and tested, and nothing is deployed."
 
 ## Five-minute walkthrough
@@ -23,7 +23,17 @@ written and tested, and nothing is deployed."
 5. `idsec simulate`: the plan would take the overview to 90.5 and standing paths from people and
    untrusted input from 48 to 13; 3 findings need people to act.
 6. `idsec injection`: guard on, 0 of 3 injections obeyed; guard off, 3 of 3 obeyed and 3 caught.
-7. `idsec gate`: 14 of 14 checks.
+7. `idsec gate`: 21 of 21 checks.
+
+## Posture packs (five more minutes)
+
+1. `idsec drift`: six changes against the baseline, three rolled back; the admin-policy rollback is refused
+   with one approver and applied with two; an agent's approval is refused.
+2. `idsec impact`: the legacy-authentication block would stop five accounts, two of them excused from MFA
+   for a scanner; no emergency account is in scope.
+3. `idsec session` then `idsec extension`: the tenant has no session controls; a copied cookie is replayed
+   for three users; sessions are revoked and the extension blocked only after a person approves.
+4. `idsec ad-tier0`: seven paths from any domain user to Tier 0; fixing one group cuts four of them.
 
 ## Likely questions
 

@@ -33,6 +33,60 @@ def _labels_isolated() -> tuple[bool, str]:
     return not offenders, ", ".join(sorted(set(offenders))) or "detections never see the ground truth"
 
 
+def _pack_checks() -> list[Check]:
+    from idsec import adtier0, drift, extension, impact, incident_link, m365, session
+
+    d = drift.evaluate()
+    i = impact.evaluate()
+    s = session.evaluate()
+    m = m365.evaluate()
+    e = extension.evaluate()
+    link = incident_link.evaluate()
+    ad = adtier0.evaluate()
+    return [
+        Check(
+            "drift: weakening caught, rolled back only after approval",
+            d["classified_correctly"].split("/")[0] == d["classified_correctly"].split("/")[1]
+            and d["unapproved_weakening_left"] == 0
+            and d["agent_approval_refused"],
+            f"classified {d['classified_correctly']}, {d['refused_with_one_approver']} refused with one approver, {d['unapproved_weakening_left']} left",
+        ),
+        Check(
+            "report-only impact spares emergency accounts",
+            i["emergency_accounts_affected"] == 0 and i["changes_made"] == 0,
+            f"{i['signins_replayed']} sign-ins, {i['legacy_block_would_block_users']} users blocked by legacy block, 0 changes",
+        ),
+        Check(
+            "session hardening: proposed set closes every gap",
+            s["with_proposed_enforced"]["pass"] == s["checks"] and s["near_miss_policies_passing"] == 0,
+            f"today {s['tenant_today']['fail']} fail; enforced {s['with_proposed_enforced']['pass']} pass; near misses passing 0",
+        ),
+        Check(
+            "Exchange and SharePoint checks find every planted gap",
+            m["precision"] == 1.0 and m["recall"] == 1.0,
+            f"precision {m['precision']}, recall {m['recall']}, look-alikes cleared {m['look_alikes_cleared']}",
+        ),
+        Check(
+            "extension theft: nothing changes without a human",
+            e["changes_without_approval"] == 0
+            and e["agent_approval_refused"]
+            and e["replays_still_accepted"] == 0
+            and e["devices_still_running_extension"] == 0,
+            f"replayed users {e['replayed_users_found']}, applied after approval {e['applied_after_approval']}, replays accepted after 0",
+        ),
+        Check(
+            "SOC incidents link to hardening tasks",
+            link["precision"] == 1.0 and link["recall"] == 1.0 and link["benign_incidents_with_tasks"] == 0 and link["sent"] == 0,
+            f"{link['tasks']} tasks, benign incidents with tasks {link['benign_incidents_with_tasks']}",
+        ),
+        Check(
+            "AD Tier 0 checks find every planted weakness",
+            ad["precision"] == 1.0 and ad["recall"] == 1.0,
+            f"{ad['paths_to_tier0']} paths; top choke point {ad['top_choke_point']} cuts {ad['paths_cut_by_top_fix']}",
+        ),
+    ]
+
+
 def run() -> list[Check]:
     out: list[Check] = []
     stale = synth.write(check=True)
@@ -127,6 +181,7 @@ def run() -> list[Check]:
         except ReadOnlyViolation:
             refused += 1
     out.append(Check("live collectors refuse every write", refused == 4, f"{refused} of 4 write or plain-HTTP requests refused"))
+    out.extend(_pack_checks())
     ok, detail = _labels_isolated()
     out.append(Check("product code never imports the ground truth", ok, detail))
     return out

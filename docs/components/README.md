@@ -19,4 +19,11 @@ excerpts are rendered from the current code and checked in CI.
 | `explainer-agent.md` | The Agent Framework explainer and its guardrails |
 | `mcp-server.md` | Read-only MCP tools |
 | `soc-export.md` | Findings as SOC alerts for the companion SOC repository |
-| `metrics-gate.md` | Metrics from real runs and the 14-check release gate |
+| `metrics-gate.md` | Metrics from real runs and the 21-check release gate |
+| `drift-rollback.md` | Configuration drift against a baseline and human-approved rollback |
+| `report-only-impact.md` | Who a report-only policy would block, from replayed sign-ins |
+| `session-hardening.md` | Entra ID session controls: four checks and a report-only fix set |
+| `m365-posture.md` | Exchange Online and SharePoint posture checks |
+| `incident-link.md` | SOC incidents linked to hardening tasks (preview only) |
+| `extension-theft.md` | Malicious browser extension, session replay, approved revoke and block |
+| `ad-tier0.md` | On-premises AD Tier 0 checks and choke-point ranking |

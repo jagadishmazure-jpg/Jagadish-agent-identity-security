@@ -21,6 +21,18 @@ code, data, product names or trademarks. It is an independent learning and portf
 * Remediation is a reviewed, dry-run plan with digest-bound approvals.
 * A release gate and rendered metrics make every claim checkable.
 
+## Later sources for the posture packs
+
+The posture packs were prompted by public pages from three more companies, credited here as sources only.
+None of them is affiliated with or endorses this repository, and no text, data or numbers were taken.
+
+* NordLayer, on browser session hijacking and session controls:
+  <https://nordlayer.com/browser/nordlayer-business-browser/>
+* Tenable, on identity exposure and attack paths in Active Directory:
+  <https://www.tenable.com/products/identity-exposure>
+* Huntress, on identity threat detection and response for small businesses:
+  <https://www.huntress.com/platform/managed-itdr>
+
 ## Originality check
 
 Before publishing, the reference page text was saved outside the repository (`refs/`, git-ignored) and

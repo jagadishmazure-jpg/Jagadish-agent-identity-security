@@ -20,11 +20,18 @@ tenant.
   graph algorithms for privilege paths; secure agent design (read-only tools, prompt-injection defences
   measured layer by layer); least-privilege Azure infrastructure in Terraform and Bicep; CI that checks
   every claim.
-* **Size:** 28 detections, 13 components, **520 automated tests** (pytest) plus 7 Terraform plan tests, a
-  14-check release gate.
+* **Size:** 28 detections, 20 components, **595 automated tests** (pytest) plus 7 Terraform plan tests, a
+  21-check release gate.
 * **Real results on the fictional tenant:** overview score 35.8 (F) with 47 findings; the simulated plan
   would raise it to 90.5 and cut standing routes from people and untrusted input to crown jewels from 48
   to 13; prompt injection obeyed 0 of 3 times with the guard on.
+* **Posture packs added for small and mid-sized tenants:** configuration drift with a rollback a person
+  approves; a report-only "who would this block" replay; Entra ID session hardening (sign-in frequency,
+  no persistent browser on unmanaged devices, token protection and strict CAE, app-enforced restrictions);
+  Exchange Online and SharePoint checks; a malicious browser extension that steals session cookies
+  (sessions revoked and the extension blocked organization-wide, both only after approval); SOC incidents
+  turned into hardening tasks; and on-premises AD Tier 0 checks with choke-point ranking. All on synthetic,
+  labelled data; see [use cases](docs/USE_CASES.md).
 * **Honest limits:** detection precision and recall of 1.0 are a regression check on synthetic data I
   wrote; nothing is deployed; see [limitations](docs/limitations.md).
 * **Stack:** Python, networkx, Microsoft Agent Framework, MCP, Terraform, Bicep, GitHub Actions (OIDC,
@@ -46,6 +53,14 @@ tenant.
 | SOC export for [Jagadish-azure-ai-soc](https://github.com/jagadishmazure-jpg/Jagadish-azure-ai-soc) | Built |
 | Terraform and Bicep for the reader identity, role, workspace, optional scan job | Built and tested offline, **never deployed** |
 | Gated deploy and teardown workflows | Built, gated off, never run |
+| Drift detection against a baseline, rollback through digest-bound human approval | Built (simulated state only) |
+| Report-only impact replay ("who would this block") | Built on synthetic sign-ins |
+| Session-hardening checks and a report-only policy set | Built (policies written, never applied) |
+| Exchange Online and SharePoint posture checks | Built on a synthetic export |
+| Malicious extension and session-replay scenario with approved revoke and block | Built (simulated state only) |
+| SOC incident to hardening task links | Built; preview file only, nothing sent |
+| On-premises AD Tier 0 checks and choke points | Built on a synthetic directory; no directory query |
+| Live read of Exchange, SharePoint, sign-in logs and AD for these packs | Planned |
 | Ingestion into a workspace table, trends across scans | Planned |
 | Prompt Shields instead of the regex phrase screen | Planned |
 | Signed container image for the scan job | Planned |
@@ -67,7 +82,7 @@ pip install -e ".[dev]"
 idsec scan                 # scores and findings
 idsec paths --people       # routes to crown jewels
 idsec simulate             # what the plan would change
-idsec gate                 # the 14 release checks
+idsec gate                 # the 21 release checks
 pytest -q
 ```
 
@@ -181,7 +196,8 @@ Three areas, named in this repository's own words:
 | Security reviewers | [Threat model](docs/threat-model.md), [metrics](docs/metrics.md), [SECURITY.md](SECURITY.md) |
 | Adopters | [Adopt this](docs/adopt-this.md), [deployment](docs/deployment.md), [infra](docs/infra/README.md) |
 | Azure context | [Azure mapping](docs/azure-mapping.md), [SOC integration](docs/soc-integration.md) |
-| Interviews | [Interview guide](docs/interview-guide.md), [best practices](docs/best-practices.md) |
+| Interviews | [Interview guide](docs/interview-guide.md), [best practices](docs/best-practices.md), [presentation guide](docs/PRESENTATION_GUIDE.md) |
+| Use cases | [Use cases](docs/USE_CASES.md), with the command that shows each one |
 
 ## Credit
 
@@ -189,6 +205,11 @@ The idea was inspired by BeyondTrust's Identity Security Risk Assessment
 (<https://www.beyondtrust.com/products/identity-security-insights/assessment>). This project is **not
 affiliated** with or endorsed by BeyondTrust and uses none of their code, data or trademarks; all
 wording, names and methods here are original. See [inspiration](docs/inspiration.md).
+
+The posture packs were prompted by public material from NordLayer (browser session hijacking and session
+controls), Tenable (identity exposure and attack paths in Active Directory) and Huntress (identity threat
+detection and response for small businesses). They are credited as sources only, are not affiliated with
+this repository, and none of their text, data or numbers is used.
 
 ## Repository layout
 
