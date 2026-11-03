@@ -1,5 +1,4 @@
-"""Repository hygiene: complete docs, current outputs, no dates, no real identifiers, honest claims,
-and the inspiration credited by link only."""
+"""Repository hygiene: complete docs, current outputs, no dates, no real identifiers, honest claims."""
 
 import re
 import subprocess
@@ -23,7 +22,6 @@ SUFFIXES = {".md", ".py", ".json", ".yml", ".yaml", ".tf", ".bicep", ".hcl", ".s
 TEXT_FILES = [p for p in ROOT.rglob("*") if p.is_file() and not SKIP_PARTS & set(p.parts) and p.suffix in SUFFIXES]
 # Microsoft Graph's application ID: public and identical in every tenant.
 MSGRAPH_APP_ID = "00000003-0000-0000-c000-000000000000"
-INSPIRATION = "https://www.beyondtrust.com/products/identity-security-insights/assessment"
 # Vendor trademarks and product names that must never be used as names in this repository.
 TRADEMARKS = ("True Privilege", "Paths to Privilege", "Path to Privilege", "Identity Security Insights", "Phantom Labs")
 
@@ -80,7 +78,7 @@ def test_full_doc_set_exists():
     assert len([n for n in names if n.startswith("infra/")]) == 5
     for top in (
         "architecture", "threat-model", "detections-catalog", "metrics", "azure-mapping", "soc-integration", "adopt-this",
-        "deployment", "best-practices", "interview-guide", "inspiration", "limitations",
+        "deployment", "best-practices", "interview-guide", "limitations",
     ):  # fmt: skip
         assert (ROOT / "docs" / f"{top}.md").exists(), top
 
@@ -132,15 +130,6 @@ def test_no_vendor_trademarks_anywhere():
         t = flat(p).lower()
         for mark in TRADEMARKS:
             assert mark.lower() not in t, f"{mark} in {p}"
-
-
-def test_inspiration_is_credited_by_link_without_affiliation():
-    for p in (ROOT / "README.md", ROOT / "docs/inspiration.md"):
-        t = flat(p)
-        assert "BeyondTrust" in t and INSPIRATION in t, p
-        assert "not affiliated" in t, p
-    others = [p for p in MD if p.name not in {"README.md", "inspiration.md"} and "BeyondTrust" in p.read_text()]
-    assert others == [], f"BeyondTrust is mentioned outside the credit: {others}"
 
 
 def test_reference_pdf_is_never_committed():

@@ -15,5 +15,5 @@ All offline: synthetic data, a fake cloud for the collectors, a mock model for t
 | `test_iac.py` | Role, Terraform, Bicep and workflow structure, offline |
 | `test_cli_metrics_gate.py` | Every CLI command, metrics and the release gate |
 | `test_render_docs.py` | The doc renderer |
-| `test_repo_hygiene.py` | Folder READMEs, doc sections, no dates, no real identifiers, honest claims, credit by link |
+| `test_repo_hygiene.py` | Folder READMEs, doc sections, no dates, no real identifiers, honest claims |
 | `test_posture_packs.py` | Change gate, drift, report-only impact, session hardening, Exchange and SharePoint, extension theft, incident links, AD Tier 0 |

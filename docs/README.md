@@ -30,7 +30,6 @@ Commands and numbers in these pages are rendered from the code and checked in CI
 | `deployment.md` | What would be deployed and how (nothing is deployed) |
 | `best-practices.md` | Practices checked or followed, labelled Built or Planned |
 | `interview-guide.md` | Pitch, walkthrough and likely questions |
-| `inspiration.md` | Credit for the idea, by link only |
 | `limitations.md` | What it does not do or does not yet know |
 | `components/` | One 16-section doc per component |
 | `infra/` | Identity, role, scan job, Terraform, Bicep and workflows |

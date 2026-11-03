@@ -20,7 +20,7 @@ tenant.
   graph algorithms for privilege paths; secure agent design (read-only tools, prompt-injection defences
   measured layer by layer); least-privilege Azure infrastructure in Terraform and Bicep; CI that checks
   every claim.
-* **Size:** 28 detections, 20 components, **595 automated tests** (pytest) plus 7 Terraform plan tests, a
+* **Size:** 28 detections, 20 components, **594 automated tests** (pytest) plus 7 Terraform plan tests, a
   21-check release gate.
 * **Real results on the fictional tenant:** overview score 35.8 (F) with 47 findings; the simulated plan
   would raise it to 90.5 and cut standing routes from people and untrusted input to crown jewels from 48
@@ -198,18 +198,6 @@ Three areas, named in this repository's own words:
 | Azure context | [Azure mapping](docs/azure-mapping.md), [SOC integration](docs/soc-integration.md) |
 | Interviews | [Interview guide](docs/interview-guide.md), [best practices](docs/best-practices.md), [presentation guide](docs/PRESENTATION_GUIDE.md) |
 | Use cases | [Use cases](docs/USE_CASES.md), with the command that shows each one |
-
-## Credit
-
-The idea was inspired by BeyondTrust's Identity Security Risk Assessment
-(<https://www.beyondtrust.com/products/identity-security-insights/assessment>). This project is **not
-affiliated** with or endorsed by BeyondTrust and uses none of their code, data or trademarks; all
-wording, names and methods here are original. See [inspiration](docs/inspiration.md).
-
-The posture packs were prompted by public material from NordLayer (browser session hijacking and session
-controls), Tenable (identity exposure and attack paths in Active Directory) and Huntress (identity threat
-detection and response for small businesses). They are credited as sources only, are not affiliated with
-this repository, and none of their text, data or numbers is used.
 
 ## Repository layout
 
