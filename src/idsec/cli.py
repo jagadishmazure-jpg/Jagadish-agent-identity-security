@@ -18,6 +18,7 @@ and kept current by scripts/render_docs.py.
     idsec iac terraform|bicep|workflows        IaC summaries
     idsec gate                     release gate
     idsec drift | impact | session | m365 | extension | ad-tier0   posture packs (synthetic, labelled)
+    idsec agent365                 connected-platform Entra Agent IDs, dynamic risk, cost and value
     idsec incident-link [--out DIR]   SOC incidents to hardening tasks (preview file only)
 """
 
@@ -455,7 +456,7 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--project", action="append", default=[], help="PROJECT_RESOURCE_ID=PROJECT_ENDPOINT")
     s.set_defaults(fn=cmd_collect)
     for name, module in (("drift", "drift"), ("impact", "impact"), ("session", "session"), ("m365", "m365"),
-                         ("extension", "extension"), ("ad-tier0", "adtier0")):  # fmt: skip
+                         ("extension", "extension"), ("ad-tier0", "adtier0"), ("agent365", "agent365")):  # fmt: skip
         sub.add_parser(name).set_defaults(fn=_pack(module))
     s = sub.add_parser("incident-link")
     s.add_argument("--out")

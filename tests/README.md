@@ -17,3 +17,4 @@ All offline: synthetic data, a fake cloud for the collectors, a mock model for t
 | `test_render_docs.py` | The doc renderer |
 | `test_repo_hygiene.py` | Folder READMEs, doc sections, no dates, no real identifiers, honest claims |
 | `test_posture_packs.py` | Change gate, drift, report-only impact, session hardening, Exchange and SharePoint, extension theft, incident links, AD Tier 0 |
+| `test_agent365.py` | Connected-platform Entra Agent IDs, dynamic risk decisions and the cost/value report |

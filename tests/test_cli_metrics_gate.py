@@ -36,7 +36,8 @@ def run(capsys, *argv):
         (["mcp-demo"], "all read-only: True"),
         (["iac", "role"], "non-read: 0"),
         (["iac", "workflows"], "deploy.yml"),
-        (["gate"], "21 of 21 checks passed"),
+        (["gate"], "22 of 22 checks passed"),
+        (["agent365"], "Ops copilot (after signal)"),
         (["synth", "--check"], "matches"),
         (["collect"], "choose --offline"),
     ],
@@ -143,7 +144,7 @@ def test_runtime_reports_stages():
 # ------------------------------------------------------------------------------------ gate
 def test_gate_passes():
     checks = gate.run()
-    assert len(checks) == 21 and all(c.ok for c in checks), [c.name for c in checks if not c.ok]
+    assert len(checks) == 22 and all(c.ok for c in checks), [c.name for c in checks if not c.ok]
 
 
 def test_labels_are_isolated():

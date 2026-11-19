@@ -19,4 +19,5 @@ fictional Kestrel Ridge Mortgage tenant, and what the synthetic run shows. Numbe
 | 11 | Are our AI agents over-privileged? | `idsec findings --area emerging` | Agent findings such as a shared identity and tools beyond purpose |
 | 12 | Can the explainer be talked into unsafe answers? | `idsec injection` | Guard on: 0 of 3 injections obeyed |
 | 13 | Can I send these findings to the SOC? | `idsec soc-export` | Alerts in the companion SOC's schema |
-| 14 | Is every claim still true after a change? | `idsec gate` | 21 of 21 release checks |
+| 14 | Is every claim still true after a change? | `idsec gate` | 22 of 22 release checks |
+| 15 | Which outside agents have an identity, how risky are they, and are they worth the spend? | `idsec agent365` | 6 Entra Agent IDs and 0 stored secrets; Ops copilot risk 60 high to 75 critical; spend 5340 against assisted value 9260 |

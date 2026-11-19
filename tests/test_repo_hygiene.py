@@ -59,6 +59,8 @@ def test_folder_readmes_list_every_child():
 def test_no_dates_in_markdown():
     for p in MD:
         t = re.sub(r"@\d{4}-\d{2}-\d{2}(-preview)?", "", p.read_text())
+        # A citation URL may contain a year. That is not a date claim in the prose.
+        t = re.sub(r"https?://\S+", "", t)
         assert not re.search(r"\b\d{4}-\d{2}-\d{2}\b", t), f"ISO date in {p}"
         assert not re.search(r"(?<![\w$,.])20[1-3]\d(?![\w,.%])", t), f"year in {p}"
         assert not re.search(MONTHS, t), f"month name in {p}"
@@ -74,7 +76,7 @@ def test_no_todos_or_placeholders():
 
 def test_full_doc_set_exists():
     names = {p.relative_to(ROOT / "docs").as_posix() for p in FULL_DOCS}
-    assert len([n for n in names if n.startswith("components/")]) == 20
+    assert len([n for n in names if n.startswith("components/")]) == 21
     assert len([n for n in names if n.startswith("infra/")]) == 5
     for top in (
         "architecture", "threat-model", "detections-catalog", "metrics", "azure-mapping", "soc-integration", "adopt-this",

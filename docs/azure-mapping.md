@@ -15,6 +15,7 @@ exercised offline on the fictional tenant.
 | Directory roles | PIM | Graph `roleManagement/directory/roleAssignmentScheduleInstances`, `roleEligibilitySchedules` | Standing, activated and eligible admin roles |
 | Conditional Access | Entra ID | Graph `identity/conditionalAccess/policies` | Enforced MFA, legacy authentication blocking |
 | Agent identities | Entra Agent ID | Graph service principals typed `agentIdentity`, blueprints, sponsors | Unsponsored and shared agent identities |
+| Connected agents | Entra Agent ID | Modelled offline; not a live Graph write | Third-party agents issued an agent identity, risk at the point of action, cost and value |
 | Azure roles | Azure RBAC and PIM for Azure resources | Resource Graph `authorizationresources`; ARM `roleEligibilityScheduleInstances` | Standing Owner, workload subscription rights, paths |
 | Resources and identities | ARM | Resource Graph `resources` | Which identity runs where (VMs, apps, jobs, Logic Apps) |
 | Secrets | Key Vault | `GET /secrets` (metadata) | Expiry, rotation, shared credentials, access model |
@@ -27,7 +28,7 @@ exercised offline on the fictional tenant.
 |---|---|---|
 | Microsoft Entra ID Protection and identity secure score | Risky users and sign-ins; recommendations | Graph-based paths across directory roles, app permissions, Azure RBAC and agents |
 | PIM | Just-in-time roles, access reviews, alerts for permanent assignments | Shows how many paths disappear when roles are eligible (88 standing vs 92 with activation) |
-| Entra Agent ID | Identities, blueprints and sponsors for agents | Rules over sponsorship, shared identities and agent privilege, joined to Foundry tools |
+| Entra Agent ID | Identities, blueprints and sponsors for agents | Rules over sponsorship, shared identities and agent privilege, joined to Foundry tools; a mock registry that issues the same object type to agents from other platforms, plus a local risk score and a cost/value report |
 | Defender for Identity | Identity threat detection and posture for AD and Entra ID | A transparent, open rule set with tests; SOC export as context |
 | Defender for Cloud | CSPM, attack path analysis for cloud resources, AI threat protection | Adds directory roles, app permissions and agent tool chains to the path picture |
 | Microsoft Graph | The data | Normalisation into one model for humans, workloads and agents |
