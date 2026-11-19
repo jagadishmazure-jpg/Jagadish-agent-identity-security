@@ -20,7 +20,7 @@ tenant.
   graph algorithms for privilege paths; secure agent design (read-only tools, prompt-injection defences
   measured layer by layer); least-privilege Azure infrastructure in Terraform and Bicep; CI that checks
   every claim.
-* **Size:** 28 detections, 21 components, **636 automated tests** (pytest) plus 7 Terraform plan tests, a
+* **Size:** 28 detections, 21 components, **641 automated tests** (pytest) plus 7 Terraform plan tests, a
   22-check release gate.
 * **Real results on the fictional tenant:** overview score 35.8 (F) with 47 findings; the simulated plan
   would raise it to 90.5 and cut standing routes from people and untrusted input to crown jewels from 48
@@ -205,7 +205,8 @@ describes three controls this repository models offline, on the fictional tenant
   signal arrives. A conditional-access style decision runs at the point of action: allow, restrict,
   require a person, or block. The person's own access is left unchanged.
 * A cost and value report compares spend with assisted value, success and satisfaction, and labels each
-  agent invest, hold, review or retire, with a simple next-period scenario.
+  agent invest, hold, review or retire. Invest also needs satisfaction of at least 0.70. The next-period
+  figure is a simple scenario.
 
 `idsec agent365` prints all three. Weights, level cuts, the exact Conditional Access control names, which
 platforms support secretless federation, and the product forecast method are a local model of preview

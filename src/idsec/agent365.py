@@ -10,7 +10,7 @@ and the product's forecast method are a local model. The docs mark those preview
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 PLATFORMS = (
     ("bedrock", "Amazon Bedrock"),
@@ -52,6 +52,13 @@ SIGNAL_DETAIL = {
 
 # Level cuts: 0-24 low, 25-49 medium, 50-74 high, 75-100 critical.
 SENSITIVE_TOOLS = frozenset({"send-email", "sql-warehouse", "unity-catalog", "role-assign"})
+# Anything not in this set is sensitive. A tool the agent was not issued is refused outright.
+ROUTINE_TOOLS = frozenset({"read-blob", "extract-fields", "read-rates", "crm-read", "draft-doc", "ticket-read"})
+ROUTINE_OPS = frozenset({"read", "tool"})
+INVEST_RATIO = 3
+INVEST_SUCCESS = 80
+INVEST_SATISFACTION = 70
+_ACTION_TOKEN = object()
 
 # (level, sensitivity) -> response. High routine work continues in a reduced form; sensitive work does not.
 RESPONSES = {
@@ -139,6 +146,16 @@ class Decision:
 
 
 @dataclass(frozen=True)
+class ActionContext:
+    """A point-of-action event. Only action() can build one that decide() will accept."""
+
+    operation: str
+    tool: str
+    on_behalf_of: str
+    token: object = field(compare=False, repr=False)
+
+
+@dataclass(frozen=True)
 class Usage:
     sessions: int
     spend_usd: int
@@ -158,39 +175,45 @@ CATALOG = (
     ExternalAgent("openai", "oa-ops-copilot", "Ops copilot", "marcus.reid@kestrelridge.example", ("ticket-read", "role-assign")),
 )
 
-OBSERVATIONS: dict[str, tuple[str, ...]] = {
-    "br-loan-reader": ("code_or_model_update",),
-    "gx-rate-sheet": (),
-    "sf-collections": ("sensitive_data", "unexpected_network"),
-    "db-loss-model": ("sensitive_data", "high_blast_radius"),
-    "an-policy-draft": (),
-    "oa-ops-copilot": ("sensitive_tool", "privilege_expansion", "became_target"),
+
+def _profile(platform: str, external_id: str) -> tuple[str, str]:
+    return (platform, external_id)
+
+
+# Profiles are keyed by platform and external id, so two platforms can reuse an id.
+OBSERVATIONS: dict[tuple[str, str], tuple[str, ...]] = {
+    _profile("bedrock", "br-loan-reader"): ("code_or_model_update",),
+    _profile("google", "gx-rate-sheet"): (),
+    _profile("salesforce", "sf-collections"): ("sensitive_data", "unexpected_network"),
+    _profile("databricks", "db-loss-model"): ("sensitive_data", "high_blast_radius"),
+    _profile("anthropic", "an-policy-draft"): (),
+    _profile("openai", "oa-ops-copilot"): ("sensitive_tool", "privilege_expansion", "became_target"),
 }
 
-FOLLOW_UP: dict[str, tuple[str, ...]] = {
-    "oa-ops-copilot": ("anomalous_cloud_call",),
+FOLLOW_UP: dict[tuple[str, str], tuple[str, ...]] = {
+    _profile("openai", "oa-ops-copilot"): ("anomalous_cloud_call",),
 }
 
 USAGE = {
-    "br-loan-reader": Usage(820, 400, 310, 1600, 91, 88),
-    "gx-rate-sheet": Usage(210, 200, 40, 280, 74, 66),
-    "sf-collections": Usage(1400, 900, 500, 2100, 82, 77),
-    "db-loss-model": Usage(90, 1100, 60, 4400, 90, 84),
-    "an-policy-draft": Usage(48, 640, 15, 180, 41, 38),
-    "oa-ops-copilot": Usage(260, 2100, 80, 700, 52, 40),
+    _profile("bedrock", "br-loan-reader"): Usage(820, 400, 310, 1600, 91, 88),
+    _profile("google", "gx-rate-sheet"): Usage(210, 200, 40, 280, 74, 66),
+    _profile("salesforce", "sf-collections"): Usage(1400, 900, 500, 2100, 82, 77),
+    _profile("databricks", "db-loss-model"): Usage(90, 1100, 60, 4400, 90, 84),
+    _profile("anthropic", "an-policy-draft"): Usage(48, 640, 15, 180, 41, 38),
+    _profile("openai", "oa-ops-copilot"): Usage(260, 2100, 80, 700, 52, 40),
 }
 
-# Actions the report walks, in order. follow_up uses the extra signal when one is defined.
+# Actions the report walks, in order. follow_up adds the agent's own later signals; it never replaces them.
 DEMO_ACTIONS = (
-    ("br-loan-reader", "read", "", "ava.chen@kestrelridge.example", False),
-    ("gx-rate-sheet", "read", "", "", False),
-    ("sf-collections", "tool", "send-email", "priya.nair@kestrelridge.example", False),
-    ("db-loss-model", "tool", "sql-warehouse", "", False),
-    ("an-policy-draft", "read", "", "", False),
-    ("an-policy-draft", "write", "", "", False),
-    ("oa-ops-copilot", "tool", "role-assign", "marcus.reid@kestrelridge.example", False),
-    ("oa-ops-copilot", "read", "", "marcus.reid@kestrelridge.example", False),
-    ("oa-ops-copilot", "read", "", "marcus.reid@kestrelridge.example", True),
+    ("bedrock", "br-loan-reader", "read", "", "ava.chen@kestrelridge.example", False),
+    ("google", "gx-rate-sheet", "read", "", "", False),
+    ("salesforce", "sf-collections", "tool", "send-email", "priya.nair@kestrelridge.example", False),
+    ("databricks", "db-loss-model", "tool", "sql-warehouse", "", False),
+    ("anthropic", "an-policy-draft", "read", "", "", False),
+    ("anthropic", "an-policy-draft", "write", "", "", False),
+    ("openai", "oa-ops-copilot", "tool", "role-assign", "marcus.reid@kestrelridge.example", False),
+    ("openai", "oa-ops-copilot", "read", "", "marcus.reid@kestrelridge.example", False),
+    ("openai", "oa-ops-copilot", "read", "", "marcus.reid@kestrelridge.example", True),
 )
 
 
@@ -237,8 +260,30 @@ def as_blueprint(platform: str) -> dict:
     }
 
 
+def _directory_ids() -> dict[str, str]:
+    """Mail address to directory object id, from the synthetic tenant. inventory looks sponsors up by id."""
+    import json
+
+    from idsec import TENANT_DATA
+
+    raw = json.loads((TENANT_DATA / "graph/users.json").read_text())
+    users = raw.get("value", raw) if isinstance(raw, dict) else raw
+    found: dict[str, str] = {}
+    for user in users:
+        for key in ("mail", "userPrincipalName"):
+            if user.get(key):
+                found[user[key]] = user["id"]
+    return found
+
+
 def as_service_principal(ident: IssuedIdentity) -> dict:
     """Graph-shaped agentIdentity. inventory.py classifies this @odata.type as agent_identity."""
+    directory = _directory_ids()
+    sponsors = []
+    for sponsor in ident.sponsors:
+        if sponsor not in directory:
+            raise RegistryError(f"sponsor {sponsor} is not a directory object")
+        sponsors.append({"@odata.type": "#microsoft.graph.user", "id": directory[sponsor]})
     return {
         "@odata.type": "#microsoft.graph.agentIdentity",
         "id": ident.entra_agent_id,
@@ -247,7 +292,7 @@ def as_service_principal(ident: IssuedIdentity) -> dict:
         "accountEnabled": True,
         "appId": ident.app_id,
         "agentIdentityBlueprintId": ident.blueprint_id,
-        "sponsors": [{"@odata.type": "#microsoft.graph.user", "id": sponsor} for sponsor in ident.sponsors],
+        "sponsors": sponsors,
         "description": f"connected platform {ident.platform}; external id {ident.external_id}",
         "notes": "issued by the offline connected-platform registry; no stored secret",
     }
@@ -286,30 +331,40 @@ def assess(ident: IssuedIdentity, signals: tuple[Signal, ...]) -> Risk:
     return Risk(ident.entra_agent_id, score, level_for(score), tuple(item.kind for item in seen))
 
 
+def action(operation: str, tool: str = "", *, on_behalf_of: str = "") -> ActionContext:
+    """Build the only context decide() accepts. There is no sign-in default."""
+    return ActionContext(operation, tool, on_behalf_of, _ACTION_TOKEN)
+
+
+def _sensitivity(operation: str, tool: str) -> str:
+    """Unknown operations and tools outside the routine set are sensitive. Fail closed."""
+    if operation not in ROUTINE_OPS or (tool and tool not in ROUTINE_TOOLS):
+        return "sensitive"
+    return "routine"
+
+
 def risk_for(ident: IssuedIdentity, *, follow_up: bool = False) -> Risk:
-    kinds = list(OBSERVATIONS[ident.external_id])
+    """Score from this platform's own signals. A missing profile is an empty signal list, not another agent's."""
+    key = _profile(ident.platform, ident.external_id)
+    kinds = list(OBSERVATIONS.get(key, ()))
     if follow_up:
-        kinds.extend(FOLLOW_UP.get(ident.external_id, ()))
+        kinds.extend(FOLLOW_UP.get(key, ()))
     return assess(ident, tuple(make_signal(kind) for kind in kinds))
 
 
-def decide(
-    ident: IssuedIdentity,
-    risk: Risk,
-    operation: str,
-    tool: str = "",
-    *,
-    on_behalf_of: str = "",
-    when: str = "action",
-) -> Decision:
-    """Conditional-access style response at the point of action. The person's own access is not changed."""
-    if when != "action":
+def decide(ident: IssuedIdentity, ctx: ActionContext, *, follow_up: bool = False) -> Decision:
+    """Conditional-access style response at the point of action. The person's own access is not changed.
+
+    Risk is recomputed from this agent's signals. A caller cannot pass a score.
+    """
+    if not isinstance(ctx, ActionContext) or ctx.token is not _ACTION_TOKEN:
         raise RegistryError("dynamic controls evaluate at the point of action, not only at sign-in")
-    if risk.entra_agent_id != ident.entra_agent_id:
-        raise RegistryError("risk was computed for a different agent")
-    sensitivity = "sensitive" if operation == "write" or tool in SENSITIVE_TOOLS else "routine"
+    if ctx.tool and ctx.tool not in ident.tools:
+        raise RegistryError(f"tool {ctx.tool} is not issued to this agent")
+    sensitivity = _sensitivity(ctx.operation, ctx.tool)
+    risk = risk_for(ident, follow_up=follow_up)
     response = RESPONSES[(risk.level, sensitivity)]
-    shown = f"tool {tool}" if tool else operation
+    shown = f"tool {ctx.tool}" if ctx.tool else ctx.operation
     return Decision(
         entra_agent_id=ident.entra_agent_id,
         agent=ident.name,
@@ -320,7 +375,7 @@ def decide(
         response=response,
         ca_style=CA_STYLE[response],
         evaluated_at="action",
-        on_behalf_of=on_behalf_of,
+        on_behalf_of=ctx.on_behalf_of,
         user_access="unchanged",
         reason=f"risk {risk.level} ({risk.score}) on a {sensitivity} action; human access left as-is",
     )
@@ -331,12 +386,12 @@ def outcome(decision: Decision) -> dict:
     return {"agent": _EFFECT[decision.response], "user": decision.user_access, "written_to_tenant": False}
 
 
-def recommend(spend: int, assisted_value: int, success_pct: int, sessions: int) -> str:
-    """invest when value is at least 3x spend and success is at least 80; retire when value is below spend and use continues."""
+def recommend(spend: int, assisted_value: int, success_pct: int, sessions: int, satisfaction_pct: int) -> str:
+    """Invest when value, success and satisfaction all clear the bar. Low satisfaction does not get an invest label."""
     if spend <= 0:
         return "review"
     ratio = assisted_value / spend
-    if ratio >= 3 and success_pct >= 80:
+    if ratio >= INVEST_RATIO and success_pct >= INVEST_SUCCESS and satisfaction_pct >= INVEST_SATISFACTION:
         return "invest"
     if ratio < 1 and sessions >= 10:
         return "retire"
@@ -354,24 +409,41 @@ def forecast_spend(spend: int, recommendation: str) -> int:
     return spend
 
 
-def _lookup() -> dict[str, IssuedIdentity]:
-    return {item.external_id: item for item in registry()}
+def _lookup(agents: tuple[ExternalAgent, ...] = CATALOG) -> dict[tuple[str, str], IssuedIdentity]:
+    return {_profile(item.platform, item.external_id): item for item in registry(agents)}
 
 
 def demo_decisions() -> tuple[Decision, ...]:
     found = _lookup()
     out = []
-    for external_id, operation, tool, on_behalf_of, follow_up in DEMO_ACTIONS:
-        ident = found[external_id]
-        out.append(decide(ident, risk_for(ident, follow_up=follow_up), operation, tool, on_behalf_of=on_behalf_of))
+    for platform, external_id, operation, tool, on_behalf_of, follow_up in DEMO_ACTIONS:
+        ident = found[_profile(platform, external_id)]
+        out.append(decide(ident, action(operation, tool, on_behalf_of=on_behalf_of), follow_up=follow_up))
     return tuple(out)
 
 
-def cost_rows() -> tuple[dict, ...]:
+def cost_rows(agents: tuple[ExternalAgent, ...] = CATALOG) -> tuple[dict, ...]:
     rows = []
-    for ident in registry():
-        usage = USAGE[ident.external_id]
-        label = recommend(usage.spend_usd, usage.assisted_value_usd, usage.success_pct, usage.sessions)
+    for ident in registry(agents):
+        usage = USAGE.get(_profile(ident.platform, ident.external_id))
+        if usage is None:
+            rows.append(
+                {
+                    "agent": ident.name,
+                    "platform": ident.platform,
+                    "sessions": 0,
+                    "hours": 0,
+                    "spend": 0,
+                    "value": 0,
+                    "ratio": "n/a",
+                    "success": "n/a",
+                    "satisfaction": "n/a",
+                    "recommendation": "review",
+                    "next spend": 0,
+                }
+            )
+            continue
+        label = recommend(usage.spend_usd, usage.assisted_value_usd, usage.success_pct, usage.sessions, usage.satisfaction_pct)
         ratio = "n/a" if usage.spend_usd <= 0 else f"{usage.assisted_value_usd / usage.spend_usd:.1f}"
         rows.append(
             {
@@ -393,7 +465,7 @@ def cost_rows() -> tuple[dict, ...]:
 
 def evaluate() -> dict:
     issued = registry()
-    ops = _lookup()["oa-ops-copilot"]
+    ops = _lookup()[_profile("openai", "oa-ops-copilot")]
     before, after = risk_for(ops), risk_for(ops, follow_up=True)
     decisions = demo_decisions()
     rows = cost_rows()
@@ -462,7 +534,7 @@ def report() -> str:
     for item in issued:
         risk = risk_for(item)
         risk_rows.append({"agent": item.name, "score": risk.score, "level": risk.level, "signals": ", ".join(risk.signals) if risk.signals else "-"})
-    ops = _lookup()["oa-ops-copilot"]
+    ops = _lookup()[_profile("openai", "oa-ops-copilot")]
     later = risk_for(ops, follow_up=True)
     risk_rows.append({"agent": "Ops copilot (after signal)", "score": later.score, "level": later.level, "signals": ", ".join(later.signals)})
     lines += _table(risk_rows, ["agent", "score", "level", "signals"])

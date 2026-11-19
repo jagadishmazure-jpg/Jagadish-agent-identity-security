@@ -42,13 +42,17 @@ flowchart LR
    classifies as an agent identity. `as_blueprint` emits the matching blueprint.
 4. `assess` sums fixed signal weights, adds `ownerless` when there is no sponsor (once), and caps the
    score at 100. Levels are low below 25, medium from 25, high from 50, critical from 75.
-5. `decide` runs only at the point of action. A write, or a tool in the sensitive set, is sensitive.
-   Low routine work is allowed. Medium sensitive work waits for a person. High routine work continues
-   in a reduced form. High sensitive work, and anything at critical, is blocked.
+5. `decide` accepts only an action context from `action()`, and it recomputes the score from that
+   agent's own signals. A caller cannot pass a lower score, and a sign-in string is refused. A tool the
+   agent was not issued is refused. A write, any other operation, or a tool outside the routine set is
+   sensitive. Low routine work is allowed. Medium sensitive work waits for a person. High routine work
+   continues in a reduced form. High sensitive work, and anything at critical, is blocked.
 6. `outcome` describes the effect on the agent. The user's access stays `unchanged`, and nothing is
    written to a tenant.
-7. `recommend` labels each agent invest, hold, review or retire from spend, assisted value, success and
-   sessions. `forecast_spend` is a local scenario: invest grows by a quarter, retire goes to zero.
+7. `recommend` labels each agent invest, hold, review or retire from spend, assisted value, success,
+   satisfaction and sessions. Invest needs value at least 3 times spend, success at least 80 and
+   satisfaction at least 70. `forecast_spend` is a local scenario: invest grows by a quarter, retire goes
+   to zero.
 
 ## 4. Key files
 
@@ -83,28 +87,24 @@ def issue(agent: ExternalAgent) -> IssuedIdentity:
 ```
 <!-- /code -->
 
-The decision is taken when the agent acts. A sign-in is not enough, and the person named in
-`on_behalf_of` is not the subject of the block.
+The decision is taken when the agent acts. `action()` is the only accepted context, the score is
+computed inside `decide`, and the person named in `on_behalf_of` is not the subject of the block.
 
 <!-- code: src/idsec/agent365.py::decide -->
 ```python
-def decide(
-    ident: IssuedIdentity,
-    risk: Risk,
-    operation: str,
-    tool: str = "",
-    *,
-    on_behalf_of: str = "",
-    when: str = "action",
-) -> Decision:
-    """Conditional-access style response at the point of action. The person's own access is not changed."""
-    if when != "action":
+def decide(ident: IssuedIdentity, ctx: ActionContext, *, follow_up: bool = False) -> Decision:
+    """Conditional-access style response at the point of action. The person's own access is not changed.
+
+    Risk is recomputed from this agent's signals. A caller cannot pass a score.
+    """
+    if not isinstance(ctx, ActionContext) or ctx.token is not _ACTION_TOKEN:
         raise RegistryError("dynamic controls evaluate at the point of action, not only at sign-in")
-    if risk.entra_agent_id != ident.entra_agent_id:
-        raise RegistryError("risk was computed for a different agent")
-    sensitivity = "sensitive" if operation == "write" or tool in SENSITIVE_TOOLS else "routine"
+    if ctx.tool and ctx.tool not in ident.tools:
+        raise RegistryError(f"tool {ctx.tool} is not issued to this agent")
+    sensitivity = _sensitivity(ctx.operation, ctx.tool)
+    risk = risk_for(ident, follow_up=follow_up)
     response = RESPONSES[(risk.level, sensitivity)]
-    shown = f"tool {tool}" if tool else operation
+    shown = f"tool {ctx.tool}" if ctx.tool else ctx.operation
     return Decision(
         entra_agent_id=ident.entra_agent_id,
         agent=ident.name,
@@ -115,7 +115,7 @@ def decide(
         response=response,
         ca_style=CA_STYLE[response],
         evaluated_at="action",
-        on_behalf_of=on_behalf_of,
+        on_behalf_of=ctx.on_behalf_of,
         user_access="unchanged",
         reason=f"risk {risk.level} ({risk.score}) on a {sensitivity} action; human access left as-is",
     )
@@ -124,9 +124,10 @@ def decide(
 
 ## 6. Configuration
 
-All of it is in `src/idsec/agent365.py`: `PLATFORMS`, `SIGNAL_KINDS` and the level cuts, `SENSITIVE_TOOLS`,
-`RESPONSES`, the fictional `CATALOG`, `OBSERVATIONS`, `FOLLOW_UP` and `USAGE`. Changing a weight or a cut
-is a reviewed code change, same as the gate thresholds.
+All of it is in `src/idsec/agent365.py`: `PLATFORMS`, `SIGNAL_KINDS` and the level cuts, `ROUTINE_TOOLS`,
+`SENSITIVE_TOOLS`, `RESPONSES`, the invest thresholds, the fictional `CATALOG`, `OBSERVATIONS`,
+`FOLLOW_UP` and `USAGE`. Profiles are keyed by platform and external id. Changing a weight or a cut is a
+reviewed code change, same as the gate thresholds.
 
 ## 7. Commands
 
@@ -203,7 +204,10 @@ rise, a response is wrong, the person's access changes, or a decision is written
 ## 10. Guardrails
 
 * No network call and no secret stored on a connection.
-* A caller cannot pass a custom signal weight.
+* A caller cannot pass a custom signal weight, or a risk score. `decide` recomputes the score.
+* Only `action()` produces a context `decide` will accept.
+* A tool the agent was not issued is refused. An unknown operation, or a tool outside the routine set, is
+  sensitive.
 * `require_approval` and `block` do not proceed; `restrict` is reduced access, not a silent allow of a
   sensitive tool.
 * The person's own access is a different decision and is left unchanged.
@@ -260,7 +264,8 @@ Conditional Access policy.
   admin center, Defender, Entra and Purview [verify].
 * Assisted value, success, satisfaction and the forecast are a fixed ledger and a four-way rule. The
   product's definitions and licensing are not reproduced [verify].
-* Sponsors are fictional email addresses, not directory object ids [verify].
+* The report shows a sponsor's mail address. The Graph object uses that person's directory id from the
+  synthetic tenant, so an inventory load can resolve the sponsor. An unknown mail is refused.
 * Foundry agents already in the synthetic tenant keep the existing rules. This pack does not feed its
   identities back into `idsec scan`, so the 28-rule scores stay stable.
 

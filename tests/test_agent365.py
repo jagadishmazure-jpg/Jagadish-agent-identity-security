@@ -10,6 +10,7 @@ from idsec.agent365 import (
     ExternalAgent,
     RegistryError,
     Signal,
+    action,
     assess,
     connect,
     cost_rows,
@@ -79,6 +80,11 @@ def test_graph_shape_is_an_agent_identity():
     assert blueprint["@odata.type"] == "#microsoft.graph.agentIdentityBlueprint"
     assert sp["id"] == ident.entra_agent_id
     assert "no stored secret" in sp["notes"]
+    from idsec import inventory
+
+    sponsor = sp["sponsors"][0]["id"]
+    assert "@" not in sponsor
+    assert inventory.load().principals[sponsor].upn == "ava.chen@kestrelridge.example"
 
 
 def test_ownerless_signal_is_added_once():
@@ -132,28 +138,57 @@ def test_level_cuts(score, name):
 def test_decisions_follow_the_policy(external_id, operation, tool, follow, response, level):
     found = {item.external_id: item for item in registry()}
     ident = found[external_id]
-    decision = decide(ident, risk_for(ident, follow_up=follow), operation, tool, on_behalf_of="person@kestrelridge.example")
+    decision = decide(ident, action(operation, tool, on_behalf_of="person@kestrelridge.example"), follow_up=follow)
     assert decision.response == response and decision.risk_level == level
     assert decision.evaluated_at == "action" and decision.user_access == "unchanged"
-    assert decision.ca_style
+    assert decision.ca_style == agent365.CA_STYLE[response]
+    assert decision.risk_score == risk_for(ident, follow_up=follow).score
 
 
 def test_a_sensitive_tool_stays_sensitive_on_a_read():
     ident = issue(CATALOG[5])
-    decision = decide(ident, risk_for(ident), "read", "role-assign")
+    decision = decide(ident, action("read", "role-assign"))
     assert decision.sensitivity == "sensitive" and decision.response == "block"
 
 
 def test_sign_in_alone_is_not_a_decision_point():
     ident = issue(LOAN)
     with pytest.raises(RegistryError):
-        decide(ident, risk_for(ident), "read", when="sign_in")
-
-
-def test_risk_from_another_agent_is_refused():
-    first, second = registry()[:2]
+        decide(ident, "sign_in")
     with pytest.raises(RegistryError):
-        decide(first, risk_for(second), "read")
+        decide(ident, agent365.ActionContext("read", "", "", object()))
+
+
+def test_a_forged_low_score_cannot_lower_the_decision():
+    ops = issue(CATALOG[5])
+    forged = agent365.Risk(ops.entra_agent_id, 0, "low", ())
+    with pytest.raises(RegistryError):
+        decide(ops, forged)
+    decision = decide(ops, action("tool", "role-assign"))
+    assert decision.risk_score == 60 and decision.response == "block"
+
+
+def test_unknown_operation_and_unknown_tool_are_sensitive():
+    collections = issue(CATALOG[2])
+    deleted = decide(collections, action("delete"))
+    assert deleted.sensitivity == "sensitive" and deleted.response == "require_approval"
+    weird = issue(ExternalAgent("anthropic", "an-extra", "Extra drafter", "", ("drop-table",)))
+    held = decide(weird, action("tool", "drop-table"))
+    assert held.risk_level == "medium" and held.sensitivity == "sensitive" and held.response == "require_approval"
+
+
+def test_a_tool_the_agent_was_not_issued_is_refused():
+    with pytest.raises(RegistryError):
+        decide(issue(LOAN), action("tool", "role-assign"))
+
+
+def test_same_external_id_on_two_platforms_does_not_share_a_profile():
+    other = ExternalAgent("openai", "br-loan-reader", "Same id elsewhere", "marcus.reid@kestrelridge.example", ("ticket-read",))
+    bedrock, copied = issue(LOAN), issue(other)
+    assert risk_for(bedrock).score == 10 and risk_for(copied).score == 0
+    rows = {row["platform"]: row for row in cost_rows((LOAN, other))}
+    assert rows["bedrock"]["spend"] == 400 and rows["openai"]["spend"] == 0
+    assert rows["openai"]["recommendation"] == "review"
 
 
 def test_outcomes_leave_the_person_alone_and_write_nothing():
@@ -167,18 +202,19 @@ def test_outcomes_leave_the_person_alone_and_write_nothing():
 
 
 @pytest.mark.parametrize(
-    ("spend", "value", "success", "sessions", "want"),
+    ("spend", "value", "success", "sessions", "satisfaction", "want"),
     [
-        (100, 300, 80, 5, "invest"),
-        (100, 300, 79, 5, "hold"),
-        (100, 100, 50, 1, "hold"),
-        (100, 99, 90, 10, "retire"),
-        (100, 99, 90, 9, "review"),
-        (0, 10, 100, 10, "review"),
+        (100, 300, 80, 5, 70, "invest"),
+        (100, 300, 80, 5, 69, "hold"),
+        (100, 300, 79, 5, 90, "hold"),
+        (100, 100, 50, 1, 90, "hold"),
+        (100, 99, 90, 10, 90, "retire"),
+        (100, 99, 90, 9, 90, "review"),
+        (0, 10, 100, 10, 100, "review"),
     ],
 )
-def test_recommend_boundaries(spend, value, success, sessions, want):
-    assert recommend(spend, value, success, sessions) == want
+def test_recommend_boundaries(spend, value, success, sessions, satisfaction, want):
+    assert recommend(spend, value, success, sessions, satisfaction) == want
 
 
 def test_forecast_grows_only_for_invest_and_stops_for_retire():
@@ -221,3 +257,11 @@ def test_custom_agent_on_a_supported_platform_can_be_issued():
     ident = issue(agent)
     assert ident.platform == "google" and ident.stored_secrets == 0
     assert ident.entra_agent_id not in {item.entra_agent_id for item in registry()}
+    assert risk_for(ident).score == 0
+    assert decide(ident, action("read")).response == "allow"
+
+
+def test_unknown_sponsor_is_not_written_as_an_email_id():
+    ident = issue(ExternalAgent("google", "gx-stranger", "Stranger", "nobody@kestrelridge.example", ("read-rates",)))
+    with pytest.raises(RegistryError):
+        agent365.as_service_principal(ident)
