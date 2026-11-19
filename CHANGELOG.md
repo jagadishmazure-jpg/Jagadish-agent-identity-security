@@ -18,6 +18,10 @@ All notable changes to this project are documented here.
   Jagadish-azure-ai-soc.
 - Explainer agent on Microsoft Agent Framework with a deterministic mock model, a Foundry adapter path,
   prompt-injection guardrails and answer validation; read-only MCP server.
+- Connected-platform registry that issues Entra Agent IDs for agents from Amazon Bedrock, Google,
+  Salesforce, Databricks, Anthropic and OpenAI; dynamic risk from behaviour signals with point-of-action
+  responses that leave the person's access unchanged; a cost and value report. Offline mocks. Preview
+  product details marked [verify].
 - Posture packs on synthetic, labelled data: configuration drift with human-approved rollback, report-only
   impact replay, Entra ID session hardening, Exchange Online and SharePoint checks, malicious-extension
   cookie theft with approved revoke and organization-wide block, SOC incident to hardening task links, and

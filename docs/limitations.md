@@ -29,9 +29,12 @@ What this repository does not do, or does not yet know. Read this before relying
 * No administrative units, restricted management units or management groups. On-premises Active
   Directory appears only in the Tier 0 pack, on a small synthetic directory without ACL edges.
 * The posture packs (drift, impact, session, Exchange and SharePoint, extension theft, incident links, AD
-  Tier 0) run on their own small synthetic data with labels; their perfect scores are regression checks.
-  Session controls use a reduced device filter (compliant or not), and the impact replay evaluates only the
-  conditions this repository writes.
+  Tier 0, connected agents) run on their own small synthetic data with labels; their perfect scores are
+  regression checks. The connected-agent pack issues Entra Agent IDs for six third-party platforms,
+  scores risk from fixed weights and prints a mock cost ledger. It does not call Agent 365, Entra or a
+  cost API. Preview product behaviour is marked [verify] in that component doc. Session controls use a
+  reduced device filter (compliant or not), and the impact replay evaluates only the conditions this
+  repository writes.
 * SaaS coverage is a file import of admin accounts, not a connector.
 
 ## Permission caveats

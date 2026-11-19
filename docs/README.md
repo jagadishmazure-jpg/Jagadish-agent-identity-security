@@ -10,7 +10,7 @@ Commands and numbers in these pages are rendered from the code and checked in CI
 4. Posture packs: [drift and rollback](components/drift-rollback.md), [report-only impact](components/report-only-impact.md),
    [session hardening](components/session-hardening.md), [Exchange and SharePoint](components/m365-posture.md),
    [extension theft](components/extension-theft.md), [incident links](components/incident-link.md),
-   [AD Tier 0](components/ad-tier0.md).
+   [AD Tier 0](components/ad-tier0.md), [connected agents](components/connected-agents.md).
 5. [Threat model](threat-model.md) and [metrics](metrics.md): how it could fail and how it is measured.
 6. [Limitations](limitations.md): what it does not do.
 7. [Adopt this](adopt-this.md) and [deployment](deployment.md): trying it on a real tenant, safely.

@@ -38,6 +38,10 @@ The identity and engineering practices this repository follows or checks for, ea
 | Browser extensions reviewed; risky ones blocked organization-wide after approval | extension pack | Built (simulated) |
 | Every confirmed incident produces hardening tasks | incident links | Built (preview only) |
 | No Kerberoastable privileged accounts, no stray DCSync or delegation to DCs | AD Tier 0 pack | Built (synthetic directory) |
+| Every third-party agent has its own Entra Agent ID and a sponsor where one exists | agent365 registry | Built (mock) |
+| Platform connections use federation, not a stored secret | agent365 connect | Built (mock) |
+| Agent risk changes the agent's access at the point of action, not the person's | agent365 decide | Built (mock) |
+| AI spend is compared with assisted value before keeping an agent | agent365 cost report | Built (mock) |
 | Continuous evaluation from sign-in logs | none | Planned |
 
 ## Practices in the scanner itself

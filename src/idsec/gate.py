@@ -34,7 +34,7 @@ def _labels_isolated() -> tuple[bool, str]:
 
 
 def _pack_checks() -> list[Check]:
-    from idsec import adtier0, drift, extension, impact, incident_link, m365, session
+    from idsec import adtier0, agent365, drift, extension, impact, incident_link, m365, session
 
     d = drift.evaluate()
     i = impact.evaluate()
@@ -43,6 +43,7 @@ def _pack_checks() -> list[Check]:
     e = extension.evaluate()
     link = incident_link.evaluate()
     ad = adtier0.evaluate()
+    a = agent365.evaluate()
     return [
         Check(
             "drift: weakening caught, rolled back only after approval",
@@ -83,6 +84,26 @@ def _pack_checks() -> list[Check]:
             "AD Tier 0 checks find every planted weakness",
             ad["precision"] == 1.0 and ad["recall"] == 1.0,
             f"{ad['paths_to_tier0']} paths; top choke point {ad['top_choke_point']} cuts {ad['paths_cut_by_top_fix']}",
+        ),
+        Check(
+            "connected agents: identity, dynamic risk, cost and value",
+            a["agents_issued"] == 6
+            and a["unique_ids"] == 6
+            and a["stored_secrets"] == 0
+            and a["score_after"] > a["score_before"]
+            and a["level_before"] == "high"
+            and a["level_after"] == "critical"
+            and a["allowed_routine"]
+            and a["approval_for_medium_sensitive"]
+            and a["restricted_high_routine"]
+            and a["blocked_sensitive"]
+            and a["blocked_after_signal"]
+            and a["user_access_unchanged"]
+            and a["evaluated_at_action"]
+            and a["nothing_written"]
+            and a["invest"] == 2
+            and a["retire"] == 2,
+            f"{a['agents_issued']} identities, secrets {a['stored_secrets']}, ops risk {a['score_before']}->{a['score_after']}, spend {a['spend']} value {a['assisted_value']}",
         ),
     ]
 
