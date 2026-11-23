@@ -70,5 +70,6 @@ flowchart TB
 ## Where to read more
 
 * Each component: [components](components/README.md).
+* Connected platforms, dynamic risk and cost: [connected agents](components/connected-agents.md).
 * Deployment shape: [infra](infra/README.md) and [deployment](deployment.md).
 * Decisions: [ADRs](adr/README.md).

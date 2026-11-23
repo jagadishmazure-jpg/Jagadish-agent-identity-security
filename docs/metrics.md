@@ -33,9 +33,10 @@ Exchange and SharePoint checks find every planted gap     pass    precision 1.0,
 extension theft: nothing changes without a human          pass    replayed users 3/3, applied after approval 2, replays accepted after 0
 SOC incidents link to hardening tasks                     pass    14 tasks, benign incidents with tasks 0
 AD Tier 0 checks find every planted weakness              pass    7 paths; top choke point Tier1-Server-Admins cuts 4
+connected agents: identity, dynamic risk, cost and value  pass    6 identities, secrets 0, ops risk 60->75, spend 5340 value 9260
 product code never imports the ground truth               pass    detections never see the ground truth
 
-21 of 21 checks passed
+22 of 22 checks passed
 ```
 <!-- /output -->
 

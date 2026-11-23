@@ -1,7 +1,7 @@
 # Component: metrics and release gate
 
 `idsec metrics`, `path-metrics`, `injection`, `simulate` and `bench` print numbers from real runs;
-`idsec gate` turns the important ones into 21 pass/fail checks that CI runs on every push.
+`idsec gate` turns the important ones into 22 pass/fail checks that CI runs on every push.
 
 Sections: [1. Purpose](#1-purpose) · [2. Architecture](#2-architecture) · [3. How it works](#3-how-it-works) · [4. Key files](#4-key-files) · [5. Code excerpts](#5-code-excerpts) · [6. Configuration](#6-configuration) · [7. Commands](#7-commands) · [8. Real output](#8-real-output) · [9. Tests and gates](#9-tests-and-gates) · [10. Guardrails](#10-guardrails) · [11. Security and governance](#11-security-and-governance) · [12. Observability](#12-observability) · [13. Failure modes](#13-failure-modes) · [14. Mapping to Azure services](#14-mapping-to-azure-services) · [15. Limitations](#15-limitations) · [16. Interview talking points](#16-interview-talking-points)
 
@@ -17,12 +17,12 @@ Sections: [1. Purpose](#1-purpose) · [2. Architecture](#2-architecture) · [3. 
 flowchart LR
   L[labels.py ground truth] --> M[metrics.detection]
   D[detections.run] --> M
-  M --> G[gate.run: 21 checks]
+  M --> G[gate.run: 22 checks]
   SIM[simulate] --> G
   INJ[injection matrix] --> G
   MCP[mcp demo] --> G
   SOC[soc validate] --> G
-  PK[seven posture packs] --> G
+  PK[eight posture packs] --> G
   HTTP[collector write refusal] --> G
   AST[import check: product code never imports labels] --> G
   G --> CI[CI job fails on any fail]
@@ -35,7 +35,7 @@ flowchart LR
    findings with that list per rule.
 2. An AST check makes sure no product module imports `labels` or `metrics`, so detections cannot
    peek at the answers.
-3. `gate.run` executes the 21 checks and the CLI exits non-zero if any fails.
+3. `gate.run` executes the 22 checks and the CLI exits non-zero if any fails.
 4. `bench` times each stage on the current machine; those numbers vary, so they are never rendered into
    drift-checked docs.
 
@@ -44,7 +44,7 @@ flowchart LR
 | File | Role |
 |---|---|
 | `src/idsec/metrics.py` | Detection, path, injection and runtime metrics |
-| `src/idsec/gate.py` | The 21 checks |
+| `src/idsec/gate.py` | The 22 checks |
 | `src/idsec/labels.py` | Ground truth written by the generator |
 | `scripts/render_docs.py` | Renders command output into markdown; `--check` in CI |
 
@@ -107,9 +107,10 @@ Exchange and SharePoint checks find every planted gap     pass    precision 1.0,
 extension theft: nothing changes without a human          pass    replayed users 3/3, applied after approval 2, replays accepted after 0
 SOC incidents link to hardening tasks                     pass    14 tasks, benign incidents with tasks 0
 AD Tier 0 checks find every planted weakness              pass    7 paths; top choke point Tier1-Server-Admins cuts 4
+connected agents: identity, dynamic risk, cost and value  pass    6 identities, secrets 0, ops risk 60->75, spend 5340 value 9260
 product code never imports the ground truth               pass    detections never see the ground truth
 
-21 of 21 checks passed
+22 of 22 checks passed
 ```
 <!-- /output -->
 

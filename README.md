@@ -20,8 +20,8 @@ tenant.
   graph algorithms for privilege paths; secure agent design (read-only tools, prompt-injection defences
   measured layer by layer); least-privilege Azure infrastructure in Terraform and Bicep; CI that checks
   every claim.
-* **Size:** 28 detections, 20 components, **594 automated tests** (pytest) plus 7 Terraform plan tests, a
-  21-check release gate.
+* **Size:** 28 detections, 21 components, **641 automated tests** (pytest) plus 7 Terraform plan tests, a
+  22-check release gate.
 * **Real results on the fictional tenant:** overview score 35.8 (F) with 47 findings; the simulated plan
   would raise it to 90.5 and cut standing routes from people and untrusted input to crown jewels from 48
   to 13; prompt injection obeyed 0 of 3 times with the guard on.
@@ -60,6 +60,10 @@ tenant.
 | Malicious extension and session-replay scenario with approved revoke and block | Built (simulated state only) |
 | SOC incident to hardening task links | Built; preview file only, nothing sent |
 | On-premises AD Tier 0 checks and choke points | Built on a synthetic directory; no directory query |
+| Connected-platform registry issuing Entra Agent IDs (Bedrock, Google, Salesforce, Databricks, Anthropic, OpenAI) | Built on mocks |
+| Dynamic agent risk from behaviour signals, with point-of-action responses | Built on mocks |
+| AI cost and value report | Built on mocks |
+| Live Agent 365, Entra risk and cost APIs for these three | Planned |
 | Live read of Exchange, SharePoint, sign-in logs and AD for these packs | Planned |
 | Ingestion into a workspace table, trends across scans | Planned |
 | Prompt Shields instead of the regex phrase screen | Planned |
@@ -82,7 +86,8 @@ pip install -e ".[dev]"
 idsec scan                 # scores and findings
 idsec paths --people       # routes to crown jewels
 idsec simulate             # what the plan would change
-idsec gate                 # the 21 release checks
+idsec gate                 # the 22 release checks
+idsec agent365             # third-party agent identities, risk and cost
 pytest -q
 ```
 
@@ -186,6 +191,37 @@ Three areas, named in this repository's own words:
 * **Foundational identity hygiene:** MFA, dormant accounts, legacy authentication, vault access model.
 * **AI agents, workload identities and secrets:** agent identities, tools and connections, secrets and
   credentials, federated trust.
+
+## Connected agents, dynamic risk and cost
+
+The [Agent 365 Ignite announcement](https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753)
+describes three controls this repository models offline, on the fictional tenant:
+
+* Agents built on Amazon Bedrock, Google, Salesforce, Databricks, Anthropic and OpenAI each receive their
+  own Entra Agent ID. The registry records a sponsor and a blueprint, and it refuses a connection that
+  would store a long-lived secret.
+* A dynamic risk score is computed from behaviour signals (identity, access, data, endpoint, cloud,
+  network, blast radius, being targeted, and a code or model change). The score is recomputed when a new
+  signal arrives. A conditional-access style decision runs at the point of action: allow, restrict,
+  require a person, or block. The person's own access is left unchanged.
+* A cost and value report compares spend with assisted value, success and satisfaction, and labels each
+  agent invest, hold, review or retire. Invest also needs satisfaction of at least 0.70. The next-period
+  figure is a simple scenario.
+
+`idsec agent365` prints all three. Weights, level cuts, the exact Conditional Access control names, which
+platforms support secretless federation, and the product forecast method are a local model of preview
+behaviour [verify]. Detail is in [connected agents](docs/components/connected-agents.md).
+
+```mermaid
+flowchart LR
+  P[third-party agents] --> R[registry issues an identity]
+  R --> ID[Entra Agent ID]
+  S[behaviour signals] --> K[dynamic risk score]
+  ID --> CA[decision at the point of action]
+  K --> CA
+  CA --> A[allow, restrict, approval or block]
+  U[usage and spend] --> V[cost and value report]
+```
 
 ## Documentation
 

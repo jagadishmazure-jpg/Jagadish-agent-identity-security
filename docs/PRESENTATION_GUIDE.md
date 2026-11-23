@@ -7,7 +7,7 @@ all data is synthetic and every number is printed by the command itself.
 
 ```bash
 pip install -e ".[dev]"
-idsec gate          # confirm 21 of 21 checks pass
+idsec gate          # confirm 22 of 22 checks pass
 ```
 
 ## Story (ten minutes)
@@ -30,6 +30,8 @@ idsec gate          # confirm 21 of 21 checks pass
 * Perfect precision and recall on these packs are regression checks on labelled synthetic data written by
   the same author, not accuracy on a real tenant.
 * Nothing is deployed and nothing is sent; changes run against an in-memory copy of the state.
+* `idsec agent365` is an offline model of connected-platform identities, dynamic risk and cost versus
+  value. Preview product details are marked [verify].
 
 ## Likely follow-ups
 
